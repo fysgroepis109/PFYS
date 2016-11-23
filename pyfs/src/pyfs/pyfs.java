@@ -3,6 +3,7 @@ package pyfs;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,6 +11,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -24,26 +27,25 @@ public class pyfs extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-       
-        Text username = new Text();                 //text die gebruikersnaam print bij inlogscherm
-        username.setText("Username");
+
+        TextField username = new TextField();                 //text die gebruikersnaam print bij inlogscherm
+        username.setPromptText("Username");
         username.setFont(Font.font("Verdana", 20));
-        username.setFill(Color.BLACK);
-        username.setTranslateY(-110);
-
-        TextField UsernameText = new TextField();
-        UsernameText.setMaxWidth(220);                           //invoer voor username
-        UsernameText.setTranslateY(-70);
-
-        TextField PasswordText = new TextField();
-        PasswordText.setMaxWidth(220);                        //invoer voor wachtwoord
-        PasswordText.setTranslateY(20);
+        username.setTranslateY(-20);
+        username.setMaxWidth(220);
+        
+        BorderPane ui = new BorderPane();
+        FlowPane scherm1 = new FlowPane();
+        scherm1.setStyle("-fx-background-color:#FFFFFF");
+        scherm1.setAlignment(Pos.CENTER);
+        ui.setCenter(scherm1);
+        scherm1.getChildren();
 
         PasswordField password = new PasswordField();
         password.setPromptText("Password");
         password.setMaxWidth(220);
         password.setFont(Font.font("Verdana", 20));
-        password.setTranslateY(-20);
+        password.setTranslateY(30);
 
         Button btn = new Button();
         btn.setText("Login");                                           //inlog button
@@ -60,10 +62,10 @@ public class pyfs extends Application {
 
         Pane root = new StackPane();
         root.getChildren().add(btn);                        //toevoegen button
-        root.getChildren().add(username);                    //toevoegen username text
+        root.getChildren().add(username);                   //toevoegen username text
         root.getChildren().add(password);
-
         
+        root.setStyle("-fx-background-color:#FFFFFF");
 
         Scene scene = new Scene(root, 300, 250);
 
