@@ -81,6 +81,8 @@ public class pyfs extends Application {
         primaryStage.setTitle("Applicatie naam");
         primaryStage.setScene(scene);
         primaryStage.show();
+        
+        //test
     }
 
     /**
@@ -88,6 +90,7 @@ public class pyfs extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        
     }
 
 }
