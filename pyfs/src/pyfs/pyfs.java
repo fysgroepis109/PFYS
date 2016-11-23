@@ -1,15 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.ggggg
- */
 package pyfs;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -27,13 +17,12 @@ import javafx.scene.text.*;
 
 /**
  *
- * @author IS109-Groep 5 haloooooooooooooooo. Hallo FUCK DITTTTTTTTTTT UNINSTALLEERR xAhmet
+ * @author IS109-Groep 5
  */
 public class pyfs extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        
 
         Text username = new Text();                 //text die gebruikersnaam print bij inlogscherm
         username.setText("Username");
@@ -81,8 +70,7 @@ public class pyfs extends Application {
         primaryStage.setTitle("Applicatie naam");
         primaryStage.setScene(scene);
         primaryStage.show();
-        
-        //test
+
     }
 
     /**
@@ -90,7 +78,7 @@ public class pyfs extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-        
+
     }
 
 }
