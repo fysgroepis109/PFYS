@@ -33,13 +33,6 @@ public class pyfs extends Application {
         username.setFont(Font.font("Verdana", 20));
         username.setTranslateY(-20);
         username.setMaxWidth(220);
-        
-        BorderPane ui = new BorderPane();
-        FlowPane scherm1 = new FlowPane();
-        scherm1.setStyle("-fx-background-color:#FFFFFF");
-        scherm1.setAlignment(Pos.CENTER);
-        ui.setCenter(scherm1);
-        scherm1.getChildren();
 
         PasswordField password = new PasswordField();
         password.setPromptText("Password");
@@ -64,7 +57,7 @@ public class pyfs extends Application {
         root.getChildren().add(btn);                        //toevoegen button
         root.getChildren().add(username);                   //toevoegen username text
         root.getChildren().add(password);
-        
+
         root.setStyle("-fx-background-color:#FFFFFF");
 
         Scene scene = new Scene(root, 300, 250);
