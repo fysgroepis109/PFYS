@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,7 +24,7 @@ public class pyfs extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
+       
         Text username = new Text();                 //text die gebruikersnaam print bij inlogscherm
         username.setText("Username");
         username.setFont(Font.font("Verdana", 20));
@@ -38,10 +39,10 @@ public class pyfs extends Application {
         PasswordText.setMaxWidth(220);                        //invoer voor wachtwoord
         PasswordText.setTranslateY(20);
 
-        Text password = new Text();
-        password.setText("Password");
+        PasswordField password = new PasswordField();
+        password.setPromptText("Password");
+        password.setMaxWidth(220);
         password.setFont(Font.font("Verdana", 20));
-        password.setFill(Color.BLACK);
         password.setTranslateY(-20);
 
         Button btn = new Button();
@@ -62,21 +63,14 @@ public class pyfs extends Application {
         root.getChildren().add(username);                    //toevoegen username text
         root.getChildren().add(password);
 
-        root.getChildren().add(UsernameText);  //toevoegen Username text
-        root.getChildren().add(PasswordText);  //toevoegen password text
+        
 
         Scene scene = new Scene(root, 300, 250);
 
         primaryStage.setTitle("Applicatie naam");
         primaryStage.setScene(scene);
         primaryStage.show();
-<<<<<<< HEAD
 
-=======
-        
-        //test
-        //hallo
->>>>>>> origin/master
     }
 
     /**
