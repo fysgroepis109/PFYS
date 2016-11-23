@@ -63,11 +63,15 @@ public class pyfs extends Application {
         password.setMaxWidth(220);
         password.setFont(Font.font("Verdana", 20));
         password.setTranslateY(30);
+        
+        ImageView imgView = new ImageView("download.png");
+        imgView.setTranslateY(-120);
 
         Pane root = new StackPane();
         root.getChildren().add(btn);                        //toevoegen button
         root.getChildren().add(username);                   //toevoegen username text
         root.getChildren().add(password);
+        root.getChildren().add(imgView);
 
         root.setStyle("-fx-background-color:#FFFFFF");
 
