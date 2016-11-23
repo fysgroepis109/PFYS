@@ -70,7 +70,13 @@ public class pyfs extends Application {
         primaryStage.setTitle("Applicatie naam");
         primaryStage.setScene(scene);
         primaryStage.show();
+<<<<<<< HEAD
 
+=======
+        
+        //test
+        //hallo
+>>>>>>> origin/master
     }
 
     /**
