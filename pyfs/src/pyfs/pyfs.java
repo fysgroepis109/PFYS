@@ -13,8 +13,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.text.*;
@@ -25,8 +27,30 @@ import javafx.scene.text.*;
  */
 public class pyfs extends Application {
 
+    Stage window;
+    Scene scene1, scene2;
+
     @Override
     public void start(Stage primaryStage) {
+
+        Button btn = new Button();
+        btn.setText("Login");                                           //inlog button
+        btn.setPrefSize(200, 50);
+        btn.setTranslateY(90);
+        btn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+
+        window = primaryStage;
+        btn.setOnAction((ActionEvent event) -> {
+            window.setScene(scene2);
+        });
+
+        //scene1
+        VBox layout1 = new VBox(20);
+        scene1 = new Scene(layout1, 200, 200);
+
+        //scene2
+        StackPane layout2 = new StackPane();
+        scene2 = new Scene(layout2, 200, 200);
 
         TextField username = new TextField();                 //text die gebruikersnaam print bij inlogscherm
         username.setPromptText("Username");
@@ -39,19 +63,6 @@ public class pyfs extends Application {
         password.setMaxWidth(220);
         password.setFont(Font.font("Verdana", 20));
         password.setTranslateY(30);
-
-        Button btn = new Button();
-        btn.setText("Login");                                           //inlog button
-        btn.setPrefSize(200, 50);
-        btn.setTranslateY(90);
-
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-
-            }
-        });
 
         Pane root = new StackPane();
         root.getChildren().add(btn);                        //toevoegen button
