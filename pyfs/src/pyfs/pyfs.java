@@ -27,58 +27,77 @@ import javafx.scene.text.*;
  */
 public class pyfs extends Application {
 
-    Stage window;
-    Scene scene1, scene2;
+    //voegt alle controls, scenes, panes en stages toe
+    TextField username;
+    PasswordField password;
+    Button btn, btn2;
+    ImageView loginlogo;
+    StackPane inlogscherm;
+    StackPane pane2;     
+    Scene scene, scene2;
+    Stage thestage;
 
     @Override
     public void start(Stage primaryStage) {
 
-        Button btn = new Button();
+        thestage = primaryStage; //verklaart toegoevoegde stage
+
+        
+        //verklaren alle toegevoegde controls
+        btn = new Button();
         btn.setText("Login");                                           //inlog button
         btn.setPrefSize(200, 50);
         btn.setTranslateY(90);
         btn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
 
-        window = primaryStage;
         btn.setOnAction((ActionEvent event) -> {
-            window.setScene(scene2);
+            thestage.setScene(scene2);
         });
 
-        //scene1
-        VBox layout1 = new VBox(20);
-        scene1 = new Scene(layout1, 200, 200);
+        btn2 = new Button();
+        btn2.setText("Terug");                                           //inlog button
+        btn2.setPrefSize(200, 50);
+        btn2.setTranslateY(90);
+        btn2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        btn2.setOnAction((ActionEvent event) -> {
+            thestage.setScene(scene);
+        });
 
-        //scene2
-        StackPane layout2 = new StackPane();
-        scene2 = new Scene(layout2, 200, 200);
-
-        TextField username = new TextField();                 //text die gebruikersnaam print bij inlogscherm
+        username = new TextField();                 //text die gebruikersnaam print bij inlogscherm
         username.setPromptText("Username");
         username.setFont(Font.font("Verdana", 20));
         username.setTranslateY(-20);
         username.setMaxWidth(220);
 
-        PasswordField password = new PasswordField();
+        password = new PasswordField();        //veld om wachtwoord in te vullen
         password.setPromptText("Password");
         password.setMaxWidth(220);
         password.setFont(Font.font("Verdana", 20));
         password.setTranslateY(30);
+
+        loginlogo = new ImageView("download.png");       //voegt corendon logo toe aan loginscherm
+        loginlogo.setTranslateY(-120);
+
         
-        ImageView imgView = new ImageView("download.png");
-        imgView.setTranslateY(-120);
+        //geeft controls aan verschillende panes
+        inlogscherm = new StackPane();                        //Stackpane inlogscherm
+        inlogscherm.getChildren().add(btn);                        //toevoegen button
+        inlogscherm.getChildren().add(username);                   //toevoegen username text
+        inlogscherm.getChildren().add(password);
+        inlogscherm.getChildren().add(loginlogo);
+        inlogscherm.setStyle("-fx-background-color:#FFFFFF");
+        
+        pane2 = new StackPane();
+        pane2.getChildren().add(btn2);
+        pane2.setStyle("-fx-background-color:#FFFFFF");
 
-        Pane root = new StackPane();
-        root.getChildren().add(btn);                        //toevoegen button
-        root.getChildren().add(username);                   //toevoegen username text
-        root.getChildren().add(password);
-        root.getChildren().add(imgView);
-
-        root.setStyle("-fx-background-color:#FFFFFF");
-
-        Scene scene = new Scene(root, 300, 250);
+        //geeft alle scenes in
+        scene = new Scene(inlogscherm, 1600, 800);
+        scene2 = new Scene(pane2, 1600, 800);
 
         primaryStage.setTitle("Applicatie naam");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
 
     }
