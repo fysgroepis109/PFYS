@@ -37,7 +37,7 @@ public class pyfs extends Application {
     TextField username;
     TextField date, time, airport,/**/ naam, adres, city, zip, country, phone, mail,/**/ labelnr, flightnr, destin,/**/ lugtype, lugbrand, lugcolor, lugspef;/*Textfields Lost: */
     PasswordField password;
-    Button loginbtn, logoutbtn, statbtn, lostbtn, foundbtn, lostterugmenu, foundterugmenu, statterugmenu, lostnext;
+    Button loginbtn, logoutbtn, statbtn, lostbtn, foundbtn, lostterugmenu, foundterugmenu, statterugmenu, lostnext, lostback;
     ImageView logologin;
     StackPane inlogschermpane, menupane, lostpane, foundpane, statpane, lost2pane;
     Scene loginscherm, menu, lost, lost2, found, stat;
@@ -142,8 +142,9 @@ public class pyfs extends Application {
         });
 
         //lost
+        //lost 1
         lostterugmenu = new Button();
-        lostterugmenu.setText("Back");                                           //logoutbutton
+        lostterugmenu.setText("Back");                                           //lost terug menu
         lostterugmenu.setPrefSize(200, 50);
         lostterugmenu.setTranslateY(-370);
         lostterugmenu.setTranslateX(700);
@@ -186,6 +187,37 @@ public class pyfs extends Application {
             airport.getText();
 
         });
+        
+        //lost 2
+        
+           lostback = new Button();
+        lostback.setText("Back");                                           //logoutbutton
+        lostback.setPrefSize(200, 50);
+        lostback.setTranslateY(-370);
+        lostback.setTranslateX(700);
+        lostback.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        lostback.setOnAction((ActionEvent event) -> {
+            thestage.setScene(lost);
+            
+            });
+            
+            naam = new TextField();                 //text voor tijd invullen
+        naam.setPromptText("Name");
+        naam.setFont(Font.font("Verdana", 20));
+        naam.setMaxWidth(220);
+        naam.setTranslateY(-300);
+
+        adres = new TextField();                 //text voor adres invullen
+        adres.setPromptText("Adress");
+        adres.setFont(Font.font("Verdana", 20));
+        adres.setMaxWidth(220);
+        adres.setTranslateY(-250);
+ 
+        city = new TextField();                 //text voor woonplaats invullen
+        city.setPromptText("City");
+        city.setFont(Font.font("Verdana", 20));
+        city.setMaxWidth(220);
+        city.setTranslateY(-200);
 
         //found
         foundterugmenu = new Button();
@@ -236,7 +268,13 @@ public class pyfs extends Application {
         lostpane.getChildren().add(airport);
         lostpane.getChildren().add(lostnext);
         
+        
         lost2pane = new StackPane();
+        lost2pane.setStyle("-fx-background-color:#FFFFFF");
+        lost2pane.getChildren().add(lostback);
+        lost2pane.getChildren().add(naam);
+        lost2pane.getChildren().add(adres);
+        lost2pane.getChildren().add(city);
 
         foundpane = new StackPane();
         foundpane.setStyle("-fx-background-color:#FFFFFF");
