@@ -35,11 +35,12 @@ public class pyfs extends Application {
     //voegt alle controls, scenes, panes en stages toe
     Text loginerror;
     TextField username;
+    TextField date, time, airport,/**/ naam, adres, city, zip, country, phone, mail,/**/ labelnr, flightnr, destin,/**/ lugtype, lugbrand, lugcolor, lugspef;/*Textfields Lost: */
     PasswordField password;
-    Button loginbtn, logoutbtn, statbtn, lostbtn, foundbtn, lostterugmenu, foundterugmenu, statterugmenu;
+    Button loginbtn, logoutbtn, statbtn, lostbtn, foundbtn, lostterugmenu, foundterugmenu, statterugmenu, lostnext;
     ImageView logologin;
-    StackPane inlogschermpane, menupane, lostpane, foundpane, statpane;
-    Scene loginscherm, menu, lost, found, stat;
+    StackPane inlogschermpane, menupane, lostpane, foundpane, statpane, lost2pane;
+    Scene loginscherm, menu, lost, lost2, found, stat;
     Stage thestage;
 
     @Override
@@ -152,6 +153,40 @@ public class pyfs extends Application {
 
         });
 
+        date = new TextField();                 //text voor datum invullen
+        date.setPromptText("Date");
+        date.setFont(Font.font("Verdana", 20));
+        date.setTranslateY(-50);
+        date.setMaxWidth(220);
+
+        time = new TextField();                 //text voor tijd invullen
+        time.setPromptText("Time");
+        time.setFont(Font.font("Verdana", 20));
+        time.setMaxWidth(220);
+        time.setTranslateY(0);
+
+        airport = new TextField();                 //text voor vliegveld
+        airport.setPromptText("Airport");
+        airport.setFont(Font.font("Verdana", 20));
+        airport.setTranslateY(50);
+        airport.setMaxWidth(220);
+
+        lostnext = new Button();
+        lostnext.setText("Next");                                           //logoutbutton
+        lostnext.setPrefSize(120, 50);
+        lostnext.setTranslateY(105);
+        lostnext.setTranslateX(55);
+        lostnext.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        lostnext.setOnAction((ActionEvent event) -> {
+
+            thestage.setScene(lost2);
+
+            date.getText();
+            time.getText();
+            airport.getText();
+
+        });
+
         //found
         foundterugmenu = new Button();
         foundterugmenu.setText("Back");                                           //logoutbutton
@@ -196,6 +231,12 @@ public class pyfs extends Application {
         lostpane = new StackPane();
         lostpane.setStyle("-fx-background-color:#FFFFFF");
         lostpane.getChildren().add(lostterugmenu);
+        lostpane.getChildren().add(date);
+        lostpane.getChildren().add(time);
+        lostpane.getChildren().add(airport);
+        lostpane.getChildren().add(lostnext);
+        
+        lost2pane = new StackPane();
 
         foundpane = new StackPane();
         foundpane.setStyle("-fx-background-color:#FFFFFF");
@@ -209,11 +250,12 @@ public class pyfs extends Application {
         loginscherm = new Scene(inlogschermpane, 1600, 800);
         menu = new Scene(menupane, 1600, 800);
         lost = new Scene(lostpane, 1600, 800);
+        lost2 = new Scene(lost2pane, 1600, 800);
         found = new Scene(foundpane, 1600, 800);
         stat = new Scene(statpane, 1600, 800);
 
         primaryStage.setTitle("Applicatie naam");
-        primaryStage.setScene(loginscherm);
+        primaryStage.setScene(lost);
         primaryStage.setResizable(false);
         primaryStage.show();
 
