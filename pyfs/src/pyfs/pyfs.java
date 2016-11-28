@@ -293,7 +293,7 @@ public class pyfs extends Application {
         stat = new Scene(statpane, 1600, 800);
 
         primaryStage.setTitle("Applicatie naam");
-        primaryStage.setScene(lost);
+        primaryStage.setScene(loginscherm);
         primaryStage.setResizable(false);
         primaryStage.show();
 
