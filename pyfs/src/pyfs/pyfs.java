@@ -40,8 +40,8 @@ public class pyfs extends Application {
     
 
 //tijdelijke login
-    String user = "test";
-    String pw = "admin";
+    String user = "admin";
+    String pw = "test";
     String checkUser, checkPw;
 
     //voegt alle controls, scenes, panes en stages toe
