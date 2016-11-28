@@ -1,6 +1,7 @@
 package pyfs;
 
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -37,10 +38,10 @@ public class pyfs extends Application {
     TextField username;
     TextField date, time, airport,/**/ naam, adres, city, zip, country, phone, mail,/**/ labelnr, flightnr, destin,/**/ lugtype, lugbrand, lugcolor, lugspef;/*Textfields Lost: */
     PasswordField password;
-    Button loginbtn, logoutbtn, statbtn, lostbtn, foundbtn, lostterugmenu, foundterugmenu, statterugmenu, lostnext, lostback;
+    Button loginbtn, logoutbtn, statbtn, lostbtn, foundbtn, lostterugmenu, foundterugmenu, statterugmenu, lostnext, lostnext2, lostback;
     ImageView logologin;
-    StackPane inlogschermpane, menupane, lostpane, foundpane, statpane, lost2pane;
-    Scene loginscherm, menu, lost, lost2, found, stat;
+    StackPane inlogschermpane, menupane, lostpane, foundpane, statpane, lost2pane, lost3pane;
+    Scene loginscherm, menu, lost, lost2,lost3, found, stat;
     Stage thestage;
 
     @Override
@@ -201,23 +202,68 @@ public class pyfs extends Application {
             
             });
             
-            naam = new TextField();                 //text voor tijd invullen
+        naam = new TextField();                 //text voor tijd invullen
         naam.setPromptText("Name");
         naam.setFont(Font.font("Verdana", 20));
         naam.setMaxWidth(220);
-        naam.setTranslateY(-300);
+        naam.setTranslateY(-250);
 
         adres = new TextField();                 //text voor adres invullen
         adres.setPromptText("Adress");
         adres.setFont(Font.font("Verdana", 20));
         adres.setMaxWidth(220);
-        adres.setTranslateY(-250);
+        adres.setTranslateY(-200);
  
         city = new TextField();                 //text voor woonplaats invullen
         city.setPromptText("City");
         city.setFont(Font.font("Verdana", 20));
         city.setMaxWidth(220);
-        city.setTranslateY(-200);
+        city.setTranslateY(-150);
+        
+        zip = new TextField();
+        zip.setPromptText("Zip code");
+        zip.setFont(Font.font("Verdana", 20));
+        zip.setMaxWidth(220);
+        zip.setTranslateY(-100);
+        
+        country = new TextField();
+        country.setPromptText("Country");
+        country.setFont(Font.font("Verdana", 20));
+        country.setMaxWidth(220);
+        country.setTranslateY(-50);
+        
+        phone = new TextField();
+        phone.setPromptText("Phone number");
+        phone.setFont(Font.font("Verdana", 20));
+        phone.setMaxWidth(220);
+        phone.setTranslateY(0);
+        
+        mail = new TextField();
+        mail.setPromptText("E-mail");
+        mail.setFont(Font.font("Verdana", 20));
+        mail.setMaxWidth(220);
+        mail.setTranslateY(50);
+        
+         lostnext2 = new Button();
+        lostnext2.setText("Next");                                           //logoutbutton
+        lostnext2.setPrefSize(120, 50);
+        lostnext2.setTranslateY(105);
+        lostnext2.setTranslateX(55);
+        lostnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        lostnext2.setOnAction((ActionEvent event) -> {
+
+            thestage.setScene(lost2);
+
+            naam.getText();
+            adres.getText();
+            city.getText();
+            zip.getText();
+            country.getText();
+            phone.getText();
+            mail.getText();
+
+        });
+        
 
         //found
         foundterugmenu = new Button();
@@ -275,6 +321,11 @@ public class pyfs extends Application {
         lost2pane.getChildren().add(naam);
         lost2pane.getChildren().add(adres);
         lost2pane.getChildren().add(city);
+        lost2pane.getChildren().add(zip);
+        lost2pane.getChildren().add(country);
+        lost2pane.getChildren().add(phone);
+        lost2pane.getChildren().add(mail);
+        lost2pane.getChildren().add(lostnext2);
 
         foundpane = new StackPane();
         foundpane.setStyle("-fx-background-color:#FFFFFF");
