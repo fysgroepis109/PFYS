@@ -27,6 +27,17 @@ import javafx.scene.text.*;
  * @author IS109-Groep 5
  */
 public class pyfs extends Application {
+    
+    /* Code is ingedeeld per sectie (login, menu, lost, found en stat)
+    Aan het begin worden alle controls aangeroepen, dit is zo ingedeeld dat je
+    snel kan onderscheiden welke control op welke pagina zit. Verder in de code zijn
+    alle secties onderscheidde doormiddel van comments. Door control f te doen kan je snel naar de juiste sectie
+    springen. Alle eens sectie meerder paginas heeft wordt dit doormiddel van een numering gedaan bijv. lost (eerste pag) lost1, lost2, lost 3 & lostfinal (laatste pag)
+    */
+    
+    
+    
+    
 
 //tijdelijke login
     String user = "test";
@@ -34,23 +45,51 @@ public class pyfs extends Application {
     String checkUser, checkPw;
 
     //voegt alle controls, scenes, panes en stages toe
+    
+   
+    
+    Stage thestage;
+    
+    //Loginscherm
     Text loginerror;
     TextField username;
-    TextField date, time, airport,/**/ naam, adres, city, zip, country, phone, mail,/**/ labelnr, flightnr, destin,/**/ lugtype, lugbrand, lugcolor, lugspef;/*Textfields Lost: */
     PasswordField password;
-    Button loginbtn, logoutbtn, statbtn, lostbtn, foundbtn, lostterugmenu, foundterugmenu, statterugmenu, lostnext, lostnext2, lostback;
+    Button loginbtn;
     ImageView logologin;
-    StackPane inlogschermpane, menupane, lostpane, foundpane, statpane, lost2pane, lost3pane;
-    Scene loginscherm, menu, lost, lost2,lost3, found, stat;
-    Stage thestage;
-
+    StackPane inlogschermpane;
+    Scene loginscherm;
+    
+    //Menu
+    Button statbtn, lostbtn, foundbtn, logoutbtn;
+    StackPane menupane;
+    Scene menu;
+    
+    //Lost
+    Button lostterugmenu, lostnext, lostnext2, lostback;
+    TextField date, time, airport,/**/ naam, adres, city, zip, country, phone, mail,/**/ labelnr, flightnr, destin,/**/ lugtype, lugbrand, lugcolor, lugspef;
+    StackPane lostpane, lost2pane, lost3pane;
+    Scene lost, lost2, lost3;
+    
+    //Found
+    
+     Button foundterugmenu;
+     StackPane foundpane;
+     Scene found;
+    
+    //Stat
+    
+    Button statterugmenu;
+    StackPane statpane;
+    Scene stat;
+   
+   
     @Override
     public void start(Stage primaryStage) {
 
         thestage = primaryStage; //verklaart toegoevoegde stage
 
         //BEGIN CONTROLS
-        //inlogscherm
+        //Loginscherm
         username = new TextField();                 //text die gebruikersnaam print bij inlogscherm
         username.setPromptText("Username");
         username.setFont(Font.font("Verdana", 20));
@@ -109,7 +148,7 @@ public class pyfs extends Application {
             thestage.setScene(loginscherm);
 
         });
-
+       //Menu
         lostbtn = new Button();
         lostbtn.setText("Lost");                                           //lost button
         lostbtn.setPrefSize(200, 50);
@@ -252,7 +291,7 @@ public class pyfs extends Application {
         lostnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         lostnext2.setOnAction((ActionEvent event) -> {
 
-            thestage.setScene(lost2);
+            thestage.setScene(lost3);
 
             naam.getText();
             adres.getText();
@@ -290,7 +329,7 @@ public class pyfs extends Application {
         });
 
         //EINDE CONTROLS
-        //geeft controls aan verschillende panes
+        //PANES
         inlogschermpane = new StackPane();                        //Stackpane inlogscherm
         inlogschermpane.getChildren().add(loginbtn);                        //toevoegen button
         inlogschermpane.getChildren().add(username);                   //toevoegen username text
@@ -326,6 +365,10 @@ public class pyfs extends Application {
         lost2pane.getChildren().add(phone);
         lost2pane.getChildren().add(mail);
         lost2pane.getChildren().add(lostnext2);
+        
+        lost3pane = new StackPane();
+        lost3pane.setStyle("-fx-background-color:#FFFFFF");
+        
 
         foundpane = new StackPane();
         foundpane.setStyle("-fx-background-color:#FFFFFF");
@@ -340,11 +383,12 @@ public class pyfs extends Application {
         menu = new Scene(menupane, 1600, 800);
         lost = new Scene(lostpane, 1600, 800);
         lost2 = new Scene(lost2pane, 1600, 800);
+        lost3 = new Scene(lost3pane, 1600, 800);
         found = new Scene(foundpane, 1600, 800);
         stat = new Scene(statpane, 1600, 800);
 
         primaryStage.setTitle("Applicatie naam");
-        primaryStage.setScene(loginscherm);
+        primaryStage.setScene(lost2);
         primaryStage.setResizable(false);
         primaryStage.show();
 
