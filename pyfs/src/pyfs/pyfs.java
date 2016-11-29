@@ -66,7 +66,7 @@ public class pyfs extends Application {
     
     //Lost
     Button lostterugmenu, lostnext, lostnext2, lostback, lostback2;
-    TextField date, time, airport,/**/ naam, adres, city, zip, country, phone, mail,/**/ labelnr, flightnr, destin,/**/ lugtype, lugbrand, lugcolor, lugspef;
+    TextField date, time, airport,/**/ naam, adres, city, zip, country, phone, mail,/**/ labelnr, flightnr, destin,/**/ lugtype, lugbrand, lugcolor, lugspef, search;
     StackPane lostpane, lost2pane, lost3pane;
     Scene lost, lost2, lost3;
     
@@ -304,6 +304,36 @@ public class pyfs extends Application {
         });
         
         // lost 3
+        
+        
+        lugtype = new TextField();                 //text voor tijd invullen
+        lugtype.setPromptText("Lugage type");
+        lugtype.setFont(Font.font("Verdana", 20));
+        lugtype.setMaxWidth(220);
+        lugtype.setTranslateY(-100);
+
+        lugbrand = new TextField();                 //text voor adres invullen
+        lugbrand.setPromptText("Lugage brand");
+        lugbrand.setFont(Font.font("Verdana", 20));
+        lugbrand.setMaxWidth(220);
+        lugbrand.setTranslateY(-50);
+ 
+        lugcolor = new TextField();                 //text voor woonplaats invullen
+        lugcolor.setPromptText("Lugage color");
+        lugcolor.setFont(Font.font("Verdana", 20));
+        lugcolor.setMaxWidth(220);
+        lugcolor.setTranslateY(0);
+        
+        lugspef = new TextField();
+        lugspef.setPromptText("Lugage specifications");
+        lugspef.setFont(Font.font("Verdana", 20));
+        lugspef.setMaxWidth(220);
+        lugspef.setTranslateY(50);
+        
+        
+        
+        
+        
         lostback2 = new Button();
         lostback2.setText("Back");                                           //logoutbutton
         lostback2.setPrefSize(200, 50);
@@ -381,6 +411,10 @@ public class pyfs extends Application {
         
         lost3pane = new StackPane();
         lost3pane.setStyle("-fx-background-color:#FFFFFF");
+        lost3pane.getChildren().add(lugtype);
+        lost3pane.getChildren().add(lugbrand);
+        lost3pane.getChildren().add(lugcolor);
+        lost3pane.getChildren().add(lugspef);
         lost3pane.getChildren().add(lostback2);
         
         
