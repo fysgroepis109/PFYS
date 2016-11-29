@@ -69,7 +69,7 @@ public class pyfs extends Application {
     Scene lost, lost2, lost3, lost4, lostfinal;
 
     //Found
-    Button foundterugmenu, foundnext, foundnext2, find;
+    Button foundterugmenu, foundnext, foundnext2,foundnext3, find, foundback, foundback2;
     TextField ftime, flabelnr, fflightnr, fdest, nametrav;
     DatePicker fdate;
     ComboBox fairport;
@@ -371,7 +371,7 @@ public class pyfs extends Application {
         destin.setFont(Font.font("Verdana", 20));
         destin.setMaxWidth(220);
         destin.setTranslateY(50);
-        
+
         search = new Button();
         search.setText("Next");                                           //logoutbutton
         search.setPrefSize(120, 50);
@@ -442,31 +442,109 @@ public class pyfs extends Application {
         });
 
         //found 2
-        naam = new TextField();                 //text voor tijd invullen
-        naam.setPromptText("Label Number");
-        naam.setFont(Font.font("Verdana", 20));
-        naam.setMaxWidth(220);
-        naam.setTranslateY(-250);
+        flabelnr = new TextField();                 //text voor labelnr invullen
+        flabelnr.setPromptText("Label Number");
+        flabelnr.setFont(Font.font("Verdana", 20));
+        flabelnr.setMaxWidth(220);
+        flabelnr.setTranslateY(-250);
 
-        adres = new TextField();                 //text voor adres invullen
-        adres.setPromptText("Adress");
-        adres.setFont(Font.font("Verdana", 20));
-        adres.setMaxWidth(220);
-        adres.setTranslateY(-200);
+        fflightnr = new TextField();                 //text voor flightnr invullen
+        fflightnr.setPromptText("Flight Number");
+        fflightnr.setFont(Font.font("Verdana", 20));
+        fflightnr.setMaxWidth(220);
+        fflightnr.setTranslateY(-200);
 
-        city = new TextField();                 //text voor woonplaats invullen
-        city.setPromptText("City");
-        city.setFont(Font.font("Verdana", 20));
-        city.setMaxWidth(220);
-        city.setTranslateY(-150);
+        fdest = new TextField();                 //text voor plaats invullen
+        fdest.setPromptText("Destination");
+        fdest.setFont(Font.font("Verdana", 20));
+        fdest.setMaxWidth(220);
+        fdest.setTranslateY(-150);
 
-        zip = new TextField();
-        zip.setPromptText("Zip code");
-        zip.setFont(Font.font("Verdana", 20));
-        zip.setMaxWidth(220);
-        zip.setTranslateY(-100);
+        nametrav = new TextField();             //text voor naam invullen
+        nametrav.setPromptText("Name Traveller");
+        nametrav.setFont(Font.font("Verdana", 20));
+        nametrav.setMaxWidth(220);
+        nametrav.setTranslateY(-100);
+        
+        foundback = new Button();
+        foundback.setText("Back");                                           //logoutbutton
+        foundback.setPrefSize(200, 50);
+        foundback.setTranslateY(-370);
+        foundback.setTranslateX(700);
+        foundback.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        foundback.setOnAction((ActionEvent event) -> {
+            thestage.setScene(found);
+
+        });
+
+        foundnext2 = new Button();
+        foundnext2.setText("Next");                                           //nextbutton
+        foundnext2.setPrefSize(120, 50);
+        foundnext2.setTranslateY(105);
+        foundnext2.setTranslateX(55);
+        foundnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        foundnext2.setOnAction((ActionEvent event) -> {
+
+            thestage.setScene(found3);
+
+        });
+        
+        
 
         //found 3
+        
+        lugtype = new TextField();                 //text voor tijd invullen
+        lugtype.setPromptText("Lugage type");
+        lugtype.setFont(Font.font("Verdana", 20));
+        lugtype.setMaxWidth(300);
+        lugtype.setTranslateY(-200);
+
+        lugbrand = new TextField();                 //text voor adres invullen
+        lugbrand.setPromptText("Lugage brand");
+        lugbrand.setFont(Font.font("Verdana", 20));
+        lugbrand.setMaxWidth(300);
+        lugbrand.setTranslateY(-150);
+
+        lugcolor = new TextField();                 //text voor woonplaats invullen
+        lugcolor.setPromptText("Lugage color");
+        lugcolor.setFont(Font.font("Verdana", 20));
+        lugcolor.setMaxWidth(300);
+        lugcolor.setTranslateY(-100);
+
+        lugweight = new TextField();                 //text voor woonplaats invullen
+        lugweight.setPromptText("Lugage weight");
+        lugweight.setFont(Font.font("Verdana", 20));
+        lugweight.setMaxWidth(300);
+        lugweight.setTranslateY(-50);
+
+        lugspef = new TextArea();
+        lugspef.setPromptText("Lugage specifications");
+        lugspef.setFont(Font.font("Verdana", 20));
+        lugspef.setMaxSize(300, 160);
+        lugspef.setTranslateY(60);
+
+        foundback2 = new Button();
+        foundback2.setText("Back");                                           //logoutbutton
+        foundback2.setPrefSize(200, 50);
+        foundback2.setTranslateY(-370);
+        foundback2.setTranslateX(700);
+        foundback2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        foundback2.setOnAction((ActionEvent event) -> {
+            thestage.setScene(found2);
+
+        });
+
+        foundnext3 = new Button();
+        foundnext3.setText("Next");                                           //logoutbutton
+        foundnext3.setPrefSize(120, 50);
+        foundnext3.setTranslateY(175);
+        foundnext3.setTranslateX(92);
+        foundnext3.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        foundnext3.setOnAction((ActionEvent event) -> {
+
+            thestage.setScene(foundfinal);
+        });
+        
         //foundfinal
         //stat
         statterugmenu = new Button();
@@ -549,9 +627,22 @@ public class pyfs extends Application {
 
         found2pane = new StackPane();
         found2pane.setStyle("-fx-background-color:#FFFFFF");
+        found2pane.getChildren().add(flabelnr);
+        found2pane.getChildren().add(fflightnr);
+        found2pane.getChildren().add(fdest);
+        found2pane.getChildren().add(nametrav);
+        found2pane.getChildren().add(foundback);
+        found2pane.getChildren().add(foundnext2);
 
         found3pane = new StackPane();
         found3pane.setStyle("-fx-background-color:#FFFFFF");
+        found3pane.getChildren().add(lugtype);
+        found3pane.getChildren().add(lugbrand);
+        found3pane.getChildren().add(lugcolor);
+        found3pane.getChildren().add(lugspef);
+        found3pane.getChildren().add(lugweight);
+        found3pane.getChildren().add(foundback2);
+        found3pane.getChildren().add(foundnext3);
 
         foundfinalpane = new StackPane();
         foundfinalpane.setStyle("-fx-background-color:#FFFFFF");
