@@ -7,8 +7,11 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -27,29 +30,21 @@ import javafx.scene.text.*;
  * @author IS109-Groep 5
  */
 public class pyfs extends Application {
-    
+
     /* Code is ingedeeld per sectie (login, menu, lost, found en stat)
     Aan het begin worden alle controls aangeroepen, dit is zo ingedeeld dat je
     snel kan onderscheiden welke control op welke pagina zit. Verder in de code zijn
     alle secties onderscheidde doormiddel van comments. Door control f te doen kan je snel naar de juiste sectie
     springen. Alle eens sectie meerder paginas heeft wordt dit doormiddel van een numering gedaan bijv. lost (eerste pag) lost1, lost2, lost 3 & lostfinal (laatste pag)
-    */
-    
-    
-    
-    
-
+     */
 //tijdelijke login
     String user = "admin";
     String pw = "test";
     String checkUser, checkPw;
 
     //voegt alle controls, scenes, panes en stages toe
-    
-   
-    
     Stage thestage;
-    
+
     //Loginscherm
     Text loginerror;
     TextField username;
@@ -58,31 +53,31 @@ public class pyfs extends Application {
     ImageView logologin;
     StackPane inlogschermpane;
     Scene loginscherm;
-    
+
     //Menu
     Button statbtn, lostbtn, foundbtn, logoutbtn;
     StackPane menupane;
     Scene menu;
-    
+
     //Lost
-    Button lostterugmenu, lostnext, lostnext2, lostback, lostback2;
-    TextField date, time, airport,/**/ naam, adres, city, zip, country, phone, mail,/**/ labelnr, flightnr, destin,/**/ lugtype, lugbrand, lugcolor, lugspef, search;
-    StackPane lostpane, lost2pane, lost3pane;
-    Scene lost, lost2, lost3;
-    
+    Button lostterugmenu, lostnext, lostnext2, lostback, lostback2, search, lostterugfinal;
+    TextField time, naam, adres, city, zip, country, phone, mail,/**/ labelnr, flightnr, destin,/**/ lugtype, lugbrand, lugcolor, lugweight;
+    ComboBox airport;
+    TextArea lugspef;
+    DatePicker date;
+    StackPane lostpane, lost2pane, lost3pane, lostfinalpane;
+    Scene lost, lost2, lost3, lostfinal;
+
     //Found
-    
-     Button foundterugmenu;
-     StackPane foundpane;
-     Scene found;
-    
+    Button foundterugmenu;
+    StackPane foundpane;
+    Scene found;
+
     //Stat
-    
     Button statterugmenu;
     StackPane statpane;
     Scene stat;
-   
-   
+
     @Override
     public void start(Stage primaryStage) {
 
@@ -148,7 +143,7 @@ public class pyfs extends Application {
             thestage.setScene(loginscherm);
 
         });
-       //Menu
+        //Menu
         lostbtn = new Button();
         lostbtn.setText("Lost");                                           //lost button
         lostbtn.setPrefSize(200, 50);
@@ -194,23 +189,25 @@ public class pyfs extends Application {
 
         });
 
-        date = new TextField();                 //text voor datum invullen
+        date = new DatePicker();
         date.setPromptText("Date");
-        date.setFont(Font.font("Verdana", 20));
-        date.setTranslateY(-50);
         date.setMaxWidth(220);
+        date.setTranslateY(-50);
 
         time = new TextField();                 //text voor tijd invullen
-        time.setPromptText("Time");
+        time.setPromptText("Time (HH:MM)");
         time.setFont(Font.font("Verdana", 20));
         time.setMaxWidth(220);
         time.setTranslateY(0);
 
-        airport = new TextField();                 //text voor vliegveld
+        airport = new ComboBox();                 //text voor vliegveld
         airport.setPromptText("Airport");
-        airport.setFont(Font.font("Verdana", 20));
         airport.setTranslateY(50);
         airport.setMaxWidth(220);
+        airport.getItems().addAll(
+                "Schiphol",
+                "Ankara Esenboga"
+        );
 
         lostnext = new Button();
         lostnext.setText("Next");                                           //logoutbutton
@@ -222,15 +219,12 @@ public class pyfs extends Application {
 
             thestage.setScene(lost2);
 
-            date.getText();
             time.getText();
-            airport.getText();
 
         });
-        
+
         //lost 2
-        
-           lostback = new Button();
+        lostback = new Button();
         lostback.setText("Back");                                           //logoutbutton
         lostback.setPrefSize(200, 50);
         lostback.setTranslateY(-370);
@@ -238,9 +232,9 @@ public class pyfs extends Application {
         lostback.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         lostback.setOnAction((ActionEvent event) -> {
             thestage.setScene(lost);
-            
-            });
-            
+
+        });
+
         naam = new TextField();                 //text voor tijd invullen
         naam.setPromptText("Name");
         naam.setFont(Font.font("Verdana", 20));
@@ -252,38 +246,38 @@ public class pyfs extends Application {
         adres.setFont(Font.font("Verdana", 20));
         adres.setMaxWidth(220);
         adres.setTranslateY(-200);
- 
+
         city = new TextField();                 //text voor woonplaats invullen
         city.setPromptText("City");
         city.setFont(Font.font("Verdana", 20));
         city.setMaxWidth(220);
         city.setTranslateY(-150);
-        
+
         zip = new TextField();
         zip.setPromptText("Zip code");
         zip.setFont(Font.font("Verdana", 20));
         zip.setMaxWidth(220);
         zip.setTranslateY(-100);
-        
+
         country = new TextField();
         country.setPromptText("Country");
         country.setFont(Font.font("Verdana", 20));
         country.setMaxWidth(220);
         country.setTranslateY(-50);
-        
+
         phone = new TextField();
         phone.setPromptText("Phone number");
         phone.setFont(Font.font("Verdana", 20));
         phone.setMaxWidth(220);
         phone.setTranslateY(0);
-        
+
         mail = new TextField();
         mail.setPromptText("E-mail");
         mail.setFont(Font.font("Verdana", 20));
         mail.setMaxWidth(220);
         mail.setTranslateY(50);
-        
-         lostnext2 = new Button();
+
+        lostnext2 = new Button();
         lostnext2.setText("Next");                                           //logoutbutton
         lostnext2.setPrefSize(120, 50);
         lostnext2.setTranslateY(105);
@@ -302,38 +296,38 @@ public class pyfs extends Application {
             mail.getText();
 
         });
-        
+
         // lost 3
-        
-        
         lugtype = new TextField();                 //text voor tijd invullen
         lugtype.setPromptText("Lugage type");
         lugtype.setFont(Font.font("Verdana", 20));
-        lugtype.setMaxWidth(220);
-        lugtype.setTranslateY(-100);
+        lugtype.setMaxWidth(300);
+        lugtype.setTranslateY(-200);
 
         lugbrand = new TextField();                 //text voor adres invullen
         lugbrand.setPromptText("Lugage brand");
         lugbrand.setFont(Font.font("Verdana", 20));
-        lugbrand.setMaxWidth(220);
-        lugbrand.setTranslateY(-50);
- 
+        lugbrand.setMaxWidth(300);
+        lugbrand.setTranslateY(-150);
+
         lugcolor = new TextField();                 //text voor woonplaats invullen
         lugcolor.setPromptText("Lugage color");
         lugcolor.setFont(Font.font("Verdana", 20));
-        lugcolor.setMaxWidth(220);
-        lugcolor.setTranslateY(0);
-        
-        lugspef = new TextField();
+        lugcolor.setMaxWidth(300);
+        lugcolor.setTranslateY(-100);
+
+        lugweight = new TextField();                 //text voor woonplaats invullen
+        lugweight.setPromptText("Lugage weight");
+        lugweight.setFont(Font.font("Verdana", 20));
+        lugweight.setMaxWidth(300);
+        lugweight.setTranslateY(-50);
+
+        lugspef = new TextArea();
         lugspef.setPromptText("Lugage specifications");
         lugspef.setFont(Font.font("Verdana", 20));
-        lugspef.setMaxWidth(220);
-        lugspef.setTranslateY(50);
-        
-        
-        
-        
-        
+        lugspef.setMaxSize(300, 160);
+        lugspef.setTranslateY(60);
+
         lostback2 = new Button();
         lostback2.setText("Back");                                           //logoutbutton
         lostback2.setPrefSize(200, 50);
@@ -342,10 +336,32 @@ public class pyfs extends Application {
         lostback2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         lostback2.setOnAction((ActionEvent event) -> {
             thestage.setScene(lost2);
-            
-            });
+
+        });
+
+        search = new Button();
+        search.setText("Search");                                           //logoutbutton
+        search.setPrefSize(120, 50);
+        search.setTranslateY(175);
+        search.setTranslateX(92);
+        search.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        search.setOnAction((ActionEvent event) -> {
+
+            thestage.setScene(lostfinal);
+        });
         
+        //lost final
         
+         lostterugfinal = new Button();
+        lostterugfinal.setText("Menu");                                           //lost terug menu
+        lostterugfinal.setPrefSize(200, 50);
+        lostterugfinal.setTranslateY(-370);
+        lostterugfinal.setTranslateX(700);
+        lostterugfinal.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        lostterugfinal.setOnAction((ActionEvent event) -> {
+            thestage.setScene(menu);
+
+        });
 
         //found
         foundterugmenu = new Button();
@@ -359,6 +375,9 @@ public class pyfs extends Application {
 
         });
 
+        //found 1
+        //found 2
+        //found 3
         //stat
         statterugmenu = new Button();
         statterugmenu.setText("Back");                                           //logoutbutton
@@ -391,12 +410,12 @@ public class pyfs extends Application {
         lostpane = new StackPane();
         lostpane.setStyle("-fx-background-color:#FFFFFF");
         lostpane.getChildren().add(lostterugmenu);
+
         lostpane.getChildren().add(date);
         lostpane.getChildren().add(time);
         lostpane.getChildren().add(airport);
         lostpane.getChildren().add(lostnext);
-        
-        
+
         lost2pane = new StackPane();
         lost2pane.setStyle("-fx-background-color:#FFFFFF");
         lost2pane.getChildren().add(lostback);
@@ -408,16 +427,20 @@ public class pyfs extends Application {
         lost2pane.getChildren().add(phone);
         lost2pane.getChildren().add(mail);
         lost2pane.getChildren().add(lostnext2);
-        
+
         lost3pane = new StackPane();
         lost3pane.setStyle("-fx-background-color:#FFFFFF");
         lost3pane.getChildren().add(lugtype);
         lost3pane.getChildren().add(lugbrand);
         lost3pane.getChildren().add(lugcolor);
         lost3pane.getChildren().add(lugspef);
+        lost3pane.getChildren().add(lugweight);
         lost3pane.getChildren().add(lostback2);
-        
-        
+        lost3pane.getChildren().add(search);
+
+        lostfinalpane = new StackPane();
+        lostfinalpane.setStyle("-fx-background-color:#FFFFFF");
+        lostfinalpane.getChildren().add(lostterugfinal);
 
         foundpane = new StackPane();
         foundpane.setStyle("-fx-background-color:#FFFFFF");
@@ -433,11 +456,12 @@ public class pyfs extends Application {
         lost = new Scene(lostpane, 1600, 800);
         lost2 = new Scene(lost2pane, 1600, 800);
         lost3 = new Scene(lost3pane, 1600, 800);
+        lostfinal = new Scene(lostfinalpane, 1600, 800);
         found = new Scene(foundpane, 1600, 800);
         stat = new Scene(statpane, 1600, 800);
 
         primaryStage.setTitle("Applicatie naam");
-        primaryStage.setScene(lost2);
+        primaryStage.setScene(lost);
         primaryStage.setResizable(false);
         primaryStage.show();
 
