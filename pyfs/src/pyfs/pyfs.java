@@ -69,7 +69,7 @@ public class pyfs extends Application {
     Scene lost, lost2, lost3, lost4, lostfinal;
 
     //Found
-    Button foundterugmenu, foundnext, foundnext2,foundnext3, find, foundback, foundback2;
+    Button foundterugmenu, foundnext, foundnext2,foundnext3, find, foundback, foundback2, foundfinalButton;
     TextField ftime, flabelnr, fflightnr, fdest, nametrav;
     DatePicker fdate;
     ComboBox fairport;
@@ -546,6 +546,17 @@ public class pyfs extends Application {
         });
         
         //foundfinal
+        foundfinalButton = new Button();
+        foundfinalButton.setText("Menu");                                           //lost terug menu
+        foundfinalButton.setPrefSize(200, 50);
+        foundfinalButton.setTranslateY(-370);
+        foundfinalButton.setTranslateX(700);
+        foundfinalButton.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        foundfinalButton.setOnAction((ActionEvent event) -> {
+            thestage.setScene(menu);
+
+        });
+        
         //stat
         statterugmenu = new Button();
         statterugmenu.setText("Back");                                           //logoutbutton
@@ -645,6 +656,7 @@ public class pyfs extends Application {
         found3pane.getChildren().add(foundnext3);
 
         foundfinalpane = new StackPane();
+        foundfinalpane.getChildren().add(foundfinalButton);
         foundfinalpane.setStyle("-fx-background-color:#FFFFFF");
 
         statpane = new StackPane();
