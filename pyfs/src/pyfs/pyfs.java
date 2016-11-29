@@ -446,25 +446,25 @@ public class pyfs extends Application {
         flabelnr.setPromptText("Label Number");
         flabelnr.setFont(Font.font("Verdana", 20));
         flabelnr.setMaxWidth(220);
-        flabelnr.setTranslateY(-250);
+        flabelnr.setTranslateY(-100);
 
         fflightnr = new TextField();                 //text voor flightnr invullen
         fflightnr.setPromptText("Flight Number");
         fflightnr.setFont(Font.font("Verdana", 20));
         fflightnr.setMaxWidth(220);
-        fflightnr.setTranslateY(-200);
+        fflightnr.setTranslateY(-50);
 
         fdest = new TextField();                 //text voor plaats invullen
         fdest.setPromptText("Destination");
         fdest.setFont(Font.font("Verdana", 20));
         fdest.setMaxWidth(220);
-        fdest.setTranslateY(-150);
+        fdest.setTranslateY(0);
 
         nametrav = new TextField();             //text voor naam invullen
         nametrav.setPromptText("Name Traveller");
         nametrav.setFont(Font.font("Verdana", 20));
         nametrav.setMaxWidth(220);
-        nametrav.setTranslateY(-100);
+        nametrav.setTranslateY(50);
         
         foundback = new Button();
         foundback.setText("Back");                                           //logoutbutton
