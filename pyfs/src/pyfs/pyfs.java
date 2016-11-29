@@ -65,7 +65,7 @@ public class pyfs extends Application {
     Scene menu;
     
     //Lost
-    Button lostterugmenu, lostnext, lostnext2, lostback;
+    Button lostterugmenu, lostnext, lostnext2, lostback, lostback2;
     TextField date, time, airport,/**/ naam, adres, city, zip, country, phone, mail,/**/ labelnr, flightnr, destin,/**/ lugtype, lugbrand, lugcolor, lugspef;
     StackPane lostpane, lost2pane, lost3pane;
     Scene lost, lost2, lost3;
@@ -303,6 +303,19 @@ public class pyfs extends Application {
 
         });
         
+        // lost 3
+        lostback2 = new Button();
+        lostback2.setText("Back");                                           //logoutbutton
+        lostback2.setPrefSize(200, 50);
+        lostback2.setTranslateY(-370);
+        lostback2.setTranslateX(700);
+        lostback2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        lostback2.setOnAction((ActionEvent event) -> {
+            thestage.setScene(lost2);
+            
+            });
+        
+        
 
         //found
         foundterugmenu = new Button();
@@ -368,6 +381,8 @@ public class pyfs extends Application {
         
         lost3pane = new StackPane();
         lost3pane.setStyle("-fx-background-color:#FFFFFF");
+        lost3pane.getChildren().add(lostback2);
+        
         
 
         foundpane = new StackPane();
