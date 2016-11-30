@@ -30,6 +30,8 @@ import javafx.scene.text.*;
  * @author IS109-Groep 5
  */
 public class pyfs extends Application {
+    
+    mysql Mysql = new mysql();
 
     /* Code is ingedeeld per sectie (login, menu, lost, found en stat)
     Aan het begin worden alle controls aangeroepen, dit is zo ingedeeld dat je
