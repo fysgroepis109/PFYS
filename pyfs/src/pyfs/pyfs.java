@@ -149,14 +149,16 @@ public class pyfs extends Application {
                         count = rs1.getInt("total");
                     }
                     
-                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE naam = " + "'" + UserName + "'");
+                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE naam = " + "'" + UserName + "'");               //getting password form database
                     if (count > 0) {
                         while (rs.next()) {
                             String pass = rs.getString("wachtwoord");
-                           if (pass.equals(Password)) {
+                           if (pass.equals(Password)) {                         // check if passwords are the same
                               thestage.setScene(menu);
 
-                            }
+                            }else{
+                               
+                           }
                         }
                     }
 
