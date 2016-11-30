@@ -10,25 +10,29 @@ package pyfs;
  * @author Jaros
  */
 public class mysql {
+      private final String USENAME = "root";
+    private final String PASSWORD = "Loman513";
+    private final String IPADDRESS = "localhost";
+    private final String POORT = "3306";
+    private final String DATABASENAAM = "fystest";
+    private final boolean AUTORECONNECT = true;
+    private final boolean SSL = false;
     
-    private final String DB_NAME = "fystest";
-    private final String DB_SERVER = " localhost:3306";
-    private final String DB_ACCOUNT = "root";
-    private final String DB_PASSWORD = "Lolman513";
-
-    public String getDB_NAME() {
-        return DB_NAME;
+    
+    String username(){
+        return USENAME;
+    };
+        
+    String password(){
+        return PASSWORD;
+    };
+    
+    String urlmysql(){
+        return "jdbc:mysql://"+IPADDRESS+":"+POORT+"/"+DATABASENAAM+"?autoReconnect="+AUTORECONNECT+"&useSSL="+SSL;
+    };
     }
+    
+    
+    
+    
 
-    public String getDB_ACCOUNT() {
-        return DB_ACCOUNT;
-    }
-
-    public String getDB_PASSWORD() {
-        return DB_PASSWORD;
-    }
-    
-    
-    
-    
-}
