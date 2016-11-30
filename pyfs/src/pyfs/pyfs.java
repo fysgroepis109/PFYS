@@ -44,10 +44,7 @@ public class pyfs extends Application {
     alle secties onderscheidde doormiddel van comments. Door control f te doen kan je snel naar de juiste sectie
     springen. Alle eens sectie meerder paginas heeft wordt dit doormiddel van een numering gedaan bijv. lost (eerste pag) lost1, lost2, lost 3 & lostfinal (laatste pag)
      */
-//tijdelijke login
-    String user = "admin";
-    String pw = "test123";
-    String checkUser, checkPw;
+
 
     //voegt alle controls, scenes, panes en stages toe
     Stage thestage;
@@ -144,7 +141,7 @@ public class pyfs extends Application {
                     conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
                     System.out.println("Connected!");
                     Statement stmt = (Statement) conn.createStatement();
-                    Username = "'" + UserName + "'";
+                    String Username = "'" + UserName + "'";
 
                     ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE naam= " + '"' + UserName + '"');   //check if there is a accout with name
                     int count = 0;
