@@ -140,8 +140,7 @@ public class pyfs extends Application {
                     conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
                     System.out.println("Connected!");
                     Statement stmt = (Statement) conn.createStatement();
-                    String Username = "'" + UserName + "'";
-
+                   
                     ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE naam= " + '"' + UserName + '"');   //check if there is a accout with name
                     int count = 0;
                     while (rs1.next()) {

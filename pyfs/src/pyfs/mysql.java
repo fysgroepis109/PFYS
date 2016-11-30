@@ -10,7 +10,7 @@ package pyfs;
  * @author Jaros
  */
 public class mysql {
-      private final String USENAME = "fys5";
+    private final String USENAME = "fys5";
     private final String PASSWORD = "ZRnRZSIbEXbj1FPg";
     private final String IPADDRESS = "it95.nl";
     private final String POORT = "3306";
