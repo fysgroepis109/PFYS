@@ -156,6 +156,11 @@ public class pyfs extends Application {
                                 thestage.setScene(menu);
 
                             } else {
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setTitle("waarschuwing");
+                                alert.setHeaderText("username and/or password are incorrect");
+
+                                alert.showAndWait();
 
                             }
                         }
