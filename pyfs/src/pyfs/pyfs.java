@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -44,8 +45,6 @@ public class pyfs extends Application {
     alle secties onderscheidde doormiddel van comments. Door control f te doen kan je snel naar de juiste sectie
     springen. Alle eens sectie meerder paginas heeft wordt dit doormiddel van een numering gedaan bijv. lost (eerste pag) lost1, lost2, lost 3 & lostfinal (laatste pag)
      */
-
-
     //voegt alle controls, scenes, panes en stages toe
     Stage thestage;
 
@@ -130,7 +129,7 @@ public class pyfs extends Application {
             public void handle(ActionEvent event) {     //login check
                 String UserName = String.valueOf(username.getText());   //getting username
                 String Password = String.valueOf(password.getText());   //getting password
-                
+
                 Connection conn;                                                            //making connection to database
 
                 final String USERNAME = Mysql.username();
@@ -148,18 +147,25 @@ public class pyfs extends Application {
                     while (rs1.next()) {
                         count = rs1.getInt("total");
                     }
-                    
+
                     ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE naam = " + "'" + UserName + "'");               //getting password form database
                     if (count > 0) {
                         while (rs.next()) {
                             String pass = rs.getString("wachtwoord");
-                           if (pass.equals(Password)) {                         // check if passwords are the same
-                              thestage.setScene(menu);
+                            if (pass.equals(Password)) {                         // check if passwords are the same
+                                thestage.setScene(menu);
 
-                            }else{
-                               
-                           }
+                            } else {
+
+                            }
                         }
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("waarschuwing");
+                        alert.setHeaderText("username and/or password are incorrect");
+
+                        alert.showAndWait();
+
                     }
 
                 } catch (SQLException ed) {
