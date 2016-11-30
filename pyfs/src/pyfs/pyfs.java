@@ -130,12 +130,11 @@ public class pyfs extends Application {
         //inloggen
         loginbtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
-            public void handle(ActionEvent event) {
-                String UserName = String.valueOf(username.getText());
-                String Password = String.valueOf(password.getText());
-                System.out.print(UserName);
-                String Username;
-                Connection conn;
+            public void handle(ActionEvent event) {     //login check
+                String UserName = String.valueOf(username.getText());   //getting username
+                String Password = String.valueOf(password.getText());   //getting password
+                
+                Connection conn;                                                            //making connection to database
 
                 final String USERNAME = Mysql.username();
                 final String PASSWORD = Mysql.password();
@@ -147,7 +146,7 @@ public class pyfs extends Application {
                     Statement stmt = (Statement) conn.createStatement();
                     Username = "'" + UserName + "'";
 
-                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE naam= " + '"' + UserName + '"');
+                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE naam= " + '"' + UserName + '"');   //check if there is a accout with name
                     int count = 0;
                     while (rs1.next()) {
                         count = rs1.getInt("total");
