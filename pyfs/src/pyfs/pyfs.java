@@ -25,12 +25,18 @@ import javafx.stage.Stage;
  */
 public class pyfs extends Application {
 
+    mysql Mysql = new mysql();
+
     /* Code is ingedeeld per sectie (login, menu, lost, found en stat)
     Aan het begin worden alle controls aangeroepen, dit is zo ingedeeld dat je
     snel kan onderscheiden welke control op welke pagina zit. Verder in de code zijn
     alle secties onderscheidde doormiddel van comments. Door control f te doen kan je snel naar de juiste sectie
     springen. Alle eens sectie meerder paginas heeft wordt dit doormiddel van een numering gedaan bijv. lost (eerste pag) lost1, lost2, lost 3 & lostfinal (laatste pag)
      */
+<<<<<<< HEAD
+=======
+    //voegt alle controls, scenes, panes en stages toe
+>>>>>>> origin/master
     Stage thestage;
     
     //login
@@ -90,6 +96,7 @@ public class pyfs extends Application {
         loginbtn.setPrefSize(200, 50);
         loginbtn.setTranslateY(90);
         loginbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+<<<<<<< HEAD
         loginbtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -97,6 +104,16 @@ public class pyfs extends Application {
                 String UserName = login.getTextUsername();   //getting username
                 String Password = login.getTextPassword();   //getting password
                            
+=======
+
+        //inloggen
+        loginbtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {     //login check
+                String UserName = String.valueOf(username.getText());   //getting username
+                String Password = String.valueOf(password.getText());   //getting password
+
+>>>>>>> origin/master
                 Connection conn;                                                            //making connection to database
 
                 final String USERNAME = Mysql.username();
@@ -143,12 +160,18 @@ public class pyfs extends Application {
                     System.err.println(ed);
                 }
             }
+<<<<<<< HEAD
             
         });
+=======
+        }
+        );
+>>>>>>> origin/master
 
         //verklaren alle toegevoegde controls
         //menu
         logoutbtn = new Button();
+<<<<<<< HEAD
         logoutbtn.setText("Logout");                                           //logoutbutton
         logoutbtn.setPrefSize(200, 50);
         logoutbtn.setTranslateY(-370);
@@ -159,240 +182,769 @@ public class pyfs extends Application {
 
         });
 
+=======
+
+        logoutbtn.setText(
+                "Logout");                                           //logoutbutton
+        logoutbtn.setPrefSize(
+                200, 50);
+        logoutbtn.setTranslateY(
+                -370);
+        logoutbtn.setTranslateX(
+                700);
+        logoutbtn.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        logoutbtn.setOnAction(
+                (ActionEvent event) -> {
+                    thestage.setScene(loginscherm);
+
+                }
+        );
+        //Menu
+>>>>>>> origin/master
         lostbtn = new Button();
-        lostbtn.setText("Lost");                                           //lost button
-        lostbtn.setPrefSize(200, 50);
-        lostbtn.setTranslateX(-500);
-        lostbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostbtn.setOnAction((ActionEvent event) -> {
 
-            thestage.setScene(lost);
+        lostbtn.setText(
+                "Lost");                                           //lost button
+        lostbtn.setPrefSize(
+                200, 50);
+        lostbtn.setTranslateX(
+                -500);
+        lostbtn.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        lostbtn.setOnAction(
+                (ActionEvent event) -> {
 
-        });
+                    thestage.setScene(lost);
+
+                }
+        );
 
         foundbtn = new Button();
-        foundbtn.setText("Found");                                           //lost button
-        foundbtn.setPrefSize(200, 50);
-        foundbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundbtn.setOnAction((ActionEvent event) -> {
 
-            thestage.setScene(found);
+        foundbtn.setText(
+                "Found");                                           //lost button
+        foundbtn.setPrefSize(
+                200, 50);
+        foundbtn.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        foundbtn.setOnAction(
+                (ActionEvent event) -> {
 
-        });
+                    thestage.setScene(found);
+
+                }
+        );
 
         statbtn = new Button();
-        statbtn.setText("Statistics");                                           //lost button
-        statbtn.setPrefSize(200, 50);
-        statbtn.setTranslateX(500);
-        statbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        statbtn.setOnAction((ActionEvent event) -> {
 
-            thestage.setScene(stat);
+        statbtn.setText(
+                "Statistics");                                           //lost button
+        statbtn.setPrefSize(
+                200, 50);
+        statbtn.setTranslateX(
+                500);
+        statbtn.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        statbtn.setOnAction(
+                (ActionEvent event) -> {
 
-        });
+                    thestage.setScene(stat);
+
+                }
+        );
 
         //lost
         //lost 1
         lostterugmenu = new Button();
-        lostterugmenu.setText("Back");                                           //logoutbutton
-        lostterugmenu.setPrefSize(200, 50);
-        lostterugmenu.setTranslateY(-370);
-        lostterugmenu.setTranslateX(700);
-        lostterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostterugmenu.setOnAction((ActionEvent event) -> {
-            thestage.setScene(menu);
 
-        });
+        lostterugmenu.setText(
+                "Back");                                           //logoutbutton
+        lostterugmenu.setPrefSize(
+                200, 50);
+        lostterugmenu.setTranslateY(
+                -370);
+        lostterugmenu.setTranslateX(
+                700);
+        lostterugmenu.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        lostterugmenu.setOnAction(
+                (ActionEvent event) -> {
+                    thestage.setScene(menu);
 
+                }
+        );
+
+<<<<<<< HEAD
+=======
+        date = new DatePicker();
+
+        date.setPromptText(
+                "Date");
+        date.setMaxWidth(
+                220);
+        date.setTranslateY(
+                -50);
+
+        time = new TextField();                 //text voor tijd invullen
+
+        time.setPromptText(
+                "Time (HH:MM)");
+        time.setFont(Font.font("Verdana", 20));
+        time.setMaxWidth(
+                220);
+        time.setTranslateY(
+                0);
+
+        airport = new ComboBox();                 //text voor vliegveld
+
+        airport.setPromptText(
+                "Airport");
+        airport.setTranslateY(
+                50);
+        airport.setMaxWidth(
+                220);
+        airport.getItems()
+                .addAll(
+                        "Schiphol",
+                        "Ankara Esenboga"
+                );
+
+>>>>>>> origin/master
         lostnext = new Button();
-        lostnext.setText("Next");                                           //logoutbutton
-        lostnext.setPrefSize(120, 50);
-        lostnext.setTranslateY(105);
-        lostnext.setTranslateX(55);
-        lostnext.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostnext.setOnAction((ActionEvent event) -> {
 
-            thestage.setScene(lost2);
+        lostnext.setText(
+                "Next");                                           //logoutbutton
+        lostnext.setPrefSize(
+                120, 50);
+        lostnext.setTranslateY(
+                105);
+        lostnext.setTranslateX(
+                55);
+        lostnext.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        lostnext.setOnAction(
+                (ActionEvent event) -> {
 
+                    thestage.setScene(lost2);
+
+<<<<<<< HEAD
         });
+=======
+                    time.getText();
+
+                }
+        );
+>>>>>>> origin/master
 
         //lost 2
         lostback = new Button();
-        lostback.setText("Back");                                           //logoutbutton
-        lostback.setPrefSize(200, 50);
-        lostback.setTranslateY(-370);
-        lostback.setTranslateX(700);
-        lostback.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostback.setOnAction((ActionEvent event) -> {
-            thestage.setScene(lost);
 
-        });
+        lostback.setText(
+                "Back");                                           //logoutbutton
+        lostback.setPrefSize(
+                200, 50);
+        lostback.setTranslateY(
+                -370);
+        lostback.setTranslateX(
+                700);
+        lostback.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        lostback.setOnAction(
+                (ActionEvent event) -> {
+                    thestage.setScene(lost);
 
+                }
+        );
+
+<<<<<<< HEAD
+=======
+        naam = new TextField();                 //text voor tijd invullen
+
+        naam.setPromptText(
+                "Name");
+        naam.setFont(Font.font("Verdana", 20));
+        naam.setMaxWidth(
+                220);
+        naam.setTranslateY(
+                -250);
+
+        adres = new TextField();                 //text voor adres invullen
+
+        adres.setPromptText(
+                "Adress");
+        adres.setFont(Font.font("Verdana", 20));
+        adres.setMaxWidth(
+                220);
+        adres.setTranslateY(
+                -200);
+
+        city = new TextField();                 //text voor woonplaats invullen
+
+        city.setPromptText(
+                "City");
+        city.setFont(Font.font("Verdana", 20));
+        city.setMaxWidth(
+                220);
+        city.setTranslateY(
+                -150);
+
+        zip = new TextField();
+
+        zip.setPromptText(
+                "Zip code");
+        zip.setFont(Font.font("Verdana", 20));
+        zip.setMaxWidth(
+                220);
+        zip.setTranslateY(
+                -100);
+
+        country = new TextField();
+
+        country.setPromptText(
+                "Country");
+        country.setFont(Font.font("Verdana", 20));
+        country.setMaxWidth(
+                220);
+        country.setTranslateY(
+                -50);
+
+        phone = new TextField();
+
+        phone.setPromptText(
+                "Phone number");
+        phone.setFont(Font.font("Verdana", 20));
+        phone.setMaxWidth(
+                220);
+        phone.setTranslateY(
+                0);
+
+        mail = new TextField();
+
+        mail.setPromptText(
+                "E-mail");
+        mail.setFont(Font.font("Verdana", 20));
+        mail.setMaxWidth(
+                220);
+        mail.setTranslateY(
+                50);
+
+>>>>>>> origin/master
         lostnext2 = new Button();
-        lostnext2.setText("Next");                                           //logoutbutton
-        lostnext2.setPrefSize(120, 50);
-        lostnext2.setTranslateY(105);
-        lostnext2.setTranslateX(55);
-        lostnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostnext2.setOnAction((ActionEvent event) -> {
 
+<<<<<<< HEAD
             thestage.setScene(lost3);
 
         });
 
-        lostback2 = new Button();
-        lostback2.setText("Back");                                           //logoutbutton
-        lostback2.setPrefSize(200, 50);
-        lostback2.setTranslateY(-370);
-        lostback2.setTranslateX(700);
-        lostback2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostback2.setOnAction((ActionEvent event) -> {
-            thestage.setScene(lost2);
+=======
+        lostnext2.setText(
+                "Next");                                           //logoutbutton
+        lostnext2.setPrefSize(
+                120, 50);
+        lostnext2.setTranslateY(
+                105);
+        lostnext2.setTranslateX(
+                55);
+        lostnext2.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        lostnext2.setOnAction(
+                (ActionEvent event) -> {
 
-        });
+                    thestage.setScene(lost3);
+
+                    naam.getText();
+                    adres.getText();
+                    city.getText();
+                    zip.getText();
+                    country.getText();
+                    phone.getText();
+                    mail.getText();
+
+                }
+        );
+
+        // lost 3
+        lugtype = new TextField();                 //text voor tijd invullen
+
+        lugtype.setPromptText(
+                "Lugage type");
+        lugtype.setFont(Font.font("Verdana", 20));
+        lugtype.setMaxWidth(
+                300);
+        lugtype.setTranslateY(
+                -200);
+
+        lugbrand = new TextField();                 //text voor adres invullen
+
+        lugbrand.setPromptText(
+                "Lugage brand");
+        lugbrand.setFont(Font.font("Verdana", 20));
+        lugbrand.setMaxWidth(
+                300);
+        lugbrand.setTranslateY(
+                -150);
+
+        lugcolor = new TextField();                 //text voor woonplaats invullen
+
+        lugcolor.setPromptText(
+                "Lugage color");
+        lugcolor.setFont(Font.font("Verdana", 20));
+        lugcolor.setMaxWidth(
+                300);
+        lugcolor.setTranslateY(
+                -100);
+
+        lugweight = new TextField();                 //text voor woonplaats invullen
+
+        lugweight.setPromptText(
+                "Lugage weight");
+        lugweight.setFont(Font.font("Verdana", 20));
+        lugweight.setMaxWidth(
+                300);
+        lugweight.setTranslateY(
+                -50);
+
+        lugspef = new TextArea();
+
+        lugspef.setPromptText(
+                "Lugage specifications");
+        lugspef.setFont(Font.font("Verdana", 20));
+        lugspef.setMaxSize(
+                300, 160);
+        lugspef.setTranslateY(
+                60);
+
+>>>>>>> origin/master
+        lostback2 = new Button();
+
+        lostback2.setText(
+                "Back");                                           //logoutbutton
+        lostback2.setPrefSize(
+                200, 50);
+        lostback2.setTranslateY(
+                -370);
+        lostback2.setTranslateX(
+                700);
+        lostback2.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        lostback2.setOnAction(
+                (ActionEvent event) -> {
+                    thestage.setScene(lost2);
+
+                }
+        );
 
         lostnext3 = new Button();
-        lostnext3.setText("Next");                                           //logoutbutton
-        lostnext3.setPrefSize(120, 50);
-        lostnext3.setTranslateY(175);
-        lostnext3.setTranslateX(92);
-        lostnext3.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostnext3.setOnAction((ActionEvent event) -> {
 
-            thestage.setScene(lost4);
-        });
+        lostnext3.setText(
+                "Next");                                           //logoutbutton
+        lostnext3.setPrefSize(
+                120, 50);
+        lostnext3.setTranslateY(
+                175);
+        lostnext3.setTranslateX(
+                92);
+        lostnext3.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        lostnext3.setOnAction(
+                (ActionEvent event) -> {
 
+                    thestage.setScene(lost4);
+                }
+        );
+
+<<<<<<< HEAD
+=======
+        //lost 4
+        labelnr = new TextField();                 //text voor tijd invullen
+
+        labelnr.setPromptText(
+                "Label number");
+        labelnr.setFont(Font.font("Verdana", 20));
+        labelnr.setMaxWidth(
+                220);
+        labelnr.setTranslateY(
+                -50);
+
+        flightnr = new TextField();                 //text voor adres invullen
+
+        flightnr.setPromptText(
+                "Flight number");
+        flightnr.setFont(Font.font("Verdana", 20));
+        flightnr.setMaxWidth(
+                220);
+        flightnr.setTranslateY(
+                0);
+
+        destin = new TextField();                 //text voor woonplaats invullen
+
+        destin.setPromptText(
+                "Destination");
+        destin.setFont(Font.font("Verdana", 20));
+        destin.setMaxWidth(
+                220);
+        destin.setTranslateY(
+                50);
+
+>>>>>>> origin/master
         search = new Button();
-        search.setText("Search");                                           //logoutbutton
-        search.setPrefSize(120, 50);
-        search.setTranslateY(175);
-        search.setTranslateX(92);
-        search.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        search.setOnAction((ActionEvent event) -> {
 
-            thestage.setScene(lostfinal);
-        });
+        search.setText(
+                "Search");                                           //logoutbutton
+        search.setPrefSize(
+                120, 50);
+        search.setTranslateY(
+                175);
+        search.setTranslateX(
+                92);
+        search.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        search.setOnAction(
+                (ActionEvent event) -> {
+
+                    thestage.setScene(lostfinal);
+                }
+        );
 
         lostback3 = new Button();
-        lostback3.setText("Back");                                           //logoutbutton
-        lostback3.setPrefSize(200, 50);
-        lostback3.setTranslateY(-370);
-        lostback3.setTranslateX(700);
-        lostback3.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostback3.setOnAction((ActionEvent event) -> {
-            thestage.setScene(lost3);
 
-        });
+        lostback3.setText(
+                "Back");                                           //logoutbutton
+        lostback3.setPrefSize(
+                200, 50);
+        lostback3.setTranslateY(
+                -370);
+        lostback3.setTranslateX(
+                700);
+        lostback3.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        lostback3.setOnAction(
+                (ActionEvent event) -> {
+                    thestage.setScene(lost3);
+
+                }
+        );
 
         //lost final
         lostterugfinal = new Button();
-        lostterugfinal.setText("Menu");                                           //lost terug menu
-        lostterugfinal.setPrefSize(200, 50);
-        lostterugfinal.setTranslateY(-370);
-        lostterugfinal.setTranslateX(700);
-        lostterugfinal.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostterugfinal.setOnAction((ActionEvent event) -> {
-            thestage.setScene(menu);
 
-        });
+        lostterugfinal.setText(
+                "Menu");                                           //lost terug menu
+        lostterugfinal.setPrefSize(
+                200, 50);
+        lostterugfinal.setTranslateY(
+                -370);
+        lostterugfinal.setTranslateX(
+                700);
+        lostterugfinal.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        lostterugfinal.setOnAction(
+                (ActionEvent event) -> {
+                    thestage.setScene(menu);
+
+                }
+        );
 
         //found
-        foundterugmenu = new Button();
-        foundterugmenu.setText("Back");                                           //logoutbutton
-        foundterugmenu.setPrefSize(200, 50);
-        foundterugmenu.setTranslateY(-370);
-        foundterugmenu.setTranslateX(700);
-        foundterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundterugmenu.setOnAction((ActionEvent event) -> {
-            thestage.setScene(menu);
+<<<<<<< HEAD
+=======
+        fdate = new DatePicker();
 
-        });
+        fdate.setPromptText(
+                "Date");
+        fdate.setMaxWidth(
+                220);
+        fdate.setTranslateY(
+                -50);
+
+        ftime = new TextField();                 //text voor tijd invullen
+
+        ftime.setPromptText(
+                "Time (HH:MM)");
+        ftime.setFont(Font.font("Verdana", 20));
+        ftime.setMaxWidth(
+                220);
+        ftime.setTranslateY(
+                0);
+
+        fairport = new ComboBox();                 //text voor vliegveld
+
+        fairport.setPromptText(
+                "Airport");
+        fairport.setTranslateY(
+                50);
+        fairport.setMaxWidth(
+                220);
+        fairport.getItems()
+                .addAll(
+                        "Schiphol",
+                        "Ankara Esenboga"
+                );
+
+>>>>>>> origin/master
+        foundterugmenu = new Button();
+
+        foundterugmenu.setText(
+                "Back");                                           //logoutbutton
+        foundterugmenu.setPrefSize(
+                200, 50);
+        foundterugmenu.setTranslateY(
+                -370);
+        foundterugmenu.setTranslateX(
+                700);
+        foundterugmenu.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        foundterugmenu.setOnAction(
+                (ActionEvent event) -> {
+                    thestage.setScene(menu);
+
+                }
+        );
 
         foundnext = new Button();
-        foundnext.setText("Next");                                           //logoutbutton
-        foundnext.setPrefSize(120, 50);
-        foundnext.setTranslateY(105);
-        foundnext.setTranslateX(55);
-        foundnext.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundnext.setOnAction((ActionEvent event) -> {
 
-            thestage.setScene(found2);
+        foundnext.setText(
+                "Next");                                           //logoutbutton
+        foundnext.setPrefSize(
+                120, 50);
+        foundnext.setTranslateY(
+                105);
+        foundnext.setTranslateX(
+                55);
+        foundnext.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        foundnext.setOnAction(
+                (ActionEvent event) -> {
 
+<<<<<<< HEAD
         });
 
+=======
+                    thestage.setScene(found2);
+
+                    ftime.getText();
+
+                }
+        );
+
+        //found 2
+        flabelnr = new TextField();                 //text voor labelnr invullen
+
+        flabelnr.setPromptText(
+                "Label Number");
+        flabelnr.setFont(Font.font("Verdana", 20));
+        flabelnr.setMaxWidth(
+                220);
+        flabelnr.setTranslateY(
+                -100);
+
+        fflightnr = new TextField();                 //text voor flightnr invullen
+
+        fflightnr.setPromptText(
+                "Flight Number");
+        fflightnr.setFont(Font.font("Verdana", 20));
+        fflightnr.setMaxWidth(
+                220);
+        fflightnr.setTranslateY(
+                -50);
+
+        fdest = new TextField();                 //text voor plaats invullen
+
+        fdest.setPromptText(
+                "Destination");
+        fdest.setFont(Font.font("Verdana", 20));
+        fdest.setMaxWidth(
+                220);
+        fdest.setTranslateY(
+                0);
+
+        nametrav = new TextField();             //text voor naam invullen
+
+        nametrav.setPromptText(
+                "Name Traveller");
+        nametrav.setFont(Font.font("Verdana", 20));
+        nametrav.setMaxWidth(
+                220);
+        nametrav.setTranslateY(
+                50);
+
+>>>>>>> origin/master
         foundback = new Button();
-        foundback.setText("Back");                                           //logoutbutton
-        foundback.setPrefSize(200, 50);
-        foundback.setTranslateY(-370);
-        foundback.setTranslateX(700);
-        foundback.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundback.setOnAction((ActionEvent event) -> {
-            thestage.setScene(found);
 
-        });
+        foundback.setText(
+                "Back");                                           //logoutbutton
+        foundback.setPrefSize(
+                200, 50);
+        foundback.setTranslateY(
+                -370);
+        foundback.setTranslateX(
+                700);
+        foundback.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        foundback.setOnAction(
+                (ActionEvent event) -> {
+                    thestage.setScene(found);
+
+                }
+        );
 
         foundnext2 = new Button();
-        foundnext2.setText("Next");                                           //nextbutton
-        foundnext2.setPrefSize(120, 50);
-        foundnext2.setTranslateY(105);
-        foundnext2.setTranslateX(55);
-        foundnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundnext2.setOnAction((ActionEvent event) -> {
 
-            thestage.setScene(found3);
+        foundnext2.setText(
+                "Next");                                           //nextbutton
+        foundnext2.setPrefSize(
+                120, 50);
+        foundnext2.setTranslateY(
+                105);
+        foundnext2.setTranslateX(
+                55);
+        foundnext2.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        foundnext2.setOnAction(
+                (ActionEvent event) -> {
 
-        });
+                    thestage.setScene(found3);
 
+                }
+        );
+
+<<<<<<< HEAD
        
+=======
+        //found 3
+        flugtype = new TextField();                 //text voor tijd invullen
+
+        flugtype.setPromptText(
+                "Lugage type");
+        flugtype.setFont(Font.font("Verdana", 20));
+        flugtype.setMaxWidth(
+                300);
+        flugtype.setTranslateY(
+                -200);
+
+        flugbrand = new TextField();                 //text voor adres invullen
+
+        flugbrand.setPromptText(
+                "Lugage brand");
+        flugbrand.setFont(Font.font("Verdana", 20));
+        flugbrand.setMaxWidth(
+                300);
+        flugbrand.setTranslateY(
+                -150);
+
+        flugcolor = new TextField();                 //text voor woonplaats invullen
+
+        flugcolor.setPromptText(
+                "Lugage color");
+        flugcolor.setFont(Font.font("Verdana", 20));
+        flugcolor.setMaxWidth(
+                300);
+        flugcolor.setTranslateY(
+                -100);
+
+        flugweight = new TextField();                 //text voor woonplaats invullen
+
+        flugweight.setPromptText(
+                "Lugage weight");
+        flugweight.setFont(Font.font("Verdana", 20));
+        flugweight.setMaxWidth(
+                300);
+        flugweight.setTranslateY(
+                -50);
+
+        flugspef = new TextArea();
+
+        flugspef.setPromptText(
+                "Lugage specifications");
+        flugspef.setFont(Font.font("Verdana", 20));
+        flugspef.setMaxSize(
+                300, 160);
+        flugspef.setTranslateY(
+                60);
+>>>>>>> origin/master
 
         foundback2 = new Button();
-        foundback2.setText("Back");                                           //logoutbutton
-        foundback2.setPrefSize(200, 50);
-        foundback2.setTranslateY(-370);
-        foundback2.setTranslateX(700);
-        foundback2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundback2.setOnAction((ActionEvent event) -> {
-            thestage.setScene(found2);
 
-        });
+        foundback2.setText(
+                "Back");                                           //logoutbutton
+        foundback2.setPrefSize(
+                200, 50);
+        foundback2.setTranslateY(
+                -370);
+        foundback2.setTranslateX(
+                700);
+        foundback2.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        foundback2.setOnAction(
+                (ActionEvent event) -> {
+                    thestage.setScene(found2);
+
+                }
+        );
 
         foundnext3 = new Button();
-        foundnext3.setText("Place");                                           //logoutbutton
-        foundnext3.setPrefSize(120, 50);
-        foundnext3.setTranslateY(175);
-        foundnext3.setTranslateX(92);
-        foundnext3.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundnext3.setOnAction((ActionEvent event) -> {
 
-            thestage.setScene(foundfinal);
-        });
+        foundnext3.setText(
+                "Place");                                           //logoutbutton
+        foundnext3.setPrefSize(
+                120, 50);
+        foundnext3.setTranslateY(
+                175);
+        foundnext3.setTranslateX(
+                92);
+        foundnext3.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        foundnext3.setOnAction(
+                (ActionEvent event) -> {
+
+                    thestage.setScene(foundfinal);
+                }
+        );
 
         //foundfinal
         foundfinalButton = new Button();
-        foundfinalButton.setText("Menu");                                           //lost terug menu
-        foundfinalButton.setPrefSize(200, 50);
-        foundfinalButton.setTranslateY(-370);
-        foundfinalButton.setTranslateX(700);
-        foundfinalButton.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundfinalButton.setOnAction((ActionEvent event) -> {
-            thestage.setScene(menu);
 
-        });
+        foundfinalButton.setText(
+                "Menu");                                           //lost terug menu
+        foundfinalButton.setPrefSize(
+                200, 50);
+        foundfinalButton.setTranslateY(
+                -370);
+        foundfinalButton.setTranslateX(
+                700);
+        foundfinalButton.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        foundfinalButton.setOnAction(
+                (ActionEvent event) -> {
+                    thestage.setScene(menu);
+
+                }
+        );
 
         //stat
         statterugmenu = new Button();
-        statterugmenu.setText("Back");                                           //logoutbutton
-        statterugmenu.setPrefSize(200, 50);
-        statterugmenu.setTranslateY(-370);
-        statterugmenu.setTranslateX(700);
-        statterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        statterugmenu.setOnAction((ActionEvent event) -> {
-            thestage.setScene(menu);
 
-        });
+        statterugmenu.setText(
+                "Back");                                           //logoutbutton
+        statterugmenu.setPrefSize(
+                200, 50);
+        statterugmenu.setTranslateY(
+                -370);
+        statterugmenu.setTranslateX(
+                700);
+        statterugmenu.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        statterugmenu.setOnAction(
+                (ActionEvent event) -> {
+                    thestage.setScene(menu);
+
+                }
+        );
 
         //EINDE CONTROLS
         //PANES
+<<<<<<< HEAD
         StackPane inlogschermpane = new StackPane();                                             //toevoegen button
         //Stackpane inlogscherm
         inlogschermpane.getChildren().add(loginbtn);                        //toevoegen button
@@ -401,15 +953,38 @@ public class pyfs extends Application {
         inlogschermpane.getChildren().add(login.logologin());
         inlogschermpane.getChildren().add(login.loginerror(false));
         inlogschermpane.setStyle("-fx-background-color:#FFFFFF");
+=======
+        inlogschermpane = new StackPane();                        //Stackpane inlogscherm
+
+        inlogschermpane.getChildren()
+                .add(loginbtn);                        //toevoegen button
+        inlogschermpane.getChildren()
+                .add(username);                   //toevoegen username text
+        inlogschermpane.getChildren()
+                .add(password);
+        inlogschermpane.getChildren()
+                .add(logologin);
+        inlogschermpane.getChildren()
+                .add(loginerror);
+        inlogschermpane.setStyle(
+                "-fx-background-color:#FFFFFF");
+>>>>>>> origin/master
 
         menupane = new StackPane();
-        menupane.getChildren().add(logoutbtn);
-        menupane.getChildren().add(lostbtn);
-        menupane.getChildren().add(foundbtn);
-        menupane.getChildren().add(statbtn);
-        menupane.setStyle("-fx-background-color:#FFFFFF");
+
+        menupane.getChildren()
+                .add(logoutbtn);
+        menupane.getChildren()
+                .add(lostbtn);
+        menupane.getChildren()
+                .add(foundbtn);
+        menupane.getChildren()
+                .add(statbtn);
+        menupane.setStyle(
+                "-fx-background-color:#FFFFFF");
 
         lostpane = new StackPane();
+<<<<<<< HEAD
         lostpane.setStyle("-fx-background-color:#FFFFFF");
         lostpane.getChildren().add(lostterugmenu);
         lostpane.getChildren().add(lost1.date());
@@ -446,12 +1021,88 @@ public class pyfs extends Application {
         lost4pane.getChildren().add(lost1.Destin());
         lost4pane.getChildren().add(search);
         lost4pane.getChildren().add(lostback3);
+=======
+
+        lostpane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        lostpane.getChildren()
+                .add(lostterugmenu);
+        lostpane.getChildren()
+                .add(date);
+        lostpane.getChildren()
+                .add(time);
+        lostpane.getChildren()
+                .add(airport);
+        lostpane.getChildren()
+                .add(lostnext);
+
+        lost2pane = new StackPane();
+
+        lost2pane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        lost2pane.getChildren()
+                .add(lostback);
+        lost2pane.getChildren()
+                .add(naam);
+        lost2pane.getChildren()
+                .add(adres);
+        lost2pane.getChildren()
+                .add(city);
+        lost2pane.getChildren()
+                .add(zip);
+        lost2pane.getChildren()
+                .add(country);
+        lost2pane.getChildren()
+                .add(phone);
+        lost2pane.getChildren()
+                .add(mail);
+        lost2pane.getChildren()
+                .add(lostnext2);
+
+        lost3pane = new StackPane();
+
+        lost3pane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        lost3pane.getChildren()
+                .add(lugtype);
+        lost3pane.getChildren()
+                .add(lugbrand);
+        lost3pane.getChildren()
+                .add(lugcolor);
+        lost3pane.getChildren()
+                .add(lugspef);
+        lost3pane.getChildren()
+                .add(lugweight);
+        lost3pane.getChildren()
+                .add(lostback2);
+        lost3pane.getChildren()
+                .add(lostnext3);
+
+        lost4pane = new StackPane();
+
+        lost4pane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        lost4pane.getChildren()
+                .add(labelnr);
+        lost4pane.getChildren()
+                .add(flightnr);
+        lost4pane.getChildren()
+                .add(destin);
+        lost4pane.getChildren()
+                .add(search);
+        lost4pane.getChildren()
+                .add(lostback3);
+>>>>>>> origin/master
 
         lostfinalpane = new StackPane();
-        lostfinalpane.setStyle("-fx-background-color:#FFFFFF");
-        lostfinalpane.getChildren().add(lostterugfinal);
+
+        lostfinalpane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        lostfinalpane.getChildren()
+                .add(lostterugfinal);
 
         foundpane = new StackPane();
+<<<<<<< HEAD
         foundpane.setStyle("-fx-background-color:#FFFFFF");
         foundpane.getChildren().add(foundterugmenu);
         foundpane.getChildren().add(found1.date());
@@ -477,14 +1128,71 @@ public class pyfs extends Application {
         found3pane.getChildren().add(found1.Lugweight());
         found3pane.getChildren().add(foundback2);
         found3pane.getChildren().add(foundnext3);
+=======
+
+        foundpane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        foundpane.getChildren()
+                .add(foundterugmenu);
+        foundpane.getChildren()
+                .add(fdate);
+        foundpane.getChildren()
+                .add(ftime);
+        foundpane.getChildren()
+                .add(fairport);
+        foundpane.getChildren()
+                .add(foundnext);
+
+        found2pane = new StackPane();
+
+        found2pane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        found2pane.getChildren()
+                .add(flabelnr);
+        found2pane.getChildren()
+                .add(fflightnr);
+        found2pane.getChildren()
+                .add(fdest);
+        found2pane.getChildren()
+                .add(nametrav);
+        found2pane.getChildren()
+                .add(foundback);
+        found2pane.getChildren()
+                .add(foundnext2);
+
+        found3pane = new StackPane();
+
+        found3pane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        found3pane.getChildren()
+                .add(flugtype);
+        found3pane.getChildren()
+                .add(flugbrand);
+        found3pane.getChildren()
+                .add(flugcolor);
+        found3pane.getChildren()
+                .add(flugspef);
+        found3pane.getChildren()
+                .add(flugweight);
+        found3pane.getChildren()
+                .add(foundback2);
+        found3pane.getChildren()
+                .add(foundnext3);
+>>>>>>> origin/master
 
         foundfinalpane = new StackPane();
-        foundfinalpane.getChildren().add(foundfinalButton);
-        foundfinalpane.setStyle("-fx-background-color:#FFFFFF");
+
+        foundfinalpane.getChildren()
+                .add(foundfinalButton);
+        foundfinalpane.setStyle(
+                "-fx-background-color:#FFFFFF");
 
         statpane = new StackPane();
-        statpane.setStyle("-fx-background-color:#FFFFFF");
-        statpane.getChildren().add(statterugmenu);
+
+        statpane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        statpane.getChildren()
+                .add(statterugmenu);
 
         //geeft alle scenes in
         loginscherm = new Scene(inlogschermpane, 1600, 800);
@@ -500,9 +1208,18 @@ public class pyfs extends Application {
         foundfinal = new Scene(foundfinalpane, 1600, 800);
         stat = new Scene(statpane, 1600, 800);
 
+<<<<<<< HEAD
         primaryStage.setTitle("Applicatie naam");
         primaryStage.setScene(loginscherm);
         primaryStage.setResizable(false);
+=======
+        primaryStage.setTitle(
+                "Applicatie naam");
+        primaryStage.setScene(menu);
+
+        primaryStage.setResizable(
+                false);
+>>>>>>> origin/master
         primaryStage.show();
 
     }
