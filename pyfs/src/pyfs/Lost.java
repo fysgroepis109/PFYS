@@ -65,7 +65,7 @@ public class Lost {
     }
 
     TextField Naam() {
-        naam = new TextField();                 //text voor tijd invullen
+        naam = new TextField();                 //text voor naam invullen
         naam.setPromptText("Name");
         naam.setFont(Font.font("Verdana", 20));
         naam.setMaxWidth(220);
@@ -97,7 +97,7 @@ public class Lost {
     }
 
     TextField Zip() {
-        zip = new TextField();
+        zip = new TextField();              //text voor postcode invullen
         zip.setPromptText("Zip code");
         zip.setFont(Font.font("Verdana", 20));
         zip.setMaxWidth(220);
@@ -106,7 +106,7 @@ public class Lost {
         return zip;
     }
 
-    TextField country() {
+    TextField country() {               //text voor land invullen
         country = new TextField();
         country.setPromptText("Country");
         country.setFont(Font.font("Verdana", 20));
@@ -118,7 +118,7 @@ public class Lost {
 
     TextField Phone() {
 
-        phone = new TextField();
+        phone = new TextField();            //text voor telefoonnummer
         phone.setPromptText("Phone number");
         phone.setFont(Font.font("Verdana", 20));
         phone.setMaxWidth(220);
@@ -128,7 +128,7 @@ public class Lost {
     }
 
     TextField Mail() {
-        mail = new TextField();
+        mail = new TextField();             //text voor E-mail adres
         mail.setPromptText("E-mail");
         mail.setFont(Font.font("Verdana", 20));
         mail.setMaxWidth(220);
@@ -139,7 +139,7 @@ public class Lost {
 
     TextField Lugtype() {
 
-        lugtype = new TextField();                 //text voor tijd invullen
+        lugtype = new TextField();                 //text voor bagage type invullen
         lugtype.setPromptText("Lugage type");
         lugtype.setFont(Font.font("Verdana", 20));
         lugtype.setMaxWidth(300);
@@ -149,7 +149,7 @@ public class Lost {
     }
 
     TextField Lugbrand() {
-        lugbrand = new TextField();                 //text voor adres invullen
+        lugbrand = new TextField();                 //text voor tas merk invullen
         lugbrand.setPromptText("Lugage brand");
         lugbrand.setFont(Font.font("Verdana", 20));
         lugbrand.setMaxWidth(300);
@@ -159,7 +159,7 @@ public class Lost {
     }
 
     TextField Lugcolor() {
-        lugcolor = new TextField();                 //text voor woonplaats invullen
+        lugcolor = new TextField();                 //text voor kleur invullen
         lugcolor.setPromptText("Lugage color");
         lugcolor.setFont(Font.font("Verdana", 20));
         lugcolor.setMaxWidth(300);
@@ -169,7 +169,7 @@ public class Lost {
     }
 
     TextField Lugweight() {
-        lugweight = new TextField();                 //text voor woonplaats invullen
+        lugweight = new TextField();                 //text voor gewicht invullen
         lugweight.setPromptText("Lugage weight");
         lugweight.setFont(Font.font("Verdana", 20));
         lugweight.setMaxWidth(300);
@@ -179,7 +179,7 @@ public class Lost {
     }
 
     TextArea lugspef() {
-        lugspef = new TextArea();
+        lugspef = new TextArea();                   //text voor bijzonderheden tas invullen
         lugspef.setPromptText("Lugage specifications");
         lugspef.setFont(Font.font("Verdana", 20));
         lugspef.setMaxSize(300, 160);
@@ -190,7 +190,7 @@ public class Lost {
 
     TextField Labelnr() {
 
-        labelnr = new TextField();                 //text voor tijd invullen
+        labelnr = new TextField();                 //text voor labelnummer invullen
         labelnr.setPromptText("Label number");
         labelnr.setFont(Font.font("Verdana", 20));
         labelnr.setMaxWidth(220);
@@ -200,7 +200,7 @@ public class Lost {
     }
 
     TextField Flightnr() {
-        flightnr = new TextField();                 //text voor adres invullen
+        flightnr = new TextField();                 //text voor vlucht nummer invullen
         flightnr.setPromptText("Flight number");
         flightnr.setFont(Font.font("Verdana", 20));
         flightnr.setMaxWidth(220);
@@ -210,7 +210,7 @@ public class Lost {
     }
 
     TextField Destin() {
-        destin = new TextField();                 //text voor woonplaats invullen
+        destin = new TextField();                 //text voor bestemming invullen
         destin.setPromptText("Destination");
         destin.setFont(Font.font("Verdana", 20));
         destin.setMaxWidth(220);

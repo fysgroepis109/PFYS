@@ -121,7 +121,7 @@ public class pyfs extends Application {
                             } else {
 
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                                alert.setTitle("waarschuwing");
+                                alert.setTitle("warning");
                                 alert.setHeaderText("username and/or password are incorrect");
                                 alert.showAndWait();
 
@@ -132,7 +132,7 @@ public class pyfs extends Application {
                     } else {
 
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("waarschuwing");
+                        alert.setTitle("warning");
                         alert.setHeaderText("username and/or password are incorrect");
                         alert.showAndWait();
 
@@ -415,7 +415,6 @@ public class pyfs extends Application {
         inlogschermpane.getChildren().add(login.username());                   //toevoegen username text
         inlogschermpane.getChildren().add(login.password());
         inlogschermpane.getChildren().add(login.logologin());
-        inlogschermpane.getChildren().add(login.loginerror(false));
         inlogschermpane.setStyle("-fx-background-color:#FFFFFF");
 
         menupane = new StackPane();
@@ -432,7 +431,7 @@ public class pyfs extends Application {
         lostpane.getChildren().add(lost1.Time());
         lostpane.getChildren().add(lost1.airport());
         lostpane.getChildren().add(lostnext);
-        
+
         lost2pane = new StackPane();
         lost2pane.setStyle("-fx-background-color:#FFFFFF");
         lost2pane.getChildren().add(lostback);
@@ -454,7 +453,7 @@ public class pyfs extends Application {
         lost3pane.getChildren().add(lost1.Lugweight());
         lost3pane.getChildren().add(lostback2);
         lost3pane.getChildren().add(lostnext3);
-        
+
         lost4pane = new StackPane();
         lost4pane.setStyle("-fx-background-color:#FFFFFF");
         lost4pane.getChildren().add(lost1.Labelnr());
@@ -483,7 +482,7 @@ public class pyfs extends Application {
         found2pane.getChildren().add(found1.NameTrav());
         found2pane.getChildren().add(foundback);
         found2pane.getChildren().add(foundnext2);
-        
+
         found3pane = new StackPane();
         found3pane.setStyle("-fx-background-color:#FFFFFF");
         found3pane.getChildren().add(found1.Lugtype());

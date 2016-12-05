@@ -64,7 +64,7 @@ public class Found {
     
      TextField Labelnr() {
 
-        labelnr = new TextField();                 //text voor tijd invullen
+        labelnr = new TextField();                 //text voor label invullen
         labelnr.setPromptText("Label number");
         labelnr.setFont(Font.font("Verdana", 20));
         labelnr.setMaxWidth(220);
@@ -74,7 +74,7 @@ public class Found {
     }
 
     TextField Flightnr() {
-        flightnr = new TextField();                 //text voor adres invullen
+        flightnr = new TextField();                 //text voor vluchtnummer invullen
         flightnr.setPromptText("Flight number");
         flightnr.setFont(Font.font("Verdana", 20));
         flightnr.setMaxWidth(220);
@@ -84,7 +84,7 @@ public class Found {
     }
 
     TextField Destin() {
-        destin = new TextField();                 //text voor woonplaats invullen
+        destin = new TextField();                 //text voor bestemming invullen
         destin.setPromptText("Destination");
         destin.setFont(Font.font("Verdana", 20));
         destin.setMaxWidth(220);
@@ -107,7 +107,7 @@ public class Found {
     
      TextField Lugtype() {
 
-        lugtype = new TextField();                 //text voor tijd invullen
+        lugtype = new TextField();                 //text voor bagage soort invullen
         lugtype.setPromptText("Lugage type");
         lugtype.setFont(Font.font("Verdana", 20));
         lugtype.setMaxWidth(300);
@@ -117,7 +117,7 @@ public class Found {
     }
 
     TextField Lugbrand() {
-        lugbrand = new TextField();                 //text voor adres invullen
+        lugbrand = new TextField();                 //text voor band invullen
         lugbrand.setPromptText("Lugage brand");
         lugbrand.setFont(Font.font("Verdana", 20));
         lugbrand.setMaxWidth(300);
@@ -127,7 +127,7 @@ public class Found {
     }
 
     TextField Lugcolor() {
-        lugcolor = new TextField();                 //text voor woonplaats invullen
+        lugcolor = new TextField();                 //text voor tas kleur invullen
         lugcolor.setPromptText("Lugage color");
         lugcolor.setFont(Font.font("Verdana", 20));
         lugcolor.setMaxWidth(300);
@@ -137,7 +137,7 @@ public class Found {
     }
 
     TextField Lugweight() {
-        lugweight = new TextField();                 //text voor woonplaats invullen
+        lugweight = new TextField();                 //text voor gewicht invullen
         lugweight.setPromptText("Lugage weight");
         lugweight.setFont(Font.font("Verdana", 20));
         lugweight.setMaxWidth(300);
@@ -146,7 +146,7 @@ public class Found {
         return lugweight;
     }
 
-    TextArea Lugspef() {
+    TextArea Lugspef() {                    // text voor bijzondere eigenschappen
         lugspef = new TextArea();
         lugspef.setPromptText("Lugage specifications");
         lugspef.setFont(Font.font("Verdana", 20));

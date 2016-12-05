@@ -59,17 +59,7 @@ public class Login {
         return password;
     } 
 
-    Text loginerror(boolean tf) {
-
-        loginerror = new Text();
-        loginerror.setText("username or password are wrong, contact administrator if you cannot login");
-        loginerror.setTranslateY(210);
-        loginerror.setVisible(tf);
-        loginerror.setFont(Font.font("Verdana"));
-        loginerror.setFill(Color.RED);
-
-        return loginerror;
-    }
+    
 
     ImageView logologin() {
         logologin = new ImageView("download.png");       //voegt corendon logo toe aan loginscherm
