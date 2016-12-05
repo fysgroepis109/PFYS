@@ -175,7 +175,7 @@ public class pyfs extends Application {
         });
 
         foundbtn = new Button();
-        foundbtn.setText("Found");                                           //lost button
+        foundbtn.setText("Found");                                           //found button
         foundbtn.setPrefSize(200, 50);
         foundbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         foundbtn.setOnAction((ActionEvent event) -> {
@@ -185,7 +185,7 @@ public class pyfs extends Application {
         });
 
         statbtn = new Button();
-        statbtn.setText("Statistics");                                           //lost button
+        statbtn.setText("Statistics");                                           //statistics button
         statbtn.setPrefSize(200, 50);
         statbtn.setTranslateX(500);
         statbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
@@ -198,7 +198,7 @@ public class pyfs extends Application {
         //lost
         //lost 1
         lostterugmenu = new Button();
-        lostterugmenu.setText("Back");                                           //logoutbutton
+        lostterugmenu.setText("Back");                                           //back button
         lostterugmenu.setPrefSize(200, 50);
         lostterugmenu.setTranslateY(-370);
         lostterugmenu.setTranslateX(700);
@@ -210,7 +210,7 @@ public class pyfs extends Application {
         });
 
         lostnext = new Button();
-        lostnext.setText("Next");                                           //logoutbutton
+        lostnext.setText("Next");                                           //next button
         lostnext.setPrefSize(120, 50);
         lostnext.setTranslateY(105);
         lostnext.setTranslateX(55);
@@ -223,7 +223,7 @@ public class pyfs extends Application {
 
         //lost 2
         lostback = new Button();
-        lostback.setText("Back");                                           //logoutbutton
+        lostback.setText("Back");                                           //back button
         lostback.setPrefSize(200, 50);
         lostback.setTranslateY(-370);
         lostback.setTranslateX(700);
@@ -235,7 +235,7 @@ public class pyfs extends Application {
         });
 
         lostnext2 = new Button();
-        lostnext2.setText("Next");                                           //logoutbutton
+        lostnext2.setText("Next");                                           //next button
         lostnext2.setPrefSize(120, 50);
         lostnext2.setTranslateY(105);
         lostnext2.setTranslateX(55);
@@ -247,7 +247,7 @@ public class pyfs extends Application {
         });
 
         lostback2 = new Button();
-        lostback2.setText("Back");                                           //logoutbutton
+        lostback2.setText("Back");                                           //back button
         lostback2.setPrefSize(200, 50);
         lostback2.setTranslateY(-370);
         lostback2.setTranslateX(700);
@@ -259,7 +259,7 @@ public class pyfs extends Application {
         });
 
         lostnext3 = new Button();
-        lostnext3.setText("Next");                                           //logoutbutton
+        lostnext3.setText("Next");                                           //next button
         lostnext3.setPrefSize(120, 50);
         lostnext3.setTranslateY(175);
         lostnext3.setTranslateX(92);
@@ -271,7 +271,7 @@ public class pyfs extends Application {
         });
 
         search = new Button();
-        search.setText("Search");                                           //logoutbutton
+        search.setText("Search");                                           //Search button
         search.setPrefSize(120, 50);
         search.setTranslateY(175);
         search.setTranslateX(92);
@@ -283,7 +283,7 @@ public class pyfs extends Application {
         });
 
         lostback3 = new Button();
-        lostback3.setText("Back");                                           //logoutbutton
+        lostback3.setText("Back");                                           //back button
         lostback3.setPrefSize(200, 50);
         lostback3.setTranslateY(-370);
         lostback3.setTranslateX(700);
@@ -309,7 +309,7 @@ public class pyfs extends Application {
 
         //found
         foundterugmenu = new Button();
-        foundterugmenu.setText("Back");                                           //logoutbutton
+        foundterugmenu.setText("Back");                                           //back button
         foundterugmenu.setPrefSize(200, 50);
         foundterugmenu.setTranslateY(-370);
         foundterugmenu.setTranslateX(700);
@@ -321,7 +321,7 @@ public class pyfs extends Application {
         });
 
         foundnext = new Button();
-        foundnext.setText("Next");                                           //logoutbutton
+        foundnext.setText("Next");                                           //next button
         foundnext.setPrefSize(120, 50);
         foundnext.setTranslateY(105);
         foundnext.setTranslateX(55);
@@ -333,7 +333,7 @@ public class pyfs extends Application {
         });
 
         foundback = new Button();
-        foundback.setText("Back");                                           //logoutbutton
+        foundback.setText("Back");                                           //back button
         foundback.setPrefSize(200, 50);
         foundback.setTranslateY(-370);
         foundback.setTranslateX(700);
@@ -345,7 +345,7 @@ public class pyfs extends Application {
         });
 
         foundnext2 = new Button();
-        foundnext2.setText("Next");                                           //nextbutton
+        foundnext2.setText("Next");                                           //next button
         foundnext2.setPrefSize(120, 50);
         foundnext2.setTranslateY(105);
         foundnext2.setTranslateX(55);
@@ -357,7 +357,7 @@ public class pyfs extends Application {
         });
 
         foundback2 = new Button();
-        foundback2.setText("Back");                                           //logoutbutton
+        foundback2.setText("Back");                                           //back button
         foundback2.setPrefSize(200, 50);
         foundback2.setTranslateY(-370);
         foundback2.setTranslateX(700);
@@ -369,7 +369,7 @@ public class pyfs extends Application {
         });
 
         foundnext3 = new Button();
-        foundnext3.setText("Place");                                           //logoutbutton
+        foundnext3.setText("Place");                                           //place button
         foundnext3.setPrefSize(120, 50);
         foundnext3.setTranslateY(175);
         foundnext3.setTranslateX(92);
@@ -395,7 +395,7 @@ public class pyfs extends Application {
 
         //stat
         statterugmenu = new Button();
-        statterugmenu.setText("Back");                                           //logoutbutton
+        statterugmenu.setText("Back");                                           //back button
         statterugmenu.setPrefSize(200, 50);
         statterugmenu.setTranslateY(-370);
         statterugmenu.setTranslateX(700);
