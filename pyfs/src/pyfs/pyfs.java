@@ -60,8 +60,8 @@ public class pyfs extends Application {
 
     //Stat
     Button statterugmenu;
-    StackPane statpane;
-    Scene stat;
+    StackPane statpane, stat1pane;
+    Scene stat, statblock, stat1;
 
     @Override
     public void start(Stage primaryStage) {
@@ -191,7 +191,65 @@ public class pyfs extends Application {
         statbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         statbtn.setOnAction((ActionEvent event) -> {
 
-            thestage.setScene(stat);
+            String UserName = login.getTextUsername();   //getting username
+            String Password = login.getTextPassword();   //getting password
+
+            final String USERNAME = Mysql.username();
+            final String PASSWORD = Mysql.password();
+            final String CONN_STRING = Mysql.urlmysql();
+
+            Connection conn;
+
+            try {
+
+                conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+                System.out.println("Connected!");
+                Statement stmt = (Statement) conn.createStatement();
+                ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE naam= " + '"' + UserName + '"');   //check if there is a accout with name
+                int count = 0;
+
+                while (rs1.next()) {
+
+                    count = rs1.getInt("total");
+
+                }
+
+                ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE naam = " + "'" + UserName + "'");               //getting password form database
+
+                if (count > 0) {
+
+                    while (rs.next()) {
+
+                        String pass = rs.getString("wachtwoord");
+                        if (pass.equals(Password)) {                         // check if passwords are the same
+
+                            thestage.setScene(stat);
+
+                        } else {
+
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("waarschuwing");
+                            alert.setHeaderText("Geen toestemming");
+                            alert.showAndWait();
+
+                        }
+
+                    }
+
+                } else {
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("waarschuwing");
+                    alert.setHeaderText("geen toestemming");
+                    alert.showAndWait();
+
+                }
+
+            } catch (SQLException ed) {
+
+                System.err.println(ed);
+
+            }
 
         });
 
@@ -432,7 +490,7 @@ public class pyfs extends Application {
         lostpane.getChildren().add(lost1.Time());
         lostpane.getChildren().add(lost1.airport());
         lostpane.getChildren().add(lostnext);
-        
+
         lost2pane = new StackPane();
         lost2pane.setStyle("-fx-background-color:#FFFFFF");
         lost2pane.getChildren().add(lostback);
@@ -454,7 +512,7 @@ public class pyfs extends Application {
         lost3pane.getChildren().add(lost1.Lugweight());
         lost3pane.getChildren().add(lostback2);
         lost3pane.getChildren().add(lostnext3);
-        
+
         lost4pane = new StackPane();
         lost4pane.setStyle("-fx-background-color:#FFFFFF");
         lost4pane.getChildren().add(lost1.Labelnr());
@@ -483,7 +541,7 @@ public class pyfs extends Application {
         found2pane.getChildren().add(found1.NameTrav());
         found2pane.getChildren().add(foundback);
         found2pane.getChildren().add(foundnext2);
-        
+
         found3pane = new StackPane();
         found3pane.setStyle("-fx-background-color:#FFFFFF");
         found3pane.getChildren().add(found1.Lugtype());
