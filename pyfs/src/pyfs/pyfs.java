@@ -10,6 +10,7 @@ import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -59,9 +60,10 @@ public class pyfs extends Application {
     Scene found, found2, found3, foundfinal;
 
     //Stat
-    Button statterugmenu;
-    StackPane statpane, stat1pane;
-    Scene stat, statblock, stat1;
+    Button statterugmenu, yearbtn, currentbtn;
+    StackPane statpane, yearpane, currentpane;
+    Scene stat, year, current;
+    Stage yearstage, currentstage;
 
     @Override
     public void start(Stage primaryStage) {
@@ -69,6 +71,7 @@ public class pyfs extends Application {
         thestage = primaryStage; //verklaart toegoevoegde stage
         Found found1 = new Found(); //Maakt nieuwe Found genaamd found1
         Lost lost1 = new Lost();    //maakt niuewe Lost genaamd lost1
+        Stat stat1 = new Stat();     // nieuwe Stat genaamd stat1
         Login login = new Login();  //maakt nieuwe Login genaamd login
         mysql Mysql = new mysql();
 
@@ -464,6 +467,37 @@ public class pyfs extends Application {
 
         });
 
+        //stat
+        yearbtn = new Button();
+        yearbtn.setText("Over year");                                           //back button
+        yearbtn.setPrefSize(200, 50);
+        yearbtn.setTranslateX(300);
+        yearbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        yearbtn.setOnAction((ActionEvent event) -> {
+
+            yearstage = new Stage();
+            yearstage.setTitle("Over year");
+            yearstage.setScene(year);
+            yearstage.setResizable(false);
+            yearstage.show();
+
+        });
+
+        currentbtn = new Button();
+        currentbtn.setText("Current lugage");                                           //back button
+        currentbtn.setPrefSize(200, 50);
+        currentbtn.setTranslateX(-300);
+        currentbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        currentbtn.setOnAction((ActionEvent event) -> {
+
+            currentstage = new Stage();
+            currentstage.setTitle("Current lugage");
+            currentstage.setScene(current);
+            currentstage.setResizable(false);
+            currentstage.show();
+
+        });
+
         //EINDE CONTROLS
         //PANES
         StackPane inlogschermpane = new StackPane();                                             //toevoegen button
@@ -558,6 +592,16 @@ public class pyfs extends Application {
         statpane = new StackPane();
         statpane.setStyle("-fx-background-color:#FFFFFF");
         statpane.getChildren().add(statterugmenu);
+        statpane.getChildren().add(yearbtn);
+        statpane.getChildren().add(currentbtn);
+
+        yearpane = new StackPane();
+        yearpane.setStyle("-fx-background-color:#FFFFFF");
+        yearpane.getChildren().add(stat1.OverYear());
+
+        currentpane = new StackPane();
+        currentpane.setStyle("-fx-background-color:#FFFFFF");
+        currentpane.getChildren().add(stat1.CurrentLugage());
 
         //geeft alle scenes in
         loginscherm = new Scene(inlogschermpane, 1600, 800);
@@ -572,6 +616,8 @@ public class pyfs extends Application {
         found3 = new Scene(found3pane, 1600, 800);
         foundfinal = new Scene(foundfinalpane, 1600, 800);
         stat = new Scene(statpane, 1600, 800);
+        year = new Scene(yearpane, 1200, 800);
+        current = new Scene(currentpane, 1200, 800);
 
         primaryStage.setTitle("Applicatie naam");
         primaryStage.setScene(loginscherm);
