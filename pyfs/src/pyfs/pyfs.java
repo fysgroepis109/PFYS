@@ -231,8 +231,8 @@ public class pyfs extends Application {
                         } else {
 
                             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                            alert.setTitle("waarschuwing");
-                            alert.setHeaderText("Geen toestemming");
+                            alert.setTitle("Warning");
+                            alert.setHeaderText("You do not have permission to this page");
                             alert.showAndWait();
 
                         }
@@ -242,8 +242,8 @@ public class pyfs extends Application {
                 } else {
 
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("waarschuwing");
-                    alert.setHeaderText("geen toestemming");
+                    alert.setTitle("Warning");
+                    alert.setHeaderText("You do not have permission to this page");
                     alert.showAndWait();
 
                 }
@@ -338,6 +338,9 @@ public class pyfs extends Application {
         search.setTranslateX(92);
         search.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         search.setOnAction((ActionEvent event) -> {
+            
+            String naam = lost1.getTextLugspef();
+         System.out.print(naam);
 
             thestage.setScene(lostfinal);
 
@@ -436,6 +439,8 @@ public class pyfs extends Application {
         foundnext3.setTranslateX(92);
         foundnext3.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         foundnext3.setOnAction((ActionEvent event) -> {
+            
+                  
 
             thestage.setScene(foundfinal);
 

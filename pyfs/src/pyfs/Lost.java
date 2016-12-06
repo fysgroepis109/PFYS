@@ -27,6 +27,63 @@ public class Lost {
     Lost() {
 
     }
+     public String getTextLugspef (){
+        return lugspef.getText();
+    }
+
+    public String getTextDestin() {
+        return destin.getText();
+    }
+
+    public String getTextFlightnr() {
+        return flightnr.getText();
+    }
+
+    public String getTextLabelnr() {
+        return labelnr.getText();
+    }
+
+    public String getTextlugweight() {
+        return lugweight.getText();
+    }
+
+    public String getTextLugcolor() {
+        return lugcolor.getText();
+    }
+
+    public String getTextLygbrand() {
+        return lugbrand.getText();
+    }
+
+    public String getTextLugype() {
+        return lugtype.getText();
+    }
+
+    public String getTextNaam() {
+
+        return naam.getText();
+    }
+
+    public String getTextAdres() {
+        return adres.getText();
+    }
+
+    public String getTextZip() {
+        return zip.getText();
+    }
+
+    public String getTextCountry() {
+        return country.getText();
+    }
+
+    public String getTextPhone() {
+        return phone.getText();
+
+    }
+
+    public String getTextMail() {
+        return mail.getText();
+    }
 
     DatePicker date() {
 
