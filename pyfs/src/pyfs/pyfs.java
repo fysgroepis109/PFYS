@@ -336,7 +336,7 @@ public class pyfs extends Application {
         search.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         search.setOnAction((ActionEvent event) -> {
             
-            String naam = lost1.getTextNaam();
+            String naam = lost1.getTextLugspef();
          System.out.print(naam);
 
             thestage.setScene(lostfinal);
