@@ -17,6 +17,8 @@ import javafx.scene.text.Font;
  */
 public class Lost {
 
+    
+
     private DatePicker date;
     private TextField time;
     private TextField city;
@@ -27,6 +29,12 @@ public class Lost {
     Lost() {
 
     }
+    public String getTextNaam(){
+       
+        return naam.getText();
+    }
+    
+    
 
     DatePicker date() {
 
