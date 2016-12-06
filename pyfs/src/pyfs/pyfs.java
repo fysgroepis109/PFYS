@@ -43,7 +43,7 @@ public class pyfs extends Application {
     StackPane inlogschermpane;
 
     //Menu
-    Button statbtn, lostbtn, foundbtn, logoutbtn;
+    Button statbtn, lostbtn, foundbtn, logoutbtn, adminbtn;
     StackPane menupane;
     Scene menu;
 
@@ -64,6 +64,12 @@ public class pyfs extends Application {
     StackPane statpane, yearpane, currentpane;
     Scene stat, year, current;
     Stage yearstage, currentstage;
+    
+    //Admin
+    Button adminterugmenu;
+    StackPane adminpane;
+    Scene admin;
+    
 
     @Override
     public void start(Stage primaryStage) {
@@ -223,10 +229,80 @@ public class pyfs extends Application {
 
                     while (rs.next()) {
 
-                        String pass = rs.getString("wachtwoord");
-                        if (pass.equals(Password)) {                         // check if passwords are the same
+                        int toegangstat = rs.getInt("toegang");
+                        if (toegangstat >= 2) {                         // check if passwords are the same
 
                             thestage.setScene(stat);
+
+                        } else {
+
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Warning");
+                            alert.setHeaderText("You do not have permission to this page");
+                            alert.showAndWait();
+
+                        }
+
+                    }
+
+                } else {
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Warning");
+                    alert.setHeaderText("You do not have permission to this page");
+                    alert.showAndWait();
+
+                }
+
+            } catch (SQLException ed) {
+
+                System.err.println(ed);
+
+            }
+
+        });
+        
+        adminbtn = new Button();
+        adminbtn.setText("Admin");                                           //statistics button
+        adminbtn.setPrefSize(200, 50);
+        adminbtn.setTranslateY(-370);
+        adminbtn.setTranslateX(-700);
+        adminbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        adminbtn.setOnAction((ActionEvent event) -> {
+
+            String UserName = login.getTextUsername();   //getting username
+            String Password = login.getTextPassword();   //getting password
+
+            final String USERNAME = Mysql.username();
+            final String PASSWORD = Mysql.password();
+            final String CONN_STRING = Mysql.urlmysql();
+
+            Connection conn;
+
+            try {
+
+                conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+                System.out.println("Connected!");
+                Statement stmt = (Statement) conn.createStatement();
+                ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE naam= " + '"' + UserName + '"');   //check if there is a accout with name
+                int count = 0;
+
+                while (rs1.next()) {
+
+                    count = rs1.getInt("total");
+
+                }
+
+                ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE naam = " + "'" + UserName + "'");               //getting password form database
+
+                if (count > 0) {
+
+                    while (rs.next()) {
+
+                         int toegangadmin = rs.getInt("toegang");
+                        if (toegangadmin >= 3) {                         // check if passwords are the same                        // check if passwords are the same
+
+                            thestage.setScene(admin);
 
                         } else {
 
@@ -502,6 +578,19 @@ public class pyfs extends Application {
             currentstage.show();
 
         });
+        
+        //stat
+        adminterugmenu = new Button();
+        adminterugmenu.setText("Back");                                           //back button
+        adminterugmenu.setPrefSize(200, 50);
+        adminterugmenu.setTranslateY(-370);
+        adminterugmenu.setTranslateX(700);
+        adminterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        adminterugmenu.setOnAction((ActionEvent event) -> {
+
+            thestage.setScene(menu);
+
+        });
 
         //EINDE CONTROLS
         //PANES
@@ -519,6 +608,7 @@ public class pyfs extends Application {
         menupane.getChildren().add(lostbtn);
         menupane.getChildren().add(foundbtn);
         menupane.getChildren().add(statbtn);
+        menupane.getChildren().add(adminbtn);
         menupane.setStyle("-fx-background-color:#FFFFFF");
 
         lostpane = new StackPane();
@@ -607,7 +697,13 @@ public class pyfs extends Application {
         currentpane = new StackPane();
         currentpane.setStyle("-fx-background-color:#FFFFFF");
         currentpane.getChildren().add(stat1.CurrentLugage());
-
+        
+       adminpane = new StackPane();
+       adminpane.setStyle("-fx-background-color:#FFFFFF");
+       adminpane.getChildren().add(adminterugmenu);
+       
+      
+       
         //geeft alle scenes in
         loginscherm = new Scene(inlogschermpane, 1600, 800);
         menu = new Scene(menupane, 1600, 800);
@@ -623,6 +719,7 @@ public class pyfs extends Application {
         stat = new Scene(statpane, 1600, 800);
         year = new Scene(yearpane, 1200, 800);
         current = new Scene(currentpane, 1200, 800);
+        admin = new Scene(adminpane, 1600, 800);
 
         primaryStage.setTitle("Applicatie naam");
         primaryStage.setScene(loginscherm);
