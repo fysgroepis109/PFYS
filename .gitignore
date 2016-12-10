@@ -13,3 +13,5 @@ hs_err_pid*
 /pyfs/nbproject/private/
 /BSA3 2.0/nbproject/private/
 /pyfs/build/
+pyfs/src/pyfs/Admin.java
+*.java
