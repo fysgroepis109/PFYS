@@ -64,12 +64,11 @@ public class pyfs extends Application {
     StackPane statpane, yearpane, currentpane;
     Scene stat, year, current;
     Stage yearstage, currentstage;
-    
+
     //Admin
     Button adminterugmenu;
     StackPane adminpane;
     Scene admin;
-    
 
     @Override
     public void start(Stage primaryStage) {
@@ -80,6 +79,7 @@ public class pyfs extends Application {
         Stat stat1 = new Stat();     // nieuwe Stat genaamd stat1
         Login login = new Login();  //maakt nieuwe Login genaamd login
         mysql Mysql = new mysql();
+        Lostd lostd = new Lostd();
 
         //BEGIN CONTROLS
         //Loginscherm
@@ -111,9 +111,7 @@ public class pyfs extends Application {
                     int count = 0;
 
                     while (rs1.next()) {
-
                         count = rs1.getInt("total");
-
                     }
 
                     ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE naam = " + "'" + UserName + "'");               //getting password form database
@@ -261,7 +259,7 @@ public class pyfs extends Application {
             }
 
         });
-        
+
         adminbtn = new Button();
         adminbtn.setText("Admin");                                           //statistics button
         adminbtn.setPrefSize(200, 50);
@@ -299,7 +297,7 @@ public class pyfs extends Application {
 
                     while (rs.next()) {
 
-                         int toegangadmin = rs.getInt("toegang");
+                        int toegangadmin = rs.getInt("toegang");
                         if (toegangadmin >= 3) {                         // check if passwords are the same                        // check if passwords are the same
 
                             thestage.setScene(admin);
@@ -414,9 +412,13 @@ public class pyfs extends Application {
         search.setTranslateX(92);
         search.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         search.setOnAction((ActionEvent event) -> {
-            
-            String naam = lost1.getTextLugspef();
-         System.out.print(naam);
+
+            lostd.invullen();
+            String[] test = new String[1];
+            test[0] = lost1.getTextDestin();
+
+            System.out.println(test[0]);
+            System.out.println(lost1.getTextNaam());
 
             thestage.setScene(lostfinal);
 
@@ -515,8 +517,6 @@ public class pyfs extends Application {
         foundnext3.setTranslateX(92);
         foundnext3.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         foundnext3.setOnAction((ActionEvent event) -> {
-            
-                  
 
             thestage.setScene(foundfinal);
 
@@ -578,7 +578,7 @@ public class pyfs extends Application {
             currentstage.show();
 
         });
-        
+
         //stat
         adminterugmenu = new Button();
         adminterugmenu.setText("Back");                                           //back button
@@ -697,13 +697,11 @@ public class pyfs extends Application {
         currentpane = new StackPane();
         currentpane.setStyle("-fx-background-color:#FFFFFF");
         currentpane.getChildren().add(stat1.CurrentLugage());
-        
-       adminpane = new StackPane();
-       adminpane.setStyle("-fx-background-color:#FFFFFF");
-       adminpane.getChildren().add(adminterugmenu);
-       
-      
-       
+
+        adminpane = new StackPane();
+        adminpane.setStyle("-fx-background-color:#FFFFFF");
+        adminpane.getChildren().add(adminterugmenu);
+
         //geeft alle scenes in
         loginscherm = new Scene(inlogschermpane, 1600, 800);
         menu = new Scene(menupane, 1600, 800);

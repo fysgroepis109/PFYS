@@ -41,8 +41,6 @@ public class Login {
         username.setFont(Font.font("Verdana", 20));
         username.setTranslateY(-20);
         username.setMaxWidth(220);
-        
-        
 
         return username;
     }
@@ -54,12 +52,9 @@ public class Login {
         password.setMaxWidth(220);
         password.setFont(Font.font("Verdana", 20));
         password.setTranslateY(30);
-       
 
         return password;
-    } 
-
-    
+    }
 
     ImageView logologin() {
         logologin = new ImageView("download.png");       //voegt corendon logo toe aan loginscherm
@@ -69,23 +64,13 @@ public class Login {
     }
 
     public String getTextUsername() {
-        
+
         return username.getText();
     }
 
     public String getTextPassword() {
-        
-        
+
         return password.getText();
     }
-    
-    
-    
-    
 
-   
-    
-    
-    
-    
 }
