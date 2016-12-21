@@ -21,6 +21,15 @@ public class Lostd {
     mysql Mysql = new mysql();
     Lost lost1 = new Lost();
 
+    
+    
+    private String name;
+    
+    
+    public void vnaam(String name){
+        this.name = name;
+        System.out.println(this.name);
+    }
     public void invullen() {
 
         final String USERNAME = Mysql.username();
@@ -31,10 +40,33 @@ public class Lostd {
 
         try {
 
+            
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-            System.out.println("Connected!");
+            System.out.println("Connected persoon");
             Statement stmt = (Statement) conn.createStatement();
-            ResultSet rs1 = stmt.executeQuery("insert into bagage " + "values");
+            
+            
+            ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM persoon where name = " + '"' + name + '"');
+             int count5 = 0;
+            while (rs5.next()) {
+                count5 = rs5.getInt("total");
+            }
+            if(count5 > 0){
+                System.out.println("het werk");
+            }else{
+                System.out.println("het werk niet");
+            }
+            
+           
+            
+            
+            
+            
+            
+            
+            
+            
+            ResultSet rs1 = stmt.executeQuery("insert into bagage(Unr, Pnr, type, brand, colour, weight, spes, FLD) " + "values");
 
             ResultSet rs = stmt.executeQuery("count (*) from bagage where label = " + lost1.getTextLabelnr());
 

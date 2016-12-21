@@ -21,13 +21,13 @@ public class Lost {
     private TextField time;
     private TextField city;
     private ComboBox airport;
-    private TextField naam, adres, zip, country, phone, mail, lugtype, lugbrand, lugcolor, lugweight, labelnr, flightnr, destin;
+    private TextField naam;
+    private TextField adres, zip, country, phone, mail, lugtype, lugbrand, lugcolor, lugweight, labelnr, flightnr, destin;
     private TextArea lugspef;
 
-    Lost() {
+    
 
-    }
-     public String getTextLugspef (){
+    public String getTextLugspef() {
         return lugspef.getText();
     }
 

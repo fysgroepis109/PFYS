@@ -105,7 +105,7 @@ public class pyfs extends Application {
                 try {
 
                     conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-                    System.out.println("Connected!");
+                    System.out.println("Connected login");
                     Statement stmt = (Statement) conn.createStatement();
                     ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE naam= " + '"' + UserName + '"');   //check if there is a accout with name
                     int count = 0;
@@ -122,6 +122,7 @@ public class pyfs extends Application {
 
                             String pass = rs.getString("wachtwoord");
                             if (pass.equals(Password)) {                         // check if passwords are the same
+                                
 
                                 thestage.setScene(menu);
 
@@ -375,11 +376,14 @@ public class pyfs extends Application {
         lostnext2.setTranslateY(105);
         lostnext2.setTranslateX(55);
         lostnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostnext2.setOnAction((ActionEvent event) -> {
-
+        lostnext2.setOnAction(new EventHandler<ActionEvent>() {
+     
+            @Override
+            public void handle(ActionEvent event) {
+         lostd.vnaam(lost1.getTextNaam());
             thestage.setScene(lost3);
 
-        });
+        }});
 
         lostback2 = new Button();
         lostback2.setText("Back");                                           //back button
@@ -411,17 +415,21 @@ public class pyfs extends Application {
         search.setTranslateY(175);
         search.setTranslateX(92);
         search.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        search.setOnAction((ActionEvent event) -> {
+        search.setOnAction(new EventHandler<ActionEvent>() {
 
-            lostd.invullen();
-            String[] test = new String[1];
-            test[0] = lost1.getTextDestin();
-
-            System.out.println(test[0]);
-            System.out.println(lost1.getTextNaam());
+           
+            @Override
+            public void handle(ActionEvent event) {
+         
+           
+            
+            
+            
 
             thestage.setScene(lostfinal);
-
+            }
+            
+            
         });
 
         lostback3 = new Button();
