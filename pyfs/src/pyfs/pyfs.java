@@ -122,7 +122,6 @@ public class pyfs extends Application {
 
                             String pass = rs.getString("wachtwoord");
                             if (pass.equals(Password)) {                         // check if passwords are the same
-                                
 
                                 thestage.setScene(menu);
 
@@ -165,10 +164,13 @@ public class pyfs extends Application {
         logoutbtn.setTranslateY(-370);
         logoutbtn.setTranslateX(700);
         logoutbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        logoutbtn.setOnAction((ActionEvent event) -> {
+        logoutbtn.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(loginscherm);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(loginscherm);
 
+            }
         });
 
         lostbtn = new Button();
@@ -176,20 +178,26 @@ public class pyfs extends Application {
         lostbtn.setPrefSize(200, 50);
         lostbtn.setTranslateX(-500);
         lostbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostbtn.setOnAction((ActionEvent event) -> {
+        lostbtn.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(lost);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(lost);
 
+            }
         });
 
         foundbtn = new Button();
         foundbtn.setText("Found");                                           //found button
         foundbtn.setPrefSize(200, 50);
         foundbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundbtn.setOnAction((ActionEvent event) -> {
+        foundbtn.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(found);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(found);
 
+            }
         });
 
         statbtn = new Button();
@@ -197,68 +205,71 @@ public class pyfs extends Application {
         statbtn.setPrefSize(200, 50);
         statbtn.setTranslateX(500);
         statbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        statbtn.setOnAction((ActionEvent event) -> {
+        statbtn.setOnAction(new EventHandler<ActionEvent>() {
 
-            String UserName = login.getTextUsername();   //getting username
-            String Password = login.getTextPassword();   //getting password
+            @Override
+            public void handle(ActionEvent event) {
+                String UserName = login.getTextUsername();   //getting username
+                String Password = login.getTextPassword();   //getting password
 
-            final String USERNAME = Mysql.username();
-            final String PASSWORD = Mysql.password();
-            final String CONN_STRING = Mysql.urlmysql();
+                final String USERNAME = Mysql.username();
+                final String PASSWORD = Mysql.password();
+                final String CONN_STRING = Mysql.urlmysql();
 
-            Connection conn;
+                Connection conn;
 
-            try {
+                try {
 
-                conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-                System.out.println("Connected!");
-                Statement stmt = (Statement) conn.createStatement();
-                ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE naam= " + '"' + UserName + '"');   //check if there is a accout with name
-                int count = 0;
+                    conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+                    System.out.println("Connected!");
+                    Statement stmt = (Statement) conn.createStatement();
+                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE naam= " + '"' + UserName + '"');   //check if there is a accout with name
+                    int count = 0;
 
-                while (rs1.next()) {
+                    while (rs1.next()) {
 
-                    count = rs1.getInt("total");
-
-                }
-
-                ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE naam = " + "'" + UserName + "'");               //getting password form database
-
-                if (count > 0) {
-
-                    while (rs.next()) {
-
-                        int toegangstat = rs.getInt("toegang");
-                        if (toegangstat >= 2) {                         // check if passwords are the same
-
-                            thestage.setScene(stat);
-
-                        } else {
-
-                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                            alert.setTitle("Warning");
-                            alert.setHeaderText("You do not have permission to this page");
-                            alert.showAndWait();
-
-                        }
+                        count = rs1.getInt("total");
 
                     }
 
-                } else {
+                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE naam = " + "'" + UserName + "'");               //getting password form database
 
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Warning");
-                    alert.setHeaderText("You do not have permission to this page");
-                    alert.showAndWait();
+                    if (count > 0) {
+
+                        while (rs.next()) {
+
+                            int toegangstat = rs.getInt("toegang");
+                            if (toegangstat >= 2) {                         // check if passwords are the same
+
+                                thestage.setScene(stat);
+
+                            } else {
+
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setTitle("Warning");
+                                alert.setHeaderText("You do not have permission to this page");
+                                alert.showAndWait();
+
+                            }
+
+                        }
+
+                    } else {
+
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Warning");
+                        alert.setHeaderText("You do not have permission to this page");
+                        alert.showAndWait();
+
+                    }
+
+                } catch (SQLException ed) {
+
+                    System.err.println(ed);
 
                 }
 
-            } catch (SQLException ed) {
-
-                System.err.println(ed);
-
             }
-
         });
 
         adminbtn = new Button();
@@ -267,68 +278,71 @@ public class pyfs extends Application {
         adminbtn.setTranslateY(-370);
         adminbtn.setTranslateX(-700);
         adminbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        adminbtn.setOnAction((ActionEvent event) -> {
+        adminbtn.setOnAction(new EventHandler<ActionEvent>() {
 
-            String UserName = login.getTextUsername();   //getting username
-            String Password = login.getTextPassword();   //getting password
+            @Override
+            public void handle(ActionEvent event) {
+                String UserName = login.getTextUsername();   //getting username
+                String Password = login.getTextPassword();   //getting password
 
-            final String USERNAME = Mysql.username();
-            final String PASSWORD = Mysql.password();
-            final String CONN_STRING = Mysql.urlmysql();
+                final String USERNAME = Mysql.username();
+                final String PASSWORD = Mysql.password();
+                final String CONN_STRING = Mysql.urlmysql();
 
-            Connection conn;
+                Connection conn;
 
-            try {
+                try {
 
-                conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-                System.out.println("Connected!");
-                Statement stmt = (Statement) conn.createStatement();
-                ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE naam= " + '"' + UserName + '"');   //check if there is a accout with name
-                int count = 0;
+                    conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+                    System.out.println("Connected!");
+                    Statement stmt = (Statement) conn.createStatement();
+                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE naam= " + '"' + UserName + '"');   //check if there is a accout with name
+                    int count = 0;
 
-                while (rs1.next()) {
+                    while (rs1.next()) {
 
-                    count = rs1.getInt("total");
-
-                }
-
-                ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE naam = " + "'" + UserName + "'");               //getting password form database
-
-                if (count > 0) {
-
-                    while (rs.next()) {
-
-                        int toegangadmin = rs.getInt("toegang");
-                        if (toegangadmin >= 3) {                         // check if passwords are the same                        // check if passwords are the same
-
-                            thestage.setScene(admin);
-
-                        } else {
-
-                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                            alert.setTitle("Warning");
-                            alert.setHeaderText("You do not have permission to this page");
-                            alert.showAndWait();
-
-                        }
+                        count = rs1.getInt("total");
 
                     }
 
-                } else {
+                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE naam = " + "'" + UserName + "'");               //getting password form database
 
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Warning");
-                    alert.setHeaderText("You do not have permission to this page");
-                    alert.showAndWait();
+                    if (count > 0) {
+
+                        while (rs.next()) {
+
+                            int toegangadmin = rs.getInt("toegang");
+                            if (toegangadmin >= 3) {                         // check if passwords are the same                        // check if passwords are the same
+
+                                thestage.setScene(admin);
+
+                            } else {
+
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setTitle("Warning");
+                                alert.setHeaderText("You do not have permission to this page");
+                                alert.showAndWait();
+
+                            }
+
+                        }
+
+                    } else {
+
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Warning");
+                        alert.setHeaderText("You do not have permission to this page");
+                        alert.showAndWait();
+
+                    }
+
+                } catch (SQLException ed) {
+
+                    System.err.println(ed);
 
                 }
 
-            } catch (SQLException ed) {
-
-                System.err.println(ed);
-
             }
-
         });
 
         //lost
@@ -339,10 +353,13 @@ public class pyfs extends Application {
         lostterugmenu.setTranslateY(-370);
         lostterugmenu.setTranslateX(700);
         lostterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostterugmenu.setOnAction((ActionEvent event) -> {
+        lostterugmenu.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(menu);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(menu);
 
+            }
         });
 
         lostnext = new Button();
@@ -351,10 +368,13 @@ public class pyfs extends Application {
         lostnext.setTranslateY(105);
         lostnext.setTranslateX(55);
         lostnext.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostnext.setOnAction((ActionEvent event) -> {
+        lostnext.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(lost2);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(lost2);
 
+            }
         });
 
         //lost 2
@@ -364,10 +384,13 @@ public class pyfs extends Application {
         lostback.setTranslateY(-370);
         lostback.setTranslateX(700);
         lostback.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostback.setOnAction((ActionEvent event) -> {
+        lostback.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(lost);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(lost);
 
+            }
         });
 
         lostnext2 = new Button();
@@ -377,13 +400,14 @@ public class pyfs extends Application {
         lostnext2.setTranslateX(55);
         lostnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         lostnext2.setOnAction(new EventHandler<ActionEvent>() {
-     
+
             @Override
             public void handle(ActionEvent event) {
-         lostd.vnaam(lost1.getTextNaam());
-            thestage.setScene(lost3);
+                lostd.vnaam(lost1.getTextNaam());
+                thestage.setScene(lost3);
 
-        }});
+            }
+        });
 
         lostback2 = new Button();
         lostback2.setText("Back");                                           //back button
@@ -391,10 +415,13 @@ public class pyfs extends Application {
         lostback2.setTranslateY(-370);
         lostback2.setTranslateX(700);
         lostback2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostback2.setOnAction((ActionEvent event) -> {
+        lostback2.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(lost2);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(lost2);
 
+            }
         });
 
         lostnext3 = new Button();
@@ -403,10 +430,13 @@ public class pyfs extends Application {
         lostnext3.setTranslateY(175);
         lostnext3.setTranslateX(92);
         lostnext3.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostnext3.setOnAction((ActionEvent event) -> {
+        lostnext3.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(lost4);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(lost4);
 
+            }
         });
 
         search = new Button();
@@ -417,19 +447,12 @@ public class pyfs extends Application {
         search.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         search.setOnAction(new EventHandler<ActionEvent>() {
 
-           
             @Override
             public void handle(ActionEvent event) {
-         
-           
-            
-            
-            
 
-            thestage.setScene(lostfinal);
+                thestage.setScene(lostfinal);
             }
-            
-            
+
         });
 
         lostback3 = new Button();
@@ -438,10 +461,13 @@ public class pyfs extends Application {
         lostback3.setTranslateY(-370);
         lostback3.setTranslateX(700);
         lostback3.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostback3.setOnAction((ActionEvent event) -> {
+        lostback3.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(lost3);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(lost3);
 
+            }
         });
 
         //lost final
@@ -451,10 +477,13 @@ public class pyfs extends Application {
         lostterugfinal.setTranslateY(-370);
         lostterugfinal.setTranslateX(700);
         lostterugfinal.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        lostterugfinal.setOnAction((ActionEvent event) -> {
+        lostterugfinal.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(menu);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(menu);
 
+            }
         });
 
         //found
@@ -464,10 +493,13 @@ public class pyfs extends Application {
         foundterugmenu.setTranslateY(-370);
         foundterugmenu.setTranslateX(700);
         foundterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundterugmenu.setOnAction((ActionEvent event) -> {
+        foundterugmenu.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(menu);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(menu);
 
+            }
         });
 
         foundnext = new Button();
@@ -476,10 +508,13 @@ public class pyfs extends Application {
         foundnext.setTranslateY(105);
         foundnext.setTranslateX(55);
         foundnext.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundnext.setOnAction((ActionEvent event) -> {
+        foundnext.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(found2);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(found2);
 
+            }
         });
 
         foundback = new Button();
@@ -488,10 +523,13 @@ public class pyfs extends Application {
         foundback.setTranslateY(-370);
         foundback.setTranslateX(700);
         foundback.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundback.setOnAction((ActionEvent event) -> {
+        foundback.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(found);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(found);
 
+            }
         });
 
         foundnext2 = new Button();
@@ -500,10 +538,13 @@ public class pyfs extends Application {
         foundnext2.setTranslateY(105);
         foundnext2.setTranslateX(55);
         foundnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundnext2.setOnAction((ActionEvent event) -> {
+        foundnext2.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(found3);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(found3);
 
+            }
         });
 
         foundback2 = new Button();
@@ -512,10 +553,13 @@ public class pyfs extends Application {
         foundback2.setTranslateY(-370);
         foundback2.setTranslateX(700);
         foundback2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundback2.setOnAction((ActionEvent event) -> {
+        foundback2.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(found2);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(found2);
 
+            }
         });
 
         foundnext3 = new Button();
@@ -524,10 +568,13 @@ public class pyfs extends Application {
         foundnext3.setTranslateY(175);
         foundnext3.setTranslateX(92);
         foundnext3.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundnext3.setOnAction((ActionEvent event) -> {
+        foundnext3.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(foundfinal);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(foundfinal);
 
+            }
         });
 
         //foundfinal
@@ -537,10 +584,13 @@ public class pyfs extends Application {
         foundfinalButton.setTranslateY(-370);
         foundfinalButton.setTranslateX(700);
         foundfinalButton.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        foundfinalButton.setOnAction((ActionEvent event) -> {
+        foundfinalButton.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(menu);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(menu);
 
+            }
         });
 
         //stat
@@ -550,10 +600,13 @@ public class pyfs extends Application {
         statterugmenu.setTranslateY(-370);
         statterugmenu.setTranslateX(700);
         statterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        statterugmenu.setOnAction((ActionEvent event) -> {
+        statterugmenu.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(menu);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(menu);
 
+            }
         });
 
         //stat
@@ -562,14 +615,17 @@ public class pyfs extends Application {
         yearbtn.setPrefSize(200, 50);
         yearbtn.setTranslateX(300);
         yearbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        yearbtn.setOnAction((ActionEvent event) -> {
+        yearbtn.setOnAction(new EventHandler<ActionEvent>() {
 
-            yearstage = new Stage();
-            yearstage.setTitle("Over year");
-            yearstage.setScene(year);
-            yearstage.setResizable(false);
-            yearstage.show();
+            @Override
+            public void handle(ActionEvent event) {
+                yearstage = new Stage();
+                yearstage.setTitle("Over year");
+                yearstage.setScene(year);
+                yearstage.setResizable(false);
+                yearstage.show();
 
+            }
         });
 
         currentbtn = new Button();
@@ -577,14 +633,17 @@ public class pyfs extends Application {
         currentbtn.setPrefSize(200, 50);
         currentbtn.setTranslateX(-300);
         currentbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        currentbtn.setOnAction((ActionEvent event) -> {
+        currentbtn.setOnAction(new EventHandler<ActionEvent>() {
 
-            currentstage = new Stage();
-            currentstage.setTitle("Current lugage");
-            currentstage.setScene(current);
-            currentstage.setResizable(false);
-            currentstage.show();
+            @Override
+            public void handle(ActionEvent event) {
+                currentstage = new Stage();
+                currentstage.setTitle("Current lugage");
+                currentstage.setScene(current);
+                currentstage.setResizable(false);
+                currentstage.show();
 
+            }
         });
 
         //stat
@@ -594,9 +653,12 @@ public class pyfs extends Application {
         adminterugmenu.setTranslateY(-370);
         adminterugmenu.setTranslateX(700);
         adminterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
-        adminterugmenu.setOnAction((ActionEvent event) -> {
+        adminterugmenu.setOnAction(new EventHandler<ActionEvent>() {
 
-            thestage.setScene(menu);
+            @Override
+            public void handle(ActionEvent event) {
+                thestage.setScene(menu);
+            }
 
         });
 
