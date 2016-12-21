@@ -25,8 +25,6 @@ public class Lost {
     private TextField adres, zip, country, phone, mail, lugtype, lugbrand, lugcolor, lugweight, labelnr, flightnr, destin;
     private TextArea lugspef;
 
-    
-
     public String getTextLugspef() {
         return lugspef.getText();
     }
@@ -83,6 +81,10 @@ public class Lost {
 
     public String getTextMail() {
         return mail.getText();
+    }
+
+    public String getCity() {
+        return city.getText();
     }
 
     DatePicker date() {

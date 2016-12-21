@@ -26,6 +26,56 @@ public class Found {
 
     }
 
+    public DatePicker getDate() {
+        return date;
+    }
+
+    public String getTime() {
+        return time.getText();
+    }
+
+    public String getLabelnr() {
+        return labelnr.getText();
+    }
+
+    public String getFlightnr() {
+        return flightnr.getText();
+    }
+
+    public String getDestin() {
+        return destin.getText();
+    }
+
+    public String getNametrav() {
+        return nametrav.getText();
+    }
+
+    public String getLugtype() {
+        return lugtype.getText();
+    }
+
+    public String getLugbrand() {
+        return lugbrand.getText();
+    }
+
+    public String getLugcolor() {
+        return lugcolor.getText();
+    }
+
+    public String getLugweight() {
+        return lugweight.getText();
+    }
+
+    //public String getAirport() {
+        //return airport.getText();
+    //}
+
+    public String getLugspef() {
+        return lugspef.getText();
+    }
+
+    
+    
     DatePicker date() {
 
         date = new DatePicker();

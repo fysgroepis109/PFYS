@@ -1,5 +1,6 @@
 package pyfs;
 
+import com.sun.corba.se.spi.orb.StringPair;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -400,23 +401,20 @@ public class pyfs extends Application {
         lostnext2.setTranslateX(55);
         lostnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         lostnext2.setOnAction(new EventHandler<ActionEvent>() {
-<<<<<<< HEAD
 
             @Override
             public void handle(ActionEvent event) {
-                lostd.vnaam(lost1.getTextNaam());
-                thestage.setScene(lost3);
-=======
-     
-            @Override 
-            public void handle(ActionEvent event) {
                 
-         String[] persoon = new String[7];
-         persoon[0] = lost1.getTextNaam();
-         
-         
-            thestage.setScene(lost3);
->>>>>>> origin/master
+                String[] persoon = new String[7];
+                persoon[0] = lost1.getTextNaam();
+                persoon[1] = lost1.getTextAdres();
+                persoon[2] = lost1.getCity();
+                persoon[3] = lost1.getTextZip();
+                persoon[4] = lost1.getTextCountry();
+                persoon[5] = lost1.getTextPhone();
+                persoon[6] = lost1.getTextMail();
+
+                thestage.setScene(lost3);
 
             }
         });
@@ -446,6 +444,15 @@ public class pyfs extends Application {
 
             @Override
             public void handle(ActionEvent event) {
+                
+                String[] bagage = new String[5];
+                bagage[0] = lost1.getTextLugype();
+                bagage[1] = lost1.getTextLygbrand();
+                bagage[2] = lost1.getTextLugcolor();
+                bagage[3] = lost1.getTextlugweight();
+                bagage[4] = lost1.getTextLugspef();
+                       
+                      
                 thestage.setScene(lost4);
 
             }
@@ -461,6 +468,11 @@ public class pyfs extends Application {
 
             @Override
             public void handle(ActionEvent event) {
+                
+                String[] vlucht = new String[3];
+                vlucht[0] = lost1.getTextLabelnr();
+                vlucht[1] = lost1.getTextFlightnr();
+                vlucht[2] = lost1.getTextDestin();
 
                 thestage.setScene(lostfinal);
             }
@@ -524,6 +536,12 @@ public class pyfs extends Application {
 
             @Override
             public void handle(ActionEvent event) {
+                
+                String[] info = new String[3];
+                info[0] = found1.getLabelnr();
+                info[1] = found1.getFlightnr();
+                info[2] = found1.getNametrav();
+                
                 thestage.setScene(found2);
 
             }
@@ -554,6 +572,15 @@ public class pyfs extends Application {
 
             @Override
             public void handle(ActionEvent event) {
+                
+                String[] foundbagage = new String[5];
+                foundbagage[0] = found1.getLugtype();
+                foundbagage[1] = found1.getLugbrand();
+                foundbagage[2] = found1.getLugcolor();
+                foundbagage[3] = found1.getLugweight();
+                foundbagage[4] = found1.getLugspef();
+                
+                
                 thestage.setScene(found3);
 
             }
