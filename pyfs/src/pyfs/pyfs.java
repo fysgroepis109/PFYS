@@ -400,11 +400,23 @@ public class pyfs extends Application {
         lostnext2.setTranslateX(55);
         lostnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         lostnext2.setOnAction(new EventHandler<ActionEvent>() {
+<<<<<<< HEAD
 
             @Override
             public void handle(ActionEvent event) {
                 lostd.vnaam(lost1.getTextNaam());
                 thestage.setScene(lost3);
+=======
+     
+            @Override 
+            public void handle(ActionEvent event) {
+                
+         String[] persoon = new String[7];
+         persoon[0] = lost1.getTextNaam();
+         
+         
+            thestage.setScene(lost3);
+>>>>>>> origin/master
 
             }
         });
