@@ -403,8 +403,7 @@ public class pyfs extends Application {
         lostnext2.setTranslateX(55);
         lostnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         lostnext2.setOnAction(new EventHandler<ActionEvent>() {
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
             @Override
             public void handle(ActionEvent event) {
@@ -418,33 +417,12 @@ public class pyfs extends Application {
                 persoon[5] = lost1.getTextPhone();
                 persoon[6] = lost1.getTextMail();
 
-                thestage.setScene(lost3);
-=======
-<<<<<<< HEAD
- 
-=======
->>>>>>> origin/master
-
-            @Override
-            public void handle(ActionEvent event) {
-
-                String[] persoon = new String[7];
-                persoon[0] = lost1.getTextNaam();
-
-                lostd.invullenP(persoon);
-                thestage.setScene(lost3);
-
-<<<<<<< HEAD
-     
-            
-           
->>>>>>> origin/master
->>>>>>> origin/master
-
-=======
->>>>>>> origin/master
-            }
+                thestage.setScene(lost3);}
         });
+
+
+            
+
 
         lostback2 = new Button();
         lostback2.setText("Back");                                           //back button
