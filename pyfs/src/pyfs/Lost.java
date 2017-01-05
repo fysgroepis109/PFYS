@@ -82,6 +82,7 @@ public class Lost {
     public String getTextMail() {
         return mail.getText();
     }
+    
 
     public String getCity() {
         return city.getText();

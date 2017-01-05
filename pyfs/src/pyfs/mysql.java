@@ -10,11 +10,11 @@ package pyfs;
  * @author Jaros
  */
 public class mysql {
-    private final String USENAME = "fys5";
-    private final String PASSWORD = "ZRnRZSIbEXbj1FPg";
-    private final String IPADDRESS = "it95.nl";
+    private final String USENAME = "root";
+    private final String PASSWORD = "Lolman513";
+    private final String IPADDRESS = "localhost";
     private final String POORT = "3306";
-    private final String DATABASENAAM = "fys5";
+    private final String DATABASENAAM = "pfys";
     private final boolean AUTORECONNECT = true;
     private final boolean SSL = false;
     

@@ -67,9 +67,10 @@ public class pyfs extends Application {
     Stage yearstage, currentstage;
 
     //Admin
-    Button adminterugmenu;
-    StackPane adminpane;
-    Scene admin;
+    Button adminterugmenu, userTableBtn;
+    StackPane adminpane, userTablePane;
+    Scene admin, userTable;
+    Stage userTableStage;
 
     @Override
     public void start(Stage primaryStage) {
@@ -81,6 +82,7 @@ public class pyfs extends Application {
         Login login = new Login();  //maakt nieuwe Login genaamd login
         mysql Mysql = new mysql();
         Lostd lostd = new Lostd();
+        Admin admin1 = new Admin();
 
         //BEGIN CONTROLS
         //Loginscherm
@@ -108,20 +110,20 @@ public class pyfs extends Application {
                     conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
                     System.out.println("Connected login");
                     Statement stmt = (Statement) conn.createStatement();
-                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE naam= " + '"' + UserName + '"');   //check if there is a accout with name
+                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE name= " + '"' + UserName + '"');   //check if there is a accout with name
                     int count = 0;
 
                     while (rs1.next()) {
                         count = rs1.getInt("total");
                     }
 
-                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE naam = " + "'" + UserName + "'");               //getting password form database
+                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE name = " + "'" + UserName + "'");               //getting password form database
 
                     if (count > 0) {
 
                         while (rs.next()) {
 
-                            String pass = rs.getString("wachtwoord");
+                            String pass = rs.getString("password");
                             if (pass.equals(Password)) {                         // check if passwords are the same
 
                                 thestage.setScene(menu);
@@ -224,7 +226,7 @@ public class pyfs extends Application {
                     conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
                     System.out.println("Connected!");
                     Statement stmt = (Statement) conn.createStatement();
-                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE naam= " + '"' + UserName + '"');   //check if there is a accout with name
+                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE name= " + '"' + UserName + '"');   //check if there is a accout with name
                     int count = 0;
 
                     while (rs1.next()) {
@@ -233,13 +235,13 @@ public class pyfs extends Application {
 
                     }
 
-                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE naam = " + "'" + UserName + "'");               //getting password form database
+                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE name = " + "'" + UserName + "'");               //getting password form database
 
                     if (count > 0) {
 
                         while (rs.next()) {
 
-                            int toegangstat = rs.getInt("toegang");
+                            int toegangstat = rs.getInt("permission");
                             if (toegangstat >= 2) {                         // check if passwords are the same
 
                                 thestage.setScene(stat);
@@ -297,7 +299,7 @@ public class pyfs extends Application {
                     conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
                     System.out.println("Connected!");
                     Statement stmt = (Statement) conn.createStatement();
-                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE naam= " + '"' + UserName + '"');   //check if there is a accout with name
+                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE name= " + '"' + UserName + '"');   //check if there is a accout with name
                     int count = 0;
 
                     while (rs1.next()) {
@@ -306,13 +308,13 @@ public class pyfs extends Application {
 
                     }
 
-                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE naam = " + "'" + UserName + "'");               //getting password form database
+                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE name = " + "'" + UserName + "'");               //getting password form database
 
                     if (count > 0) {
 
                         while (rs.next()) {
 
-                            int toegangadmin = rs.getInt("toegang");
+                            int toegangadmin = rs.getInt("permission");
                             if (toegangadmin >= 3) {                         // check if passwords are the same                        // check if passwords are the same
 
                                 thestage.setScene(admin);
@@ -401,6 +403,7 @@ public class pyfs extends Application {
         lostnext2.setTranslateX(55);
         lostnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         lostnext2.setOnAction(new EventHandler<ActionEvent>() {
+<<<<<<< HEAD
 
             @Override
             public void handle(ActionEvent event) {
@@ -415,6 +418,37 @@ public class pyfs extends Application {
                 persoon[6] = lost1.getTextMail();
 
                 thestage.setScene(lost3);
+=======
+<<<<<<< HEAD
+ 
+
+     
+            @Override 
+            public void handle(ActionEvent event) {
+                
+               
+                
+                
+         String[] persoon = new String[7];
+         persoon[0] = lost1.getTextNaam();
+         
+          
+          lostd.invullenP(persoon);
+            thestage.setScene(lost3);
+
+=======
+
+
+            @Override
+            public void handle(ActionEvent event) {
+                lostd.vnaam(lost1.getTextNaam());
+                thestage.setScene(lost3);
+
+     
+            
+           
+>>>>>>> origin/master
+>>>>>>> origin/master
 
             }
         });
@@ -685,7 +719,7 @@ public class pyfs extends Application {
             }
         });
 
-        //stat
+        //admin
         adminterugmenu = new Button();
         adminterugmenu.setText("Back");                                           //back button
         adminterugmenu.setPrefSize(200, 50);
@@ -697,6 +731,24 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event) {
                 thestage.setScene(menu);
+            }
+
+        });
+        
+        userTableBtn = new Button();
+        userTableBtn.setText("Users");                                           //back button
+        userTableBtn.setPrefSize(200, 50);
+        userTableBtn.setTranslateX(-200);
+        userTableBtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        userTableBtn.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                userTableStage = new Stage();
+                userTableStage.setTitle("Users");
+                userTableStage.setScene(userTable);
+                userTableStage.setResizable(false);
+                userTableStage.show();
             }
 
         });
@@ -810,6 +862,11 @@ public class pyfs extends Application {
         adminpane = new StackPane();
         adminpane.setStyle("-fx-background-color:#FFFFFF");
         adminpane.getChildren().add(adminterugmenu);
+        adminpane.getChildren().add(userTableBtn);
+        
+        userTablePane = new StackPane();
+        userTablePane.setStyle("-fx-background-color:#FFFFFF");
+        userTablePane.getChildren().add(admin1.adminTable());
 
         //geeft alle scenes in
         loginscherm = new Scene(inlogschermpane, 1600, 800);
@@ -827,9 +884,10 @@ public class pyfs extends Application {
         year = new Scene(yearpane, 1200, 800);
         current = new Scene(currentpane, 1200, 800);
         admin = new Scene(adminpane, 1600, 800);
+        userTable = new Scene(userTablePane, 300, 400);
 
         primaryStage.setTitle("Applicatie naam");
-        primaryStage.setScene(loginscherm);
+        primaryStage.setScene(admin);
         primaryStage.setResizable(false);
         primaryStage.show();
 
