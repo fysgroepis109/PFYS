@@ -84,6 +84,7 @@ public class Lost {
     public String getTextMail() {
         return mail.getText();
     }
+    
 
     DatePicker date() {
 
