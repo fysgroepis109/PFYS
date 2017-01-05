@@ -21,51 +21,81 @@ public class Lostd {
     mysql Mysql = new mysql();
     Lost lost1 = new Lost();
 
-    
-    
     private String name;
+
     
-    
-    public void vnaam(String name){
-        this.name = name;
-        System.out.println(this.name);
-    }
-    public void invullen() {
+
+    public int invullenP(String[]persoon) {
 
         final String USERNAME = Mysql.username();
         final String PASSWORD = Mysql.password();
         final String CONN_STRING = Mysql.urlmysql();
 
         Connection conn;
-
+        int count5 = 0;
+        int count6 = 0;
         try {
 
-            
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             System.out.println("Connected persoon");
             Statement stmt = (Statement) conn.createStatement();
-            
-            
+
             ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM persoon where name = " + '"' + name + '"');
-             int count5 = 0;
+
             while (rs5.next()) {
                 count5 = rs5.getInt("total");
             }
-            if(count5 > 0){
-                System.out.println("het werk");
-            }else{
-                System.out.println("het werk niet");
+
+            if (count5 > 0) {
+                ResultSet rs6 = stmt.executeQuery("SELECT Pnr FROM persoon where name = " + '"' + name + '"');
+                while (rs6.next()) {
+                    count6 = rs6.getInt("Pnr");
+                }
+
+                System.out.println(count6);
+            } else {
+                ResultSet rs7 = stmt.executeQuery("SELECT COUNT(*) AS TOTAL FROM persoon");
+                while (rs7.next()) {
+                    count6 = rs7.getInt("total");
+                    count6++;
+                    System.out.println(count6);
+                }
+
             }
-            
-           
-            
-            
-            
-            
-            
-            
-            
-            
+
+        } catch (SQLException ed) {
+
+            System.err.println(ed);
+
+        }
+
+        return count6;
+    }
+
+    
+    public void invullenb(){
+        
+        
+        try {
+
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            System.out.println("Connected persoon");
+            Statement stmt = (Statement) conn.createStatement();
+
+            ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM persoon where name = " + '"' + name + '"');
+
+            while (rs5.next()) {
+                count5 = rs5.getInt("total");
+            }
+
+
+        } catch (SQLException ed) {
+
+            System.err.println(ed);
+
+        }
+        
+            /*
             ResultSet rs1 = stmt.executeQuery("insert into bagage(Unr, Pnr, type, brand, colour, weight, spes, FLD) " + "values");
 
             ResultSet rs = stmt.executeQuery("count (*) from bagage where label = " + lost1.getTextLabelnr());
@@ -92,14 +122,6 @@ public class Lostd {
 
                 //DataTable luggage information = dataBase.executeDataTableQuery("SELECT *  FROM bagage A inner join labels B on A.Unr = B.Unr inner join tijden C on A.Unr = C.Unr where FLD = F and labelnr = null and colour = " + lost1.getTextLugcolor());
             }
-
-        } catch (SQLException ed) {
-
-            System.err.println(ed);
-            
-
-        }
-
+             */
     }
-
 }

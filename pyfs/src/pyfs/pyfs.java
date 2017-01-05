@@ -107,20 +107,20 @@ public class pyfs extends Application {
                     conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
                     System.out.println("Connected login");
                     Statement stmt = (Statement) conn.createStatement();
-                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE naam= " + '"' + UserName + '"');   //check if there is a accout with name
+                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE name= " + '"' + UserName + '"');   //check if there is a accout with name
                     int count = 0;
 
                     while (rs1.next()) {
                         count = rs1.getInt("total");
                     }
 
-                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE naam = " + "'" + UserName + "'");               //getting password form database
+                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE name = " + "'" + UserName + "'");               //getting password form database
 
                     if (count > 0) {
 
                         while (rs.next()) {
 
-                            String pass = rs.getString("wachtwoord");
+                            String pass = rs.getString("password");
                             if (pass.equals(Password)) {                         // check if passwords are the same
 
                                 thestage.setScene(menu);
@@ -223,7 +223,7 @@ public class pyfs extends Application {
                     conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
                     System.out.println("Connected!");
                     Statement stmt = (Statement) conn.createStatement();
-                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE naam= " + '"' + UserName + '"');   //check if there is a accout with name
+                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE name= " + '"' + UserName + '"');   //check if there is a accout with name
                     int count = 0;
 
                     while (rs1.next()) {
@@ -232,13 +232,13 @@ public class pyfs extends Application {
 
                     }
 
-                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE naam = " + "'" + UserName + "'");               //getting password form database
+                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE name = " + "'" + UserName + "'");               //getting password form database
 
                     if (count > 0) {
 
                         while (rs.next()) {
 
-                            int toegangstat = rs.getInt("toegang");
+                            int toegangstat = rs.getInt("permission");
                             if (toegangstat >= 2) {                         // check if passwords are the same
 
                                 thestage.setScene(stat);
@@ -296,7 +296,7 @@ public class pyfs extends Application {
                     conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
                     System.out.println("Connected!");
                     Statement stmt = (Statement) conn.createStatement();
-                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE naam= " + '"' + UserName + '"');   //check if there is a accout with name
+                    ResultSet rs1 = stmt.executeQuery("SELECT COUNT(*) AS total FROM login WHERE name= " + '"' + UserName + '"');   //check if there is a accout with name
                     int count = 0;
 
                     while (rs1.next()) {
@@ -305,13 +305,13 @@ public class pyfs extends Application {
 
                     }
 
-                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE naam = " + "'" + UserName + "'");               //getting password form database
+                    ResultSet rs = stmt.executeQuery("SELECT * FROM login WHERE name = " + "'" + UserName + "'");               //getting password form database
 
                     if (count > 0) {
 
                         while (rs.next()) {
 
-                            int toegangadmin = rs.getInt("toegang");
+                            int toegangadmin = rs.getInt("permission");
                             if (toegangadmin >= 3) {                         // check if passwords are the same                        // check if passwords are the same
 
                                 thestage.setScene(admin);
@@ -400,23 +400,22 @@ public class pyfs extends Application {
         lostnext2.setTranslateX(55);
         lostnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         lostnext2.setOnAction(new EventHandler<ActionEvent>() {
-<<<<<<< HEAD
+ 
 
-            @Override
-            public void handle(ActionEvent event) {
-                lostd.vnaam(lost1.getTextNaam());
-                thestage.setScene(lost3);
-=======
      
             @Override 
             public void handle(ActionEvent event) {
                 
+               
+                
+                
          String[] persoon = new String[7];
          persoon[0] = lost1.getTextNaam();
          
-         
+          
+          lostd.invullenP(persoon);
             thestage.setScene(lost3);
->>>>>>> origin/master
+
 
             }
         });
