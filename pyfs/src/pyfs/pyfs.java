@@ -404,6 +404,7 @@ public class pyfs extends Application {
         lostnext2.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         lostnext2.setOnAction(new EventHandler<ActionEvent>() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
             @Override
             public void handle(ActionEvent event) {
@@ -421,35 +422,27 @@ public class pyfs extends Application {
 =======
 <<<<<<< HEAD
  
-
-     
-            @Override 
-            public void handle(ActionEvent event) {
-                
-               
-                
-                
-         String[] persoon = new String[7];
-         persoon[0] = lost1.getTextNaam();
-         
-          
-          lostd.invullenP(persoon);
-            thestage.setScene(lost3);
-
 =======
-
+>>>>>>> origin/master
 
             @Override
             public void handle(ActionEvent event) {
-                lostd.vnaam(lost1.getTextNaam());
+
+                String[] persoon = new String[7];
+                persoon[0] = lost1.getTextNaam();
+
+                lostd.invullenP(persoon);
                 thestage.setScene(lost3);
 
+<<<<<<< HEAD
      
             
            
 >>>>>>> origin/master
 >>>>>>> origin/master
 
+=======
+>>>>>>> origin/master
             }
         });
 
@@ -734,7 +727,7 @@ public class pyfs extends Application {
             }
 
         });
-        
+
         userTableBtn = new Button();
         userTableBtn.setText("Users");                                           //back button
         userTableBtn.setPrefSize(200, 50);
@@ -863,7 +856,7 @@ public class pyfs extends Application {
         adminpane.setStyle("-fx-background-color:#FFFFFF");
         adminpane.getChildren().add(adminterugmenu);
         adminpane.getChildren().add(userTableBtn);
-        
+
         userTablePane = new StackPane();
         userTablePane.setStyle("-fx-background-color:#FFFFFF");
         userTablePane.getChildren().add(admin1.adminTable());
