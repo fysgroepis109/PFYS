@@ -68,9 +68,9 @@ public class pyfs extends Application {
 
     //Admin
     Button adminterugmenu, userTableBtn;
-    StackPane adminpane, userTablePane;
-    Scene admin, userTable, userCreate;
-    Stage userTableStage, userCreateStage;
+    StackPane adminpane, userTablePane, userRemovePane, userUpdatePane;
+    Scene admin, userTable, userCreate, userRemove, userUpdate;
+    Stage userTableStage, userCreateStage, userRemoveStage, userUpdateStage;
 
     @Override
     public void start(Stage primaryStage) {
@@ -710,7 +710,7 @@ public class pyfs extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                
+
                 userTablePane.getChildren().add(admin1.adminTable());
                 userTableStage = new Stage();
                 userTableStage.setTitle("Users");
@@ -752,9 +752,9 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event) {
 
-                String addUsername = admin1.getTextusername();
-                String addPassword = admin1.getTextpassword();
-                String addToegang = admin1.getTexttoegang();
+                String addUsername = admin1.getTextAddusername();
+                String addPassword = admin1.getTextAddpassword();
+                String addToegang = admin1.getTextAddtoegang();
 
                 Connection conn;                                                            //making connection to database
 
@@ -774,15 +774,130 @@ public class pyfs extends Application {
                     System.err.println(ed);
 
                 }
-                
+
                 userCreateStage.close();
-                
 
             }
 
         });
+
+        Button removeUser = new Button();
+        removeUser.setText("Remove user");                                           //back button
+        removeUser.setPrefSize(200, 50);
+        removeUser.setTranslateX(-400);
+        removeUser.setTranslateY(50);
+        removeUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        removeUser.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+
+                userRemoveStage = new Stage();
+                userRemoveStage.setTitle("User creation");
+                userRemoveStage.setScene(userRemove);
+                userRemoveStage.setResizable(false);
+                userRemoveStage.show();
+
+            }
+
+        });
+
+        Button deleteUser = new Button();
+        deleteUser.setText("Remove");                                           //back button
+        deleteUser.setPrefSize(150, 50);
+        deleteUser.setTranslateX(350);
+        deleteUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        deleteUser.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+
+                String removeUsername = admin1.getTextRemoveusername();
+                String removePassword = admin1.getTextRemovepassword();
+
+                Connection conn;                                                            //making connection to database
+
+                final String USERNAME = Mysql.username();
+                final String PASSWORD = Mysql.password();
+                final String CONN_STRING = Mysql.urlmysql();
+
+                try {
+
+                    conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+                    String query = "DELETE FROM login WHERE username =" + '"' + removeUsername + '"' + "AND password = " + '"' + removePassword + '"' + "";
+                    Statement st = conn.createStatement();
+                    st.executeUpdate(query);
+
+                } catch (SQLException ed) {
+
+                    System.err.println(ed);
+
+                }
+
+                userRemoveStage.close();
+
+            }
+        });
         
-        
+         Button updateUser = new Button();
+        updateUser.setText("Update user");                                           //back button
+        updateUser.setPrefSize(200, 50);
+        updateUser.setTranslateX(-400);
+        updateUser.setTranslateY(150);
+        updateUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        updateUser.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+
+                userUpdateStage = new Stage();
+                userUpdateStage.setTitle("User update");
+                userUpdateStage.setScene(userUpdate);
+                userUpdateStage.setResizable(false);
+                userUpdateStage.show();
+
+            }
+
+        });
+
+        Button update2User = new Button();
+        update2User.setText("Update");                                           //back button
+        update2User.setPrefSize(150, 50);
+        update2User.setTranslateX(550);
+        update2User.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        update2User.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+
+                String updateUsername = admin1.getTextUpdateusername();
+                String updatePassword = admin1.getTextUpdatepassword();
+                String updateToegang = admin1.getTextUpdatetoegang();
+                String updateCurrentUsername = admin1.getTextUpdateCurrent();
+                
+                Connection conn;                                                            //making connection to database
+
+                final String USERNAME = Mysql.username();
+                final String PASSWORD = Mysql.password();
+                final String CONN_STRING = Mysql.urlmysql();
+
+                try {
+
+                    conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+                    String query = "UPDATE login SET username =" + '"' + updateUsername + '"' +", password = " + '"' + updatePassword + '"' + ", toegang = " + '"' + updateToegang + '"' + "WHERE username =" + '"' + updateCurrentUsername + '"';
+                    Statement st = conn.createStatement();
+                    st.executeUpdate(query);
+
+                } catch (SQLException ed) {
+
+                    System.err.println(ed);
+
+                }
+
+                userUpdateStage.close();
+
+            }
+        });
 
         //EINDE CONTROLS
         //PANES
@@ -895,18 +1010,33 @@ public class pyfs extends Application {
         adminpane.getChildren().add(adminterugmenu);
         adminpane.getChildren().add(userTableBtn);
         adminpane.getChildren().add(createUser);
-
+        adminpane.getChildren().add(removeUser);
+        adminpane.getChildren().add(updateUser);
+        
         userTablePane = new StackPane();
         userTablePane.setStyle("-fx-background-color:#FFFFFF");
-        
 
         StackPane userCreatePane = new StackPane();
         userCreatePane.setStyle("-fx-background-color:#FFFFFF");
         userCreatePane.getChildren().add(admin1.addUsername());
         userCreatePane.getChildren().add(admin1.addPassword());
-        userCreatePane.getChildren().add(admin1.addToegang());
+        userCreatePane.getChildren().add(admin1.Toegang());
         userCreatePane.getChildren().add(addUser);
 
+        userRemovePane = new StackPane();
+        userRemovePane.setStyle("-fx-background-color:#FFFFFF");
+        userRemovePane.getChildren().add(admin1.removeUsername());
+        userRemovePane.getChildren().add(admin1.removePassword());
+        userRemovePane.getChildren().add(deleteUser);
+        
+        userUpdatePane = new StackPane();
+        userUpdatePane.setStyle("-fx-background-color:#FFFFFF");
+        userUpdatePane.getChildren().add(admin1.updateUsername());
+        userUpdatePane.getChildren().add(admin1.updatePassword());
+        userUpdatePane.getChildren().add(admin1.updateToegang());
+        userUpdatePane.getChildren().add(admin1.updateCurrentUsername());
+        userUpdatePane.getChildren().add(update2User);
+       
         //geeft alle scenes in
         loginscherm = new Scene(inlogschermpane, 1600, 800);
         menu = new Scene(menupane, 1600, 800);
@@ -925,6 +1055,8 @@ public class pyfs extends Application {
         admin = new Scene(adminpane, 1600, 800);
         userTable = new Scene(userTablePane, 300, 400);
         userCreate = new Scene(userCreatePane, 1000, 100);
+        userRemove = new Scene(userRemovePane, 1000, 100);
+        userUpdate = new Scene(userUpdatePane, 1300, 100);
 
         primaryStage.setTitle("Applicatie naam");
         primaryStage.setScene(admin);

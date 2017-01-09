@@ -26,7 +26,7 @@ import javafx.util.Callback;
 public class Admin {
 
     mysql Mysql = new mysql();
-    TextField username, password, toegang;
+    TextField username, usernameRemove, usernameUpdate, usernameCurrentUpdate, password, passwordRemove, passwordUpdate, toegang, toegangRemove, toegangUpdate;
 
     final String USERNAME = Mysql.username();
     final String PASSWORD = Mysql.password();
@@ -126,7 +126,7 @@ public class Admin {
 
     }
 
-    public TextField addToegang() {
+    public TextField Toegang() {
 
         toegang = new TextField();                 //text voor tijd invullen
         toegang.setPromptText("Acces");
@@ -138,16 +138,116 @@ public class Admin {
 
     }
 
-    public String getTextusername() {
+    public String getTextAddusername() {
         return username.getText();
     }
 
-    public String getTextpassword() {
+    public String getTextAddpassword() {
         return password.getText();
     }
 
-    public String getTexttoegang() {
+    public String getTextAddtoegang() {
         return toegang.getText();
     }
 
+     public TextField removeUsername() {
+
+        usernameRemove = new TextField();                 //text voor tijd invullen
+        usernameRemove.setPromptText("Username");
+        usernameRemove.setFont(Font.font("Verdana", 20));
+        usernameRemove.setMaxWidth(220);
+        usernameRemove.setTranslateX(-350);
+
+        return usernameRemove;
+
+    }
+
+    public TextField removePassword() {
+
+        passwordRemove = new TextField();                 //text voor tijd invullen
+        passwordRemove.setPromptText("Password");
+        passwordRemove.setFont(Font.font("Verdana", 20));
+        passwordRemove.setMaxWidth(220);
+        passwordRemove.setTranslateX(-100);
+
+        return passwordRemove;
+
+    }
+
+    
+
+    public String getTextRemoveusername() {
+        return usernameRemove.getText();
+    }
+
+    public String getTextRemovepassword() {
+        return passwordRemove.getText();
+    }
+    
+    public TextField updateCurrentUsername() {
+
+        usernameCurrentUpdate = new TextField();                 //text voor tijd invullen
+        usernameCurrentUpdate.setPromptText("Current Username");
+        usernameCurrentUpdate.setFont(Font.font("Verdana", 20));
+        usernameCurrentUpdate.setMaxWidth(220);
+        usernameCurrentUpdate.setTranslateX(-400);
+
+        return usernameCurrentUpdate;
+
+    }
+    
+     public TextField updateUsername() {
+
+        usernameUpdate = new TextField();                 //text voor tijd invullen
+        usernameUpdate.setPromptText("Username");
+        usernameUpdate.setFont(Font.font("Verdana", 20));
+        usernameUpdate.setMaxWidth(220);
+        usernameUpdate.setTranslateX(-150);
+
+        return usernameUpdate;
+
+    }
+
+    public TextField updatePassword() {
+
+        passwordUpdate = new TextField();                 //text voor tijd invullen
+        passwordUpdate.setPromptText("Password");
+        passwordUpdate.setFont(Font.font("Verdana", 20));
+        passwordUpdate.setMaxWidth(220);
+        passwordUpdate.setTranslateX(100);
+
+        return passwordUpdate;
+
+    }
+
+    public TextField updateToegang() {
+
+        toegangUpdate = new TextField();                 //text voor tijd invullen
+        toegangUpdate.setPromptText("Acces");
+        toegangUpdate.setFont(Font.font("Verdana", 20));
+        toegangUpdate.setMaxWidth(220);
+        toegangUpdate.setTranslateX(350);
+
+        return toegangUpdate;
+
+    }
+
+    public String getTextUpdateusername() {
+        return usernameUpdate.getText();
+    }
+
+    public String getTextUpdatepassword() {
+        return passwordUpdate.getText();
+    }
+
+    public String getTextUpdatetoegang() {
+        return toegangUpdate.getText();
+    }
+    public String getTextUpdateCurrent() {
+        return usernameCurrentUpdate.getText();
+    }
+
+    
 }
+
+
