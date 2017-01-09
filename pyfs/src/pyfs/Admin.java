@@ -5,7 +5,6 @@
  */
 package pyfs;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -16,6 +15,8 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Font;
 import javafx.util.Callback;
 
 /**
@@ -23,90 +24,130 @@ import javafx.util.Callback;
  * @author IS109-Groep 5
  */
 public class Admin {
-    
-          mysql Mysql = new mysql();
-    
-                final String USERNAME = Mysql.username();
-                final String PASSWORD = Mysql.password();
-                final String CONN_STRING = Mysql.urlmysql();
-    
+
+    mysql Mysql = new mysql();
+    TextField username, password, toegang;
+
+    final String USERNAME = Mysql.username();
+    final String PASSWORD = Mysql.password();
+    final String CONN_STRING = Mysql.urlmysql();
+
     private ObservableList<ObservableList> data;
     private TableView tableview;
-    
-    
-    
-    
 
     public Admin() {
     }
-    
-     public void buildData(){
-          Connection c ;
-            
-          data = FXCollections.observableArrayList();
-          try{
+
+    public void buildData() {
+        Connection c;
+
+        data = FXCollections.observableArrayList();
+        try {
             c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             //SQL FOR SELECTING ALL OF CUSTOMER
             String SQL = "SELECT * FROM login";
             //ResultSet
             ResultSet rs = c.createStatement().executeQuery(SQL);
 
-            /**********************************
+            /**
+             * ********************************
              * TABLE COLUMN ADDED DYNAMICALLY *
-             **********************************/
-            for(int i=0 ; i<rs.getMetaData().getColumnCount(); i++){
+             *********************************
+             */
+            for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
                 //We are using non property style for making dynamic table
-                final int j = i;                
-                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i+1));
-                col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList,String>,ObservableValue<String>>(){                    
-                    public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {                                                                                              
-                        return new SimpleStringProperty(param.getValue().get(j).toString());                        
-                    }                    
+                final int j = i;
+                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
+                col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+                    public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+                        return new SimpleStringProperty(param.getValue().get(j).toString());
+                    }
                 });
 
-                tableview.getColumns().addAll(col); 
-                System.out.println("Column ["+i+"] ");
+                tableview.getColumns().addAll(col);
+                System.out.println("Column [" + i + "] ");
             }
 
-            /********************************
+            /**
+             * ******************************
              * Data added to ObservableList *
-             ********************************/
-            while(rs.next()){
+             *******************************
+             */
+            while (rs.next()) {
                 //Iterate Row
                 ObservableList<String> row = FXCollections.observableArrayList();
-                for(int i=1 ; i<=rs.getMetaData().getColumnCount(); i++){
+                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
                     //Iterate Column
                     row.add(rs.getString(i));
                 }
-                System.out.println("Row [1] added "+row );
+                System.out.println("Row [1] added " + row);
                 data.add(row);
 
             }
 
             //FINALLY ADDED TO TableView
             tableview.setItems(data);
-          }catch(Exception e){
-              e.printStackTrace();
-              System.out.println("Error on Building Data");             
-          }
-          
-         
-      }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error on Building Data");
+        }
 
-    
-    
+    }
 
     TableView adminTable() {
 
-       
-          tableview = new TableView();
-          buildData();
-          
-         
-         
+        tableview = new TableView();
+        buildData();
 
         return this.tableview;
     }
-    
-   
+
+    public TextField addUsername() {
+
+        username = new TextField();                 //text voor tijd invullen
+        username.setPromptText("Username");
+        username.setFont(Font.font("Verdana", 20));
+        username.setMaxWidth(220);
+        username.setTranslateX(-350);
+
+        return username;
+
+    }
+
+    public TextField addPassword() {
+
+        password = new TextField();                 //text voor tijd invullen
+        password.setPromptText("Password");
+        password.setFont(Font.font("Verdana", 20));
+        password.setMaxWidth(220);
+        password.setTranslateX(-100);
+
+        return password;
+
+    }
+
+    public TextField addToegang() {
+
+        toegang = new TextField();                 //text voor tijd invullen
+        toegang.setPromptText("Acces");
+        toegang.setFont(Font.font("Verdana", 20));
+        toegang.setMaxWidth(220);
+        toegang.setTranslateX(150);
+
+        return toegang;
+
+    }
+
+    public String getTextusername() {
+        return username.getText();
+    }
+
+    public String getTextpassword() {
+        return password.getText();
+    }
+
+    public String getTexttoegang() {
+        return toegang.getText();
+    }
+
 }

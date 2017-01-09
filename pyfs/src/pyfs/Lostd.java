@@ -76,7 +76,7 @@ public class Lostd {
     public void invullenb(){
         
         
-        try {
+        /*try {
 
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             System.out.println("Connected persoon");
