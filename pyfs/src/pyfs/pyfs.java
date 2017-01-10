@@ -612,6 +612,44 @@ public class pyfs extends Application {
             public void handle(ActionEvent event) {
                 thestage.setScene(foundfinal);
 
+                Connection conn;                                                            //making connection to database
+
+                final String USERNAME = Mysql.username();
+                final String PASSWORD = Mysql.password();
+                final String CONN_STRING = Mysql.urlmysql();
+
+                String[] foundbagage = new String[5];
+                foundbagage[0] = found1.getLugtype();
+                foundbagage[1] = found1.getLugbrand();
+                foundbagage[2] = found1.getLugcolor();
+                foundbagage[3] = found1.getLugweight();
+                foundbagage[4] = found1.getLugspef();
+
+                try {
+                    
+                    
+                    conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+                     Statement st = conn.createStatement();
+                     String primkey = "SELECT MAX(Lugagenr) FROM lugage ";
+                    ResultSet rs = st.executeQuery(primkey);
+                    
+                    
+                    
+                    String query = "INSERT INTO lugage (Lugagetype, Lugagebrand, Lugagecol, Lugageweight, Lugagespef, Lugagenr) VALUES (" + '"' + foundbagage[0] + '"' + "," + '"' + foundbagage[1] + '"' + "," + '"' + foundbagage[2] + '"' + "," + '"'
+                            + foundbagage[3] + '"' + "," + '"' + foundbagage[4] + '"' + "," + '"' + +'"' + " )";
+
+                   
+
+                    st.executeUpdate(query);
+
+                } catch (SQLException ed) {
+
+                    System.err.println(ed);
+
+                }
+
+                userUpdateStage.close();
+
             }
         });
 
@@ -838,8 +876,8 @@ public class pyfs extends Application {
 
             }
         });
-        
-         Button updateUser = new Button();
+
+        Button updateUser = new Button();
         updateUser.setText("Update user");                                           //back button
         updateUser.setPrefSize(200, 50);
         updateUser.setTranslateX(-400);
@@ -874,7 +912,7 @@ public class pyfs extends Application {
                 String updatePassword = admin1.getTextUpdatepassword();
                 String updateToegang = admin1.getTextUpdatetoegang();
                 String updateCurrentUsername = admin1.getTextUpdateCurrent();
-                
+
                 Connection conn;                                                            //making connection to database
 
                 final String USERNAME = Mysql.username();
@@ -884,7 +922,7 @@ public class pyfs extends Application {
                 try {
 
                     conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-                    String query = "UPDATE login SET username =" + '"' + updateUsername + '"' +", password = " + '"' + updatePassword + '"' + ", toegang = " + '"' + updateToegang + '"' + "WHERE username =" + '"' + updateCurrentUsername + '"';
+                    String query = "UPDATE login SET username =" + '"' + updateUsername + '"' + ", password = " + '"' + updatePassword + '"' + ", toegang = " + '"' + updateToegang + '"' + "WHERE username =" + '"' + updateCurrentUsername + '"';
                     Statement st = conn.createStatement();
                     st.executeUpdate(query);
 
@@ -1012,7 +1050,7 @@ public class pyfs extends Application {
         adminpane.getChildren().add(createUser);
         adminpane.getChildren().add(removeUser);
         adminpane.getChildren().add(updateUser);
-        
+
         userTablePane = new StackPane();
         userTablePane.setStyle("-fx-background-color:#FFFFFF");
 
@@ -1028,7 +1066,7 @@ public class pyfs extends Application {
         userRemovePane.getChildren().add(admin1.removeUsername());
         userRemovePane.getChildren().add(admin1.removePassword());
         userRemovePane.getChildren().add(deleteUser);
-        
+
         userUpdatePane = new StackPane();
         userUpdatePane.setStyle("-fx-background-color:#FFFFFF");
         userUpdatePane.getChildren().add(admin1.updateUsername());
@@ -1036,7 +1074,7 @@ public class pyfs extends Application {
         userUpdatePane.getChildren().add(admin1.updateToegang());
         userUpdatePane.getChildren().add(admin1.updateCurrentUsername());
         userUpdatePane.getChildren().add(update2User);
-       
+
         //geeft alle scenes in
         loginscherm = new Scene(inlogschermpane, 1600, 800);
         menu = new Scene(menupane, 1600, 800);
