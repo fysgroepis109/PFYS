@@ -83,6 +83,8 @@ public class pyfs extends Application {
         mysql Mysql = new mysql();
         Lostd lostd = new Lostd();
         Admin admin1 = new Admin();
+        Admind admind = new Admind();
+        Foundd foundd = new Foundd();
 
         //BEGIN CONTROLS
         //Loginscherm
@@ -415,14 +417,12 @@ public class pyfs extends Application {
                 persoon[4] = lost1.getTextCountry();
                 persoon[5] = lost1.getTextPhone();
                 persoon[6] = lost1.getTextMail();
-<<<<<<< HEAD
-                int Pnr = lostd.invullenP(persoon);
-                thestage.setScene(lost3);}
-=======
 
+                int Pnr = lostd.invullenP(persoon);
                 thestage.setScene(lost3);
+
             }
->>>>>>> origin/master
+
         });
 
         lostback2 = new Button();
@@ -617,43 +617,9 @@ public class pyfs extends Application {
             public void handle(ActionEvent event) {
                 thestage.setScene(foundfinal);
 
-                Connection conn;                                                            //making connection to database
+                foundd.getLuggage();
 
-                final String USERNAME = Mysql.username();
-                final String PASSWORD = Mysql.password();
-                final String CONN_STRING = Mysql.urlmysql();
-
-                String[] foundbagage = new String[5];
-                foundbagage[0] = found1.getLugtype();
-                foundbagage[1] = found1.getLugbrand();
-                foundbagage[2] = found1.getLugcolor();
-                foundbagage[3] = found1.getLugweight();
-                foundbagage[4] = found1.getLugspef();
-
-                try {
-                    
-                    
-                    conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-                     Statement st = conn.createStatement();
-                     String primkey = "SELECT MAX(Lugagenr) FROM lugage ";
-                    ResultSet rs = st.executeQuery(primkey);
-                    
-                    
-                    
-                    String query = "INSERT INTO lugage (Lugagetype, Lugagebrand, Lugagecol, Lugageweight, Lugagespef, Lugagenr) VALUES (" + '"' + foundbagage[0] + '"' + "," + '"' + foundbagage[1] + '"' + "," + '"' + foundbagage[2] + '"' + "," + '"'
-                            + foundbagage[3] + '"' + "," + '"' + foundbagage[4] + '"' + "," + '"' + +'"' + " )";
-
-                   
-
-                    st.executeUpdate(query);
-
-                } catch (SQLException ed) {
-
-                    System.err.println(ed);
-
-                }
-
-                userUpdateStage.close();
+             
 
             }
         });
@@ -795,28 +761,7 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event) {
 
-                String addUsername = admin1.getTextAddusername();
-                String addPassword = admin1.getTextAddpassword();
-                String addToegang = admin1.getTextAddtoegang();
-
-                Connection conn;                                                            //making connection to database
-
-                final String USERNAME = Mysql.username();
-                final String PASSWORD = Mysql.password();
-                final String CONN_STRING = Mysql.urlmysql();
-
-                try {
-
-                    conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-                    String query = "INSERT INTO login (username, password, toegang) VALUES (" + '"' + addUsername + '"' + "," + '"' + addPassword + '"' + "," + '"' + addToegang + '"' + " )";
-                    Statement st = conn.createStatement();
-                    st.executeUpdate(query);
-
-                } catch (SQLException ed) {
-
-                    System.err.println(ed);
-
-                }
+                admind.Add();
 
                 userCreateStage.close();
 
@@ -855,27 +800,7 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event) {
 
-                String removeUsername = admin1.getTextRemoveusername();
-                String removePassword = admin1.getTextRemovepassword();
-
-                Connection conn;                                                            //making connection to database
-
-                final String USERNAME = Mysql.username();
-                final String PASSWORD = Mysql.password();
-                final String CONN_STRING = Mysql.urlmysql();
-
-                try {
-
-                    conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-                    String query = "DELETE FROM login WHERE username =" + '"' + removeUsername + '"' + "AND password = " + '"' + removePassword + '"' + "";
-                    Statement st = conn.createStatement();
-                    st.executeUpdate(query);
-
-                } catch (SQLException ed) {
-
-                    System.err.println(ed);
-
-                }
+                admind.Delete();
 
                 userRemoveStage.close();
 
@@ -913,29 +838,7 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event) {
 
-                String updateUsername = admin1.getTextUpdateusername();
-                String updatePassword = admin1.getTextUpdatepassword();
-                String updateToegang = admin1.getTextUpdatetoegang();
-                String updateCurrentUsername = admin1.getTextUpdateCurrent();
-
-                Connection conn;                                                            //making connection to database
-
-                final String USERNAME = Mysql.username();
-                final String PASSWORD = Mysql.password();
-                final String CONN_STRING = Mysql.urlmysql();
-
-                try {
-
-                    conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-                    String query = "UPDATE login SET username =" + '"' + updateUsername + '"' + ", password = " + '"' + updatePassword + '"' + ", toegang = " + '"' + updateToegang + '"' + "WHERE username =" + '"' + updateCurrentUsername + '"';
-                    Statement st = conn.createStatement();
-                    st.executeUpdate(query);
-
-                } catch (SQLException ed) {
-
-                    System.err.println(ed);
-
-                }
+                admind.Update();
 
                 userUpdateStage.close();
 
