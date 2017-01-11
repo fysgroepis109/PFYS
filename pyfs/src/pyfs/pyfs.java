@@ -540,23 +540,12 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event) {
 
-                String[] info = new String[3];
-                info[0] = found1.getLabelnr();
-                info[1] = found1.getFlightnr();
-                info[2] = found1.getNametrav();
-<<<<<<< HEAD
-                
                 String[] datex = new String[4];
-                datex[0] = found1.getDate().getEditor().getText();
+                datex[0] = found1.getDate().getText();
                 datex[1] = found1.Time().getText();
                 datex[2] = found1.getAirport();
-                //datex[3] = found1.get VERGEET UNR NIET
-                
+                System.out.println(datex[1]);
                 foundd.getDate(datex);
-=======
-
-                foundd.getDate();
->>>>>>> origin/master
 
                 thestage.setScene(found2);
 
@@ -1256,7 +1245,6 @@ public class pyfs extends Application {
      * @param args the command line arguments
      *
      */
-
     public static void main(String[] args) {
 
         launch(args);
