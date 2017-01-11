@@ -619,13 +619,7 @@ public class pyfs extends Application {
                 
                     foundd.getLuggage();
 
-<<<<<<< HEAD
 
-               
-                    
-                foundd.getLuggage();
-
-=======
             }
             })
                 ;
@@ -640,7 +634,7 @@ public class pyfs extends Application {
 
             200, 50);
             foundfinalButton.setTranslateY (
->>>>>>> 1fa178bc3b471dfd79a9bcfb698b89787100e67b
+
 
             -370);
             foundfinalButton.setTranslateX (
@@ -883,20 +877,16 @@ public class pyfs extends Application {
             addUser.setOnAction ( 
                 new EventHandler<ActionEvent>() {
 
-            @Override
-<<<<<<< HEAD
+
             public void handle(ActionEvent event) {
                 
                 String[] Add = new String[3];
                  Add[0] = admin1.getTextAddusername();
                 Add [1] = admin1.getTextAddpassword();
                 Add [2] = admin1.getTextAddtoegang();
-=======
-                public void handle
-                (ActionEvent event
+
                 
-                    ) {
->>>>>>> 1fa178bc3b471dfd79a9bcfb698b89787100e67b
+
 
                 admind.Add(Add);
 
@@ -961,20 +951,16 @@ public class pyfs extends Application {
             deleteUser.setOnAction ( 
                 new EventHandler<ActionEvent>() {
 
-            @Override
-<<<<<<< HEAD
+
             public void handle(ActionEvent event) {
                 
                 String[] remove = new String[2];
                 
                  remove[0] = admin1.getTextRemoveusername();
                  remove[1]= admin1.getTextRemovepassword();
-=======
-                public void handle
-                (ActionEvent event
+
                 
-                    ) {
->>>>>>> 1fa178bc3b471dfd79a9bcfb698b89787100e67b
+
 
                 admind.Delete(remove);
 
@@ -1038,8 +1024,7 @@ public class pyfs extends Application {
             update2User.setOnAction ( 
                 new EventHandler<ActionEvent>() {
 
-            @Override
-<<<<<<< HEAD
+
             public void handle(ActionEvent event) {
               
                 String updateInfo[] = new String[4];
@@ -1051,14 +1036,10 @@ public class pyfs extends Application {
             
 
                 admind.Update(updateInfo);
-=======
-                public void handle
-                (ActionEvent event
-                
-                    ) {
+              
 
-                admind.Update();
->>>>>>> 1fa178bc3b471dfd79a9bcfb698b89787100e67b
+             
+
 
                     userUpdateStage.close();
 
