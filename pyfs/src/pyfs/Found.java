@@ -12,8 +12,8 @@ import javafx.scene.text.Font;
  */
 public class Found {
     
-    private DatePicker date;
-    private TextField time, labelnr, flightnr, destin, nametrav, lugtype, lugbrand, lugcolor, lugweight;
+  
+    private TextField time, labelnr, flightnr, destin, nametrav, lugtype, lugbrand, lugcolor, lugweight, date;
     private ComboBox airport;
     private TextArea lugspef;
     
@@ -21,7 +21,7 @@ public class Found {
 
     }
 
-    public DatePicker getDate() {
+    public TextField getDate() {
         return date;
     }
 
@@ -71,10 +71,10 @@ public class Found {
 
     
     
-    DatePicker date() {
+    TextField date() {
 
-        date = new DatePicker();
-        date.setPromptText("Date");
+        date = new TextField();
+        date.setPromptText("YYYY-MM-DD");
         date.setMaxWidth(220);
         date.setTranslateY(-50);
 

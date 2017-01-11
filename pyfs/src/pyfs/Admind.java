@@ -15,104 +15,83 @@ import java.sql.Statement;
  * @author merij
  */
 public class Admind {
-    
+
     Admin admin1 = new Admin();
     mysql Mysql = new mysql();
 
     public Admind() {
     }
-    
+
     public void Add(String[] Add) {
-        
-                
 
-                Connection conn;                                                            //making connection to database
+        Connection conn;                                                            //making connection to database
 
-                final String USERNAME = Mysql.username();
-                final String PASSWORD = Mysql.password();
-                final String CONN_STRING = Mysql.urlmysql();
+        final String USERNAME = Mysql.username();
+        final String PASSWORD = Mysql.password();
+        final String CONN_STRING = Mysql.urlmysql();
 
-                try {
+        try {
 
-                    conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-                    String query = "INSERT INTO login (username, password, permission) VALUES (" + '"' + Add[0] + '"' + "," + '"' + Add[1] + '"' + "," + '"' + Add[2] + '"' + " )";
-                    Statement st = conn.createStatement();
-                    st.executeUpdate(query);
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            String query = "INSERT INTO login (username, password, permission) VALUES (" + '"' + Add[0] + '"' + "," + '"' + Add[1] + '"' + "," + '"' + Add[2] + '"' + " )";
+            Statement st = conn.createStatement();
+            st.executeUpdate(query);
 
-                } catch (SQLException ed) {
+        } catch (SQLException ed) {
 
-                    System.err.println(ed);
+            System.err.println(ed);
 
-                }
-        
-        
-        
-        
+        }
+
     }
-    
-    public void Delete(String [] delete) {
-        
-               
 
-                Connection conn;                                                            //making connection to database
+    public void Delete(String[] delete) {
 
-                final String USERNAME = Mysql.username();
-                final String PASSWORD = Mysql.password();
-                final String CONN_STRING = Mysql.urlmysql();
+        Connection conn;                                                            //making connection to database
 
-                try {
+        final String USERNAME = Mysql.username();
+        final String PASSWORD = Mysql.password();
+        final String CONN_STRING = Mysql.urlmysql();
 
-                    conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-                    String query = "DELETE FROM login WHERE username =" + '"' + delete[0] + '"' + "AND password = " + '"' + delete[1] + '"' + "";
-                    Statement st = conn.createStatement();
-                    st.executeUpdate(query);
+        try {
 
-                } catch (SQLException ed) {
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            String query = "DELETE FROM login WHERE username =" + '"' + delete[0] + '"' + "AND password = " + '"' + delete[1] + '"' + "";
+            Statement st = conn.createStatement();
+            st.executeUpdate(query);
 
-                    System.err.println(ed);
+        } catch (SQLException ed) {
 
-                }
-        
-        
-        
-        
+            System.err.println(ed);
+
+        }
+
     }
-    
+
     public void Update(String[] updateInfo) {
         System.out.println("begin");
-                
-               
-             
-             
 
-                Connection conn;                                                            //making connection to database
+        Connection conn;                                                            //making connection to database
 
-                final String USERNAME = Mysql.username();
-                final String PASSWORD = Mysql.password();
-                final String CONN_STRING = Mysql.urlmysql();
+        final String USERNAME = Mysql.username();
+        final String PASSWORD = Mysql.password();
+        final String CONN_STRING = Mysql.urlmysql();
 
-                try {
-                    System.out.println("midde");
-                    conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-                    String query = "UPDATE login SET username =" + '"' + updateInfo[0] + '"' + ", password = " + '"' + updateInfo[1] + '"' + ", permission = " + '"' + updateInfo[2] + '"' + "WHERE username =" + '"' + updateInfo[3] + '"';
-                    Statement st = conn.createStatement();
-                    st.executeUpdate(query);
+        try {
+            System.out.println("midde");
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            String query = "UPDATE login SET username =" + '"' + updateInfo[0] + '"' + ", password = " + '"' + updateInfo[1] + '"' + ", permission = " + '"' + updateInfo[2] + '"' + "WHERE username =" + '"' + updateInfo[3] + '"';
+            Statement st = conn.createStatement();
+            st.executeUpdate(query);
 
-                } catch (SQLException ed) {
+        } catch (SQLException ed) {
 
-                    System.err.println(ed);
+            System.err.println(ed);
 
-                }
-        
+        }
+
         System.out.println("eind");
-        
-        
-        
+
     }
-    
-    
-    
-    
-    
-    
+
 }
