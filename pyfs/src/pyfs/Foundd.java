@@ -73,8 +73,7 @@ public class Foundd {
             Statement st = conn.createStatement();
             
             
-            
-            String query = "INSERT INTO dta (date, time, airport, Unr) VALUES (?,?,?,?)";
+            String query = "INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + datex[0] + '"' + "," + '"' + datex[1] + '"' + "," + '"' + datex[2] + '"' + "," + '"' + datex[3]+ " )";
             st.executeUpdate(query);
         }
         catch (SQLException ed) {
