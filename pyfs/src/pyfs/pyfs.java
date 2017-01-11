@@ -416,7 +416,7 @@ public class pyfs extends Application {
                 persoon[4] = lost1.getTextCountry();
                 persoon[5] = lost1.getTextPhone();
                 persoon[6] = lost1.getTextMail();
-
+                int Pnr = lostd.invullenP(persoon);
                 thestage.setScene(lost3);}
         });
 

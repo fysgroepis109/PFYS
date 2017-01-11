@@ -23,9 +23,7 @@ public class Lostd {
 
     private String name;
 
-    
-
-    public int invullenP(String[]persoon) {
+    public int invullenP(String[] persoon) {
 
         final String USERNAME = Mysql.username();
         final String PASSWORD = Mysql.password();
@@ -40,14 +38,19 @@ public class Lostd {
             System.out.println("Connected persoon");
             Statement stmt = (Statement) conn.createStatement();
 
-            ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM persoon where name = " + '"' + name + '"');
+            ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM persoon where name = " + "'" + persoon[0] + "' and zip = '" + persoon[3]
+                        + "' and country = '" + persoon[4] + "'");
 
             while (rs5.next()) {
                 count5 = rs5.getInt("total");
             }
 
             if (count5 > 0) {
-                ResultSet rs6 = stmt.executeQuery("SELECT Pnr FROM persoon where name = " + '"' + name + '"');
+
+                ResultSet rs6 = stmt.executeQuery("SELECT Pnr FROM persoon where name = " + "'" + persoon[0] + "' and zip = '" + persoon[3]
+                        + "' and country = '" + persoon[4] + "'");
+                 
+                
                 while (rs6.next()) {
                     count6 = rs6.getInt("Pnr");
                 }
@@ -60,6 +63,9 @@ public class Lostd {
                     count6++;
                     System.out.println(count6);
                 }
+                
+                
+                
 
             }
 
@@ -72,10 +78,13 @@ public class Lostd {
         return count6;
     }
 
-    
-    public void invullenb(){
-        
-        
+    public void invullenb() {
+
+        final String USERNAME = Mysql.username();
+        final String PASSWORD = Mysql.password();
+        final String CONN_STRING = Mysql.urlmysql();
+        Connection conn;
+
         try {
 
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
@@ -85,17 +94,16 @@ public class Lostd {
             ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM persoon where name = " + '"' + name + '"');
 
             while (rs5.next()) {
-                count5 = rs5.getInt("total");
+                //count5 = rs5.getInt("total");
             }
-
 
         } catch (SQLException ed) {
 
             System.err.println(ed);
 
         }
-        
-            /*
+
+        /*
             ResultSet rs1 = stmt.executeQuery("insert into bagage(Unr, Pnr, type, brand, colour, weight, spes, FLD) " + "values");
 
             ResultSet rs = stmt.executeQuery("count (*) from bagage where label = " + lost1.getTextLabelnr());
@@ -122,6 +130,6 @@ public class Lostd {
 
                 //DataTable luggage information = dataBase.executeDataTableQuery("SELECT *  FROM bagage A inner join labels B on A.Unr = B.Unr inner join tijden C on A.Unr = C.Unr where FLD = F and labelnr = null and colour = " + lost1.getTextLugcolor());
             }
-             */
+         */
     }
 }
