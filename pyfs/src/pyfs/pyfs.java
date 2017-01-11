@@ -616,43 +616,11 @@ public class pyfs extends Application {
             public void handle(ActionEvent event) {
                 thestage.setScene(foundfinal);
 
-<<<<<<< HEAD
-                Connection conn;                                               //making connection to database
 
-                final String USERNAME = Mysql.username();
-                final String PASSWORD = Mysql.password();
-                final String CONN_STRING = Mysql.urlmysql();
-
-                String[] foundbagage = new String[5];
-                foundbagage[0] = found1.getLugtype();
-                foundbagage[1] = found1.getLugbrand();
-                foundbagage[2] = found1.getLugcolor();
-                foundbagage[3] = found1.getLugweight();
-                foundbagage[4] = found1.getLugspef();
-
-                try {
+               
                     
-                    
-                    conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-                     Statement st = conn.createStatement();
-                     String primkey = "SELECT MAX(Lugagenr) FROM lugage ";
-                    ResultSet rs = st.executeQuery(primkey);
-                    
-                    
-                    
-                    String query = "INSERT INTO lugage (Lugagetype, Lugagebrand, Lugagecol, Lugageweight, Lugagespef, Lugagenr) VALUES (" + '"' + foundbagage[0] + '"' + "," + '"' + foundbagage[1] + '"' + "," + '"' + foundbagage[2] + '"' + "," + '"'
-                            + foundbagage[3] + '"' + "," + '"' + foundbagage[4] + '"' + "," + '"' + +'"' + " )";
-
-                   
-
-                    st.executeUpdate(query);
-
-                } catch (SQLException ed) {
-
-                    System.err.println(ed);
-=======
                 foundd.getLuggage();
->>>>>>> origin/master
+
 
              
 
@@ -795,8 +763,13 @@ public class pyfs extends Application {
 
             @Override
             public void handle(ActionEvent event) {
+                
+                String[] Add = new String[3];
+                 Add[0] = admin1.getTextAddusername();
+                Add [1] = admin1.getTextAddpassword();
+                Add [2] = admin1.getTextAddtoegang();
 
-                admind.Add();
+                admind.Add(Add);
 
                 userCreateStage.close();
 
@@ -834,8 +807,13 @@ public class pyfs extends Application {
 
             @Override
             public void handle(ActionEvent event) {
+                
+                String[] remove = new String[2];
+                
+                 remove[0] = admin1.getTextRemoveusername();
+                 remove[1]= admin1.getTextRemovepassword();
 
-                admind.Delete();
+                admind.Delete(remove);
 
                 userRemoveStage.close();
 
@@ -872,8 +850,16 @@ public class pyfs extends Application {
 
             @Override
             public void handle(ActionEvent event) {
+              
+                String updateInfo[] = new String[4];
+                
+               updateInfo[0] = admin1.getTextUpdateusername();
+               updateInfo[1] = admin1.getTextUpdatepassword();
+               updateInfo[2] = admin1.getTextUpdatetoegang();
+               updateInfo[3] = admin1.getTextUpdateCurrent();
+            
 
-                admind.Update();
+                admind.Update(updateInfo);
 
                 userUpdateStage.close();
 

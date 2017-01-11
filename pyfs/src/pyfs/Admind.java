@@ -22,11 +22,9 @@ public class Admind {
     public Admind() {
     }
     
-    public void Add() {
+    public void Add(String[] Add) {
         
-       String addUsername = admin1.getTextAddusername();
-                String addPassword = admin1.getTextAddpassword();
-                String addToegang = admin1.getTextAddtoegang();
+                
 
                 Connection conn;                                                            //making connection to database
 
@@ -37,7 +35,7 @@ public class Admind {
                 try {
 
                     conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-                    String query = "INSERT INTO login (username, password, toegang) VALUES (" + '"' + addUsername + '"' + "," + '"' + addPassword + '"' + "," + '"' + addToegang + '"' + " )";
+                    String query = "INSERT INTO login (username, password, permission) VALUES (" + '"' + Add[0] + '"' + "," + '"' + Add[1] + '"' + "," + '"' + Add[2] + '"' + " )";
                     Statement st = conn.createStatement();
                     st.executeUpdate(query);
 
@@ -52,10 +50,9 @@ public class Admind {
         
     }
     
-    public void Delete() {
+    public void Delete(String [] delete) {
         
-         String removeUsername = admin1.getTextRemoveusername();
-                String removePassword = admin1.getTextRemovepassword();
+               
 
                 Connection conn;                                                            //making connection to database
 
@@ -66,7 +63,7 @@ public class Admind {
                 try {
 
                     conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-                    String query = "DELETE FROM login WHERE username =" + '"' + removeUsername + '"' + "AND password = " + '"' + removePassword + '"' + "";
+                    String query = "DELETE FROM login WHERE username =" + '"' + delete[0] + '"' + "AND password = " + '"' + delete[1] + '"' + "";
                     Statement st = conn.createStatement();
                     st.executeUpdate(query);
 
@@ -81,12 +78,12 @@ public class Admind {
         
     }
     
-    public void Update() {
-        
-         String updateUsername = admin1.getTextUpdateusername();
-                String updatePassword = admin1.getTextUpdatepassword();
-                String updateToegang = admin1.getTextUpdatetoegang();
-                String updateCurrentUsername = admin1.getTextUpdateCurrent();
+    public void Update(String[] updateInfo) {
+        System.out.println("begin");
+                
+               
+             
+             
 
                 Connection conn;                                                            //making connection to database
 
@@ -95,9 +92,9 @@ public class Admind {
                 final String CONN_STRING = Mysql.urlmysql();
 
                 try {
-
+                    System.out.println("midde");
                     conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-                    String query = "UPDATE login SET username =" + '"' + updateUsername + '"' + ", password = " + '"' + updatePassword + '"' + ", toegang = " + '"' + updateToegang + '"' + "WHERE username =" + '"' + updateCurrentUsername + '"';
+                    String query = "UPDATE login SET username =" + '"' + updateInfo[0] + '"' + ", password = " + '"' + updateInfo[1] + '"' + ", permission = " + '"' + updateInfo[2] + '"' + "WHERE username =" + '"' + updateInfo[3] + '"';
                     Statement st = conn.createStatement();
                     st.executeUpdate(query);
 
@@ -107,7 +104,7 @@ public class Admind {
 
                 }
         
-        
+        System.out.println("eind");
         
         
         
