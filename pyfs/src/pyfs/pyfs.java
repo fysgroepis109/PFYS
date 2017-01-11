@@ -375,7 +375,7 @@ public class pyfs extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                thestage.setScene(lost2);
+              
                 
                 String[] date = new String[4];
                 date[0] = lost1.getDate();
@@ -384,7 +384,7 @@ public class pyfs extends Application {
                 System.out.println(date[0]);
                 lostd.getDate(date);
 
-                thestage.setScene(found2);
+                thestage.setScene(lost2);
 
                 
                
@@ -492,10 +492,12 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event) {
 
-                String[] vlucht = new String[3];
+                String[] vlucht = new String[4];
                 vlucht[0] = lost1.getTextLabelnr();
                 vlucht[1] = lost1.getTextFlightnr();
                 vlucht[2] = lost1.getTextDestin();
+                
+                lostd.getLabel(vlucht);
 
                 thestage.setScene(lostfinal);
             }

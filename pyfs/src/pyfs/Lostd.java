@@ -226,6 +226,37 @@ public class Lostd {
         }
 
     }
+        
+         public void getLabel(String[] label) {
+
+        Connection conn;                                                            //making connection to database
+
+        final String USERNAME = Mysql.username();
+        final String PASSWORD = Mysql.password();
+        final String CONN_STRING = Mysql.urlmysql();
+
+
+        try {
+
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            Statement st = conn.createStatement();
+            
+            
+
+            String query = ("INSERT INTO flight (Unr, labelnr, flightnr, destin) VALUES (" + 12 + "," + '"' + label[0] + '"' + "," + '"' + label[1] + '"' + "," + '"' + label[2] + '"' + ")");
+
+            //String query = "INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + datex[0] + '"' + "," + '"' + datex[1] + '"' + "," + '"' + datex[2] + '"' + "," + '"' + 100 + '"' + " )";
+
+            st.executeUpdate(query);
+        }
+        catch (SQLException ed) {
+
+            System.err.println(ed);
+
+        }
+
+    }
+    
     
     
     
