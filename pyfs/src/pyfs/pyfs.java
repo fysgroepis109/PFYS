@@ -22,8 +22,6 @@ import javafx.stage.Stage;
 
 /**
  *
- *
- *
  * @author IS109-Groep 5
  *
  */
@@ -75,10 +73,10 @@ public class pyfs extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        thestage = primaryStage; //verklaart toegoevoegde stage
+        thestage = primaryStage;    //verklaart toegoevoegde stage
         Found found1 = new Found(); //Maakt nieuwe Found genaamd found1
         Lost lost1 = new Lost();    //maakt niuewe Lost genaamd lost1
-        Stat stat1 = new Stat();     // nieuwe Stat genaamd stat1
+        Stat stat1 = new Stat();    // nieuwe Stat genaamd stat1
         Login login = new Login();  //maakt nieuwe Login genaamd login
         mysql Mysql = new mysql();
         Lostd lostd = new Lostd();
@@ -415,15 +413,14 @@ public class pyfs extends Application {
                 persoon[4] = lost1.getTextCountry();
                 persoon[5] = lost1.getTextPhone();
                 persoon[6] = lost1.getTextMail();
-<<<<<<< HEAD
-                int Pnr = lostd.invullenP(persoon);
-                thestage.setScene(lost3);}
-=======
 
+                int Pnr = lostd.invullenP(persoon);
                 thestage.setScene(lost3);
+
             }
->>>>>>> origin/master
+
         });
+        
 
         lostback2 = new Button();
         lostback2.setText("Back");                                           //back button
@@ -439,7 +436,7 @@ public class pyfs extends Application {
 
             }
         });
-
+        
         lostnext3 = new Button();
         lostnext3.setText("Next");                                           //next button
         lostnext3.setPrefSize(120, 50);
@@ -617,7 +614,7 @@ public class pyfs extends Application {
             public void handle(ActionEvent event) {
                 thestage.setScene(foundfinal);
 
-                Connection conn;                                                            //making connection to database
+                Connection conn;                                               //making connection to database
 
                 final String USERNAME = Mysql.username();
                 final String PASSWORD = Mysql.password();
