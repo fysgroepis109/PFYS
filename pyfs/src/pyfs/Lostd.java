@@ -39,7 +39,7 @@ public class Lostd {
             Statement stmt = (Statement) conn.createStatement();
 
             ResultSet rs5 = stmt.executeQuery("SELECT COUNT(*) AS total FROM persoon where name = " + "'" + persoon[0] + "' and zip = '" + persoon[3]
-                        + "' and country = '" + persoon[4] + "'");
+                    + "' and country = '" + persoon[4] + "'");
 
             while (rs5.next()) {
                 count5 = rs5.getInt("total");
@@ -50,11 +50,18 @@ public class Lostd {
                 ResultSet rs6 = stmt.executeQuery("SELECT Pnr FROM persoon where name = " + "'" + persoon[0] + "' and zip = '" + persoon[3]
                         + "' and country = '" + persoon[4] + "'");
                  
-                
                 while (rs6.next()) {
                     count6 = rs6.getInt("Pnr");
                 }
 
+                
+                    String query = ("UPDATE persoon SET adress = '" + persoon[1] + "' ,city = '" + persoon[2] + "' ,tel = '" + persoon[5] + "' ,mail = '" + persoon[6]
+                            + "where zip = '" + persoon[3] + "' and country = '" + persoon[4] + "'");
+                    //adress, city, zi(p, country, tel, mail
+                    Statement st = conn.createStatement();
+                    st.executeUpdate(query);
+                    
+                 
                 System.out.println(count6);
             } else {
                 ResultSet rs7 = stmt.executeQuery("SELECT COUNT(*) AS TOTAL FROM persoon");
@@ -63,9 +70,6 @@ public class Lostd {
                     count6++;
                     System.out.println(count6);
                 }
-                
-                
-                
 
             }
 
