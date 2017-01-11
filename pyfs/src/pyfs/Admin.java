@@ -27,13 +27,13 @@ public class Admin {
     final String PASSWORD = Mysql.password();
     final String CONN_STRING = Mysql.urlmysql();
 
-    private ObservableList<ObservableList> data;
-    private TableView tableview;
+    private ObservableList<ObservableList> data, lugagedata;
+    private TableView tableview, lugage;
 
     public Admin() {
     }
 
-    public void buildData() {
+    public void buildDataLogin() {
         Connection c;
 
         data = FXCollections.observableArrayList();
@@ -92,7 +92,7 @@ public class Admin {
     TableView adminTable() {
 
         tableview = new TableView();
-        buildData();
+        buildDataLogin();
 
         return this.tableview;
     }
@@ -241,8 +241,69 @@ public class Admin {
     public String getTextUpdateCurrent() {
         return usernameCurrentUpdate.getText();
     }
-
     
+     public void buildDataLugage() {
+        Connection c;
+
+        lugagedata = FXCollections.observableArrayList();
+        try {
+            c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            //SQL FOR SELECTING ALL OF CUSTOMER
+            String SQL = "SELECT * FROM lugage";
+            //ResultSet
+            ResultSet rs = c.createStatement().executeQuery(SQL);
+
+            /**
+             * ********************************
+             * TABLE COLUMN ADDED DYNAMICALLY *
+             *********************************
+             */
+            for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
+                //We are using non property style for making dynamic table
+                final int j = i;
+                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
+                col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+                    public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+                        return new SimpleStringProperty(param.getValue().get(j).toString());
+                    }
+                });
+
+                lugage.getColumns().addAll(col);
+                System.out.println("Column [" + i + "] ");
+            }
+
+            /**
+             * ******************************
+             * Data added to ObservableList *
+             *******************************
+             */
+            while (rs.next()) {
+                //Iterate Row
+                ObservableList<String> row = FXCollections.observableArrayList();
+                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                    //Iterate Column
+                    row.add(rs.getString(i));
+                }
+                System.out.println("Row [1] added " + row);
+                lugagedata.add(row);
+
+            }
+
+            //FINALLY ADDED TO TableView
+            lugage.setItems(lugagedata);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error on Building Data");
+        }
+
+    }
+     
+      TableView adminTableLugage() {
+
+        lugage = new TableView();
+        buildDataLugage();
+
+        return this.lugage;
+    }
+
 }
-
-

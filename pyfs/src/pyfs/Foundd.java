@@ -80,7 +80,7 @@ public class Foundd {
 
     }
 
- public void getTicket(String[] info) {
+ public void getLabel(String[] info) {
 
         Connection conn;                                                            //making connection to database
 
@@ -96,11 +96,13 @@ public class Foundd {
             
             
 
-            String query = ("INSERT INTO dta (Unr, labelnr, flightnr, destin) VALUES (" + '"' + 100 + '"' + "," + '"' + info[0] + '"' + "," + '"' + info[1] + '"' + "," + '"' +  info[2]+ '"' + ")");
+            String query = ("INSERT INTO flight (Unr, labelnr, flightnr, destin) VALUES (" + '"' + 100 + '"' + "," + "'" + info[0] + "'" + "," + '"' + info[1] + '"' + "," + '"' +  null + '"' + ")");
+            String query2 = ("INSERT into persoon (Pnr, name, adress, city, zip, country, tel, mail) VALUES (25, " + '"' + info[2] + '"' + ", null, null, null, null, null, null)");
 
-            //String query = "INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + datex[0] + '"' + "," + '"' + datex[1] + '"' + "," + '"' + datex[2] + '"' + "," + '"' + 100 + '"' + " )";
+           
 
             st.executeUpdate(query);
+           st.executeUpdate(query2);
         }
         catch (SQLException ed) {
 
