@@ -241,7 +241,7 @@ public class pyfs extends Application {
 
                         while (rs.next()) {
 
-                            int toegangstat = rs.getInt("toegang");
+                            int toegangstat = rs.getInt("permission");
                             if (toegangstat >= 2) {                         // check if passwords are the same
 
                                 thestage.setScene(stat);
@@ -314,7 +314,7 @@ public class pyfs extends Application {
 
                         while (rs.next()) {
 
-                            int toegangadmin = rs.getInt("toegang");
+                            int toegangadmin = rs.getInt("permission");
                             if (toegangadmin >= 3) {                         // check if passwords are the same                        // check if passwords are the same
 
                                 thestage.setScene(admin);
@@ -415,14 +415,12 @@ public class pyfs extends Application {
                 persoon[4] = lost1.getTextCountry();
                 persoon[5] = lost1.getTextPhone();
                 persoon[6] = lost1.getTextMail();
-<<<<<<< HEAD
-                int Pnr = lostd.invullenP(persoon);
-                thestage.setScene(lost3);}
-=======
 
+                int Pnr = lostd.invullenP(persoon);
                 thestage.setScene(lost3);
+                
             }
->>>>>>> origin/master
+
         });
 
         lostback2 = new Button();
