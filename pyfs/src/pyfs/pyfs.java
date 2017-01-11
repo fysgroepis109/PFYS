@@ -376,6 +376,22 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event) {
                 thestage.setScene(lost2);
+                
+                String[] date = new String[4];
+                date[0] = lost1.getDate();
+                date[1] = lost1.getTime();
+                date[2] = lost1.getAirport();
+                System.out.println(date[0]);
+                lostd.getDate(date);
+
+                thestage.setScene(found2);
+
+                
+               
+                  
+              
+                
+                
 
             }
         });
@@ -448,13 +464,17 @@ public class pyfs extends Application {
 
             @Override
             public void handle(ActionEvent event) {
+                
+                  String[] lostbagage = new String[5];
+                lostbagage[0] = lost1.getTextLugype();
+                lostbagage[1] = lost1.getTextLygbrand();
+                lostbagage[2] = lost1.getTextLugcolor();
+                lostbagage[3] = lost1.getTextlugweight();
+                lostbagage[4] = lost1.getTextLugspef();
+                
+                lostd.getLuggage(lostbagage);
 
-                String[] bagage = new String[5];
-                bagage[0] = lost1.getTextLugype();
-                bagage[1] = lost1.getTextLygbrand();
-                bagage[2] = lost1.getTextLugcolor();
-                bagage[3] = lost1.getTextlugweight();
-                bagage[4] = lost1.getTextLugspef();
+              
 
                 thestage.setScene(lost4);
 
@@ -541,7 +561,7 @@ public class pyfs extends Application {
             public void handle(ActionEvent event) {
 
                 String[] datex = new String[4];
-                datex[0] = found1.getDate().getText();
+                datex[0] = found1.getDate().getText().toLowerCase();
                 datex[1] = found1.getTime();
                 datex[2] = found1.getAirport();
                 System.out.println(datex[1]);
@@ -616,8 +636,16 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event) {
                 thestage.setScene(foundfinal);
+                
+                 String[] foundbagage = new String[5];
+        foundbagage[0] = found1.getLugtype();
+        foundbagage[1] = found1.getLugbrand();
+        foundbagage[2] = found1.getLugcolor();
+        foundbagage[3] = found1.getLugweight();
+        foundbagage[4] = found1.getLugspef();
 
-                foundd.getLuggage();
+
+                foundd.getLuggage(foundbagage);
 
             }
         });

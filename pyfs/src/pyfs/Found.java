@@ -26,47 +26,47 @@ public class Found {
     }
 
     public String getTime() {
-        return time.getText();
+        return time.getText().toLowerCase();
     }
 
     public String getLabelnr() {
-        return labelnr.getText();
+        return labelnr.getText().toLowerCase();
     }
 
     public String getFlightnr() {
-        return flightnr.getText();
+        return flightnr.getText().toLowerCase();
     }
 
     public String getDestin() {
-        return destin.getText();
+        return destin.getText().toLowerCase();
     }
 
     public String getNametrav() {
-        return nametrav.getText();
+        return nametrav.getText().toLowerCase();
     }
 
     public String getLugtype() {
-        return lugtype.getText();
+        return lugtype.getText().toLowerCase();
     }
 
     public String getLugbrand() {
-        return lugbrand.getText();
+        return lugbrand.getText().toLowerCase();
     }
 
     public String getLugcolor() {
-        return lugcolor.getText();
+        return lugcolor.getText().toLowerCase();
     }
 
     public String getLugweight() {
-        return lugweight.getText();
+        return lugweight.getText().toLowerCase();
     }
 
     public String getAirport() {
-        return airport.getText();
+        return airport.getText().toLowerCase();
     }
 
     public String getLugspef() {
-        return lugspef.getText();
+        return lugspef.getText().toLowerCase();
     }
 
     
