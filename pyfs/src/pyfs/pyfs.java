@@ -420,11 +420,7 @@ public class pyfs extends Application {
 
                 int Pnr = lostd.invullenP(persoon);
                 thestage.setScene(lost3);
-<<<<<<< HEAD
-                
-=======
 
->>>>>>> origin/master
             }
 
         });
