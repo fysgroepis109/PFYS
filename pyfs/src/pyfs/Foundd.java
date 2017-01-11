@@ -53,7 +53,7 @@ public class Foundd {
 
     }
 
-    public void getDate() {
+    public void getDate(String[] datex) {
 
         Connection conn;                                                            //making connection to database
 
@@ -61,11 +61,7 @@ public class Foundd {
         final String PASSWORD = Mysql.password();
         final String CONN_STRING = Mysql.urlmysql();
         
-        String[] datex = new String[4];
-        datex[0] = found1.getDate().getEditor().getText();
-        datex[1] = found1.Time().getText();
-        datex[2] = found1.getAirport();
-        //datex[3] = found1.get VERGEET UNR NIET
+        
 
         try {
 
@@ -73,7 +69,7 @@ public class Foundd {
             Statement st = conn.createStatement();
             
             
-            String query = "INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + datex[0] + '"' + "," + '"' + datex[1] + '"' + "," + '"' + datex[2] + '"' + "," + '"' + datex[3]+ " )";
+            String query = ("INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + datex[0] + '"' + "," + '"' + datex[1] + '"' + "," + '"' + datex[2] + '"' + " ,100)");
             st.executeUpdate(query);
         }
         catch (SQLException ed) {
