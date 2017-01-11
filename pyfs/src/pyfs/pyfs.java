@@ -544,7 +544,7 @@ public class pyfs extends Application {
                 info[0] = found1.getLabelnr();
                 info[1] = found1.getFlightnr();
                 info[2] = found1.getNametrav();
-                
+
                 foundd.getDate();
 
                 thestage.setScene(found2);
@@ -616,782 +616,635 @@ public class pyfs extends Application {
             @Override
             public void handle(ActionEvent event) {
                 thestage.setScene(foundfinal);
-                
-                    foundd.getLuggage();
+
+                foundd.getLuggage();
 
             }
-            })
-                ;
+        });
 
         //foundfinal
-        foundfinalButton  = new Button();
+        foundfinalButton = new Button();
 
-            foundfinalButton.setText (
-
-            "Menu");                                           //lost terug menu
-            foundfinalButton.setPrefSize (
-
-            200, 50);
-            foundfinalButton.setTranslateY (
-
-            -370);
-            foundfinalButton.setTranslateX (
-
-            700);
-            foundfinalButton.setStyle (
-
-            "-fx-base:darkcyan;-fx-border-color:black");
-            foundfinalButton.setOnAction ( 
+        foundfinalButton.setText(
+                "Menu");                                           //lost terug menu
+        foundfinalButton.setPrefSize(
+                200, 50);
+        foundfinalButton.setTranslateY(
+                -370);
+        foundfinalButton.setTranslateX(
+                700);
+        foundfinalButton.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        foundfinalButton.setOnAction(
                 new EventHandler<ActionEvent>() {
 
             @Override
-                public void handle
-                (ActionEvent event
-                
-                    ) {
+            public void handle(ActionEvent event
+            ) {
                 thestage.setScene(menu);
 
-                }
             }
-            );
+        }
+        );
 
         //stat
-        statterugmenu  = new Button();
+        statterugmenu = new Button();
 
-            statterugmenu.setText (
-
-            "Back");                                           //back button
-            statterugmenu.setPrefSize (
-
-            200, 50);
-            statterugmenu.setTranslateY (
-
-            -370);
-            statterugmenu.setTranslateX (
-
-            700);
-            statterugmenu.setStyle (
-
-            "-fx-base:darkcyan;-fx-border-color:black");
-            statterugmenu.setOnAction ( 
+        statterugmenu.setText(
+                "Back");                                           //back button
+        statterugmenu.setPrefSize(
+                200, 50);
+        statterugmenu.setTranslateY(
+                -370);
+        statterugmenu.setTranslateX(
+                700);
+        statterugmenu.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        statterugmenu.setOnAction(
                 new EventHandler<ActionEvent>() {
 
             @Override
-                public void handle
-                (ActionEvent event
-                
-                    ) {
+            public void handle(ActionEvent event
+            ) {
                 thestage.setScene(menu);
 
-                }
             }
-            );
+        }
+        );
 
         //stat
-        yearbtn  = new Button();
+        yearbtn = new Button();
 
-            yearbtn.setText (
-
-            "Over year");                                           //back button
-            yearbtn.setPrefSize (
-
-            200, 50);
-            yearbtn.setTranslateX (
-
-            300);
-            yearbtn.setStyle (
-
-            "-fx-base:darkcyan;-fx-border-color:black");
-            yearbtn.setOnAction ( 
+        yearbtn.setText(
+                "Over year");                                           //back button
+        yearbtn.setPrefSize(
+                200, 50);
+        yearbtn.setTranslateX(
+                300);
+        yearbtn.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        yearbtn.setOnAction(
                 new EventHandler<ActionEvent>() {
 
             @Override
-                public void handle
-                (ActionEvent event
-                
-                    ) {
+            public void handle(ActionEvent event
+            ) {
                 yearstage = new Stage();
-                    yearstage.setTitle("Over year");
-                    yearstage.setScene(year);
-                    yearstage.setResizable(false);
-                    yearstage.show();
+                yearstage.setTitle("Over year");
+                yearstage.setScene(year);
+                yearstage.setResizable(false);
+                yearstage.show();
 
-                }
             }
-            );
+        }
+        );
 
-        currentbtn  = new Button();
+        currentbtn = new Button();
 
-            currentbtn.setText (
-
-            "Current lugage");                                           //back button
-            currentbtn.setPrefSize (
-
-            200, 50);
-            currentbtn.setTranslateX (
-
-            -300);
-            currentbtn.setStyle (
-
-            "-fx-base:darkcyan;-fx-border-color:black");
-            currentbtn.setOnAction ( 
+        currentbtn.setText(
+                "Current lugage");                                           //back button
+        currentbtn.setPrefSize(
+                200, 50);
+        currentbtn.setTranslateX(
+                -300);
+        currentbtn.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        currentbtn.setOnAction(
                 new EventHandler<ActionEvent>() {
 
             @Override
-                public void handle
-                (ActionEvent event
-                
-                    ) {
+            public void handle(ActionEvent event
+            ) {
                 currentstage = new Stage();
-                    currentstage.setTitle("Current lugage");
-                    currentstage.setScene(current);
-                    currentstage.setResizable(false);
-                    currentstage.show();
+                currentstage.setTitle("Current lugage");
+                currentstage.setScene(current);
+                currentstage.setResizable(false);
+                currentstage.show();
 
-                }
             }
-            );
+        }
+        );
 
         //admin
-        adminterugmenu  = new Button();
+        adminterugmenu = new Button();
 
-            adminterugmenu.setText (
-
-            "Back");                                           //back button
-            adminterugmenu.setPrefSize (
-
-            200, 50);
-            adminterugmenu.setTranslateY (
-
-            -370);
-            adminterugmenu.setTranslateX (
-
-            700);
-            adminterugmenu.setStyle (
-
-            "-fx-base:darkcyan;-fx-border-color:black");
-            adminterugmenu.setOnAction ( 
+        adminterugmenu.setText(
+                "Back");                                           //back button
+        adminterugmenu.setPrefSize(
+                200, 50);
+        adminterugmenu.setTranslateY(
+                -370);
+        adminterugmenu.setTranslateX(
+                700);
+        adminterugmenu.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        adminterugmenu.setOnAction(
                 new EventHandler<ActionEvent>() {
 
             @Override
-                public void handle
-                (ActionEvent event
-                
-                    ) {
+            public void handle(ActionEvent event
+            ) {
                 thestage.setScene(menu);
-                }
-
             }
-            );
 
-        userTableBtn  = new Button();
+        }
+        );
 
-            userTableBtn.setText (
+        userTableBtn = new Button();
 
-            "View Users");                                           //back button
-            userTableBtn.setPrefSize (
-
-            200, 50);
-            userTableBtn.setTranslateX (
-
-            -400);
-            userTableBtn.setTranslateY (
-
-            -150);
-            userTableBtn.setStyle (
-
-            "-fx-base:darkcyan;-fx-border-color:black");
-            userTableBtn.setOnAction ( 
+        userTableBtn.setText(
+                "View Users");                                           //back button
+        userTableBtn.setPrefSize(
+                200, 50);
+        userTableBtn.setTranslateX(
+                -400);
+        userTableBtn.setTranslateY(
+                -150);
+        userTableBtn.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        userTableBtn.setOnAction(
                 new EventHandler<ActionEvent>() {
 
             @Override
-                public void handle
-                (ActionEvent event
-                
-                    ) {
+            public void handle(ActionEvent event
+            ) {
 
                 userTablePane.getChildren().add(admin1.adminTable());
-                    userTableStage = new Stage();
-                    userTableStage.setTitle("Users");
-                    userTableStage.setScene(userTable);
-                    userTableStage.setResizable(false);
-                    userTableStage.show();
-                }
-
+                userTableStage = new Stage();
+                userTableStage.setTitle("Users");
+                userTableStage.setScene(userTable);
+                userTableStage.setResizable(false);
+                userTableStage.show();
             }
-            );
+
+        }
+        );
 
         Button createUser = new Button();
 
-            createUser.setText (
-
-            "Create user");                                           //back button
-            createUser.setPrefSize (
-
-            200, 50);
-            createUser.setTranslateX (
-
-            -400);
-            createUser.setTranslateY (
-
-            -50);
-            createUser.setStyle (
-
-            "-fx-base:darkcyan;-fx-border-color:black");
-            createUser.setOnAction ( 
+        createUser.setText(
+                "Create user");                                           //back button
+        createUser.setPrefSize(
+                200, 50);
+        createUser.setTranslateX(
+                -400);
+        createUser.setTranslateY(
+                -50);
+        createUser.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        createUser.setOnAction(
                 new EventHandler<ActionEvent>() {
 
             @Override
-                public void handle
-                (ActionEvent event
-                
-                    ) {
+            public void handle(ActionEvent event
+            ) {
 
                 userCreateStage = new Stage();
-                    userCreateStage.setTitle("User creation");
-                    userCreateStage.setScene(userCreate);
-                    userCreateStage.setResizable(false);
-                    userCreateStage.show();
-
-                }
+                userCreateStage.setTitle("User creation");
+                userCreateStage.setScene(userCreate);
+                userCreateStage.setResizable(false);
+                userCreateStage.show();
 
             }
-            );
+
+        }
+        );
 
         Button addUser = new Button();
 
-            addUser.setText (
-
-            "Add");                                           //back button
-            addUser.setPrefSize (
-
-            150, 50);
-            addUser.setTranslateX (
-
-            350);
-            addUser.setStyle (
-
-            "-fx-base:darkcyan;-fx-border-color:black");
-            addUser.setOnAction ( 
+        addUser.setText(
+                "Add");                                           //back button
+        addUser.setPrefSize(
+                150, 50);
+        addUser.setTranslateX(
+                350);
+        addUser.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        addUser.setOnAction(
                 new EventHandler<ActionEvent>() {
 
-            @Override
-                public void handle
-                (ActionEvent event
-                
-                    ) {
+            public void handle(ActionEvent event) {
 
-                admind.Add();
+                String[] Add = new String[3];
+                Add[0] = admin1.getTextAddusername();
+                Add[1] = admin1.getTextAddpassword();
+                Add[2] = admin1.getTextAddtoegang();
 
-                    userCreateStage.close();
+                admind.Add(Add);
 
-                }
+                userCreateStage.close();
 
             }
-            );
+
+        }
+        );
 
         Button removeUser = new Button();
 
-            removeUser.setText (
-
-            "Remove user");                                           //back button
-            removeUser.setPrefSize (
-
-            200, 50);
-            removeUser.setTranslateX (
-
-            -400);
-            removeUser.setTranslateY (
-
-            50);
-            removeUser.setStyle (
-
-            "-fx-base:darkcyan;-fx-border-color:black");
-            removeUser.setOnAction ( 
+        removeUser.setText(
+                "Remove user");                                           //back button
+        removeUser.setPrefSize(
+                200, 50);
+        removeUser.setTranslateX(
+                -400);
+        removeUser.setTranslateY(
+                50);
+        removeUser.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        removeUser.setOnAction(
                 new EventHandler<ActionEvent>() {
 
             @Override
-                public void handle
-                (ActionEvent event
-                
-                    ) {
+            public void handle(ActionEvent event
+            ) {
 
                 userRemoveStage = new Stage();
-                    userRemoveStage.setTitle("User creation");
-                    userRemoveStage.setScene(userRemove);
-                    userRemoveStage.setResizable(false);
-                    userRemoveStage.show();
-
-                }
+                userRemoveStage.setTitle("User creation");
+                userRemoveStage.setScene(userRemove);
+                userRemoveStage.setResizable(false);
+                userRemoveStage.show();
 
             }
-            );
+
+        }
+        );
 
         Button deleteUser = new Button();
 
-            deleteUser.setText (
-
-            "Remove");                                           //back button
-            deleteUser.setPrefSize (
-
-            150, 50);
-            deleteUser.setTranslateX (
-
-            350);
-            deleteUser.setStyle (
-
-            "-fx-base:darkcyan;-fx-border-color:black");
-            deleteUser.setOnAction ( 
+        deleteUser.setText(
+                "Remove");                                           //back button
+        deleteUser.setPrefSize(
+                150, 50);
+        deleteUser.setTranslateX(
+                350);
+        deleteUser.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        deleteUser.setOnAction(
                 new EventHandler<ActionEvent>() {
 
-            @Override
-                public void handle
-                (ActionEvent event
-                
-                    ) {
+            public void handle(ActionEvent event) {
 
-                admind.Delete();
+                String[] remove = new String[2];
 
-                    userRemoveStage.close();
+                remove[0] = admin1.getTextRemoveusername();
+                remove[1] = admin1.getTextRemovepassword();
 
-                }
+                admind.Delete(remove);
+
+                userRemoveStage.close();
+
             }
-            );
+        }
+        );
 
         Button updateUser = new Button();
 
-            updateUser.setText (
-
-            "Update user");                                           //back button
-            updateUser.setPrefSize (
-
-            200, 50);
-            updateUser.setTranslateX (
-
-            -400);
-            updateUser.setTranslateY (
-
-            150);
-            updateUser.setStyle (
-
-            "-fx-base:darkcyan;-fx-border-color:black");
-            updateUser.setOnAction ( 
+        updateUser.setText(
+                "Update user");                                           //back button
+        updateUser.setPrefSize(
+                200, 50);
+        updateUser.setTranslateX(
+                -400);
+        updateUser.setTranslateY(
+                150);
+        updateUser.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        updateUser.setOnAction(
                 new EventHandler<ActionEvent>() {
 
             @Override
-                public void handle
-                (ActionEvent event
-                
-                    ) {
+            public void handle(ActionEvent event
+            ) {
 
                 userUpdateStage = new Stage();
-                    userUpdateStage.setTitle("User update");
-                    userUpdateStage.setScene(userUpdate);
-                    userUpdateStage.setResizable(false);
-                    userUpdateStage.show();
-
-                }
+                userUpdateStage.setTitle("User update");
+                userUpdateStage.setScene(userUpdate);
+                userUpdateStage.setResizable(false);
+                userUpdateStage.show();
 
             }
-            );
+
+        }
+        );
 
         Button update2User = new Button();
 
-            update2User.setText (
-
-            "Update");                                           //back button
-            update2User.setPrefSize (
-
-            150, 50);
-            update2User.setTranslateX (
-
-            550);
-            update2User.setStyle (
-
-            "-fx-base:darkcyan;-fx-border-color:black");
-            update2User.setOnAction ( 
+        update2User.setText(
+                "Update");                                           //back button
+        update2User.setPrefSize(
+                150, 50);
+        update2User.setTranslateX(
+                550);
+        update2User.setStyle(
+                "-fx-base:darkcyan;-fx-border-color:black");
+        update2User.setOnAction(
                 new EventHandler<ActionEvent>() {
 
-            @Override
-                public void handle
-                (ActionEvent event
-                
-                    ) {
+            public void handle(ActionEvent event) {
 
-                admind.Update();
+                String updateInfo[] = new String[4];
 
-                    userUpdateStage.close();
+                updateInfo[0] = admin1.getTextUpdateusername();
+                updateInfo[1] = admin1.getTextUpdatepassword();
+                updateInfo[2] = admin1.getTextUpdatetoegang();
+                updateInfo[3] = admin1.getTextUpdateCurrent();
 
-                }
+                admind.Update(updateInfo);
+
+                userUpdateStage.close();
+
             }
-            );
+        }
+        );
 
         //EINDE CONTROLS
         //PANES
         StackPane inlogschermpane = new StackPane();                                             //toevoegen button
 
-            //Stackpane inlogscherm
-            inlogschermpane.getChildren ()
-
-            .add(loginbtn);                        //toevoegen button
-            inlogschermpane.getChildren ()
-
-            .add(login.username());                   //toevoegen username text
-            inlogschermpane.getChildren ()
-
-            .add(login.password());
-            inlogschermpane.getChildren ()
-
-            .add(login.logologin());
-            inlogschermpane.setStyle (
-            "-fx-background-color:#FFFFFF");
-
-        menupane  = new StackPane();
-
-            menupane.getChildren ()
-
-            .add(logoutbtn);
-            menupane.getChildren ()
-
-            .add(lostbtn);
-            menupane.getChildren ()
-
-            .add(foundbtn);
-            menupane.getChildren ()
-
-            .add(statbtn);
-            menupane.getChildren ()
-
-            .add(adminbtn);
-            menupane.setStyle (
-            "-fx-background-color:#FFFFFF");
-
-        lostpane  = new StackPane();
-
-            lostpane.setStyle (
-
-            "-fx-background-color:#FFFFFF");
-            lostpane.getChildren ()
-
-            .add(lostterugmenu);
-            lostpane.getChildren ()
-
-            .add(lost1.date());
-            lostpane.getChildren ()
-
-            .add(lost1.Time());
-            lostpane.getChildren ()
-
-            .add(lost1.airport());
-            lostpane.getChildren ()
-            .add(lostnext);
-
-        lost2pane  = new StackPane();
-
-            lost2pane.setStyle (
-
-            "-fx-background-color:#FFFFFF");
-            lost2pane.getChildren ()
-
-            .add(lostback);
-            lost2pane.getChildren ()
-
-            .add(lost1.Naam());
-            lost2pane.getChildren ()
-
-            .add(lost1.adres());
-            lost2pane.getChildren ()
-
-            .add(lost1.City());
-            lost2pane.getChildren ()
-
-            .add(lost1.Zip());
-            lost2pane.getChildren ()
-
-            .add(lost1.country());
-            lost2pane.getChildren ()
-
-            .add(lost1.Phone());
-            lost2pane.getChildren ()
-
-            .add(lost1.Mail());
-            lost2pane.getChildren ()
-            .add(lostnext2);
-
-        lost3pane  = new StackPane();
-
-            lost3pane.setStyle (
-
-            "-fx-background-color:#FFFFFF");
-            lost3pane.getChildren ()
-
-            .add(lost1.Lugtype());
-            lost3pane.getChildren ()
-
-            .add(lost1.Lugbrand());
-            lost3pane.getChildren ()
-
-            .add(lost1.Lugcolor());
-            lost3pane.getChildren ()
-
-            .add(lost1.lugspef());
-            lost3pane.getChildren ()
-
-            .add(lost1.Lugweight());
-            lost3pane.getChildren ()
-
-            .add(lostback2);
-            lost3pane.getChildren ()
-            .add(lostnext3);
-
-        lost4pane  = new StackPane();
-
-            lost4pane.setStyle (
-
-            "-fx-background-color:#FFFFFF");
-            lost4pane.getChildren ()
-
-            .add(lost1.Labelnr());
-            lost4pane.getChildren ()
-
-            .add(lost1.Flightnr());
-            lost4pane.getChildren ()
-
-            .add(lost1.Destin());
-            lost4pane.getChildren ()
-
-            .add(search);
-            lost4pane.getChildren ()
-            .add(lostback3);
-
-        lostfinalpane  = new StackPane();
-
-            lostfinalpane.setStyle (
-
-            "-fx-background-color:#FFFFFF");
-            lostfinalpane.getChildren ()
-            .add(lostterugfinal);
-
-        foundpane  = new StackPane();
-
-            foundpane.setStyle (
-
-            "-fx-background-color:#FFFFFF");
-            foundpane.getChildren ()
-
-            .add(foundterugmenu);
-            foundpane.getChildren ()
-
-            .add(found1.date());
-            foundpane.getChildren ()
-
-            .add(found1.Time());
-            foundpane.getChildren ()
-
-            .add(found1.airport());
-            foundpane.getChildren ()
-            .add(foundnext);
-
-        found2pane  = new StackPane();
-
-            found2pane.setStyle (
-
-            "-fx-background-color:#FFFFFF");
-            found2pane.getChildren ()
-
-            .add(found1.Labelnr());
-            found2pane.getChildren ()
-
-            .add(found1.Flightnr());
-            found2pane.getChildren ()
-
-            .add(found1.Destin());
-            found2pane.getChildren ()
-
-            .add(found1.NameTrav());
-            found2pane.getChildren ()
-
-            .add(foundback);
-            found2pane.getChildren ()
-            .add(foundnext2);
-
-        found3pane  = new StackPane();
-
-            found3pane.setStyle (
-
-            "-fx-background-color:#FFFFFF");
-            found3pane.getChildren ()
-
-            .add(found1.Lugtype());
-            found3pane.getChildren ()
-
-            .add(found1.Lugbrand());
-            found3pane.getChildren ()
-
-            .add(found1.Lugcolor());
-            found3pane.getChildren ()
-
-            .add(found1.Lugspef());
-            found3pane.getChildren ()
-
-            .add(found1.Lugweight());
-            found3pane.getChildren ()
-
-            .add(foundback2);
-            found3pane.getChildren ()
-            .add(foundnext3);
-
-        foundfinalpane  = new StackPane();
-
-            foundfinalpane.getChildren ()
-
-            .add(foundfinalButton);
-            foundfinalpane.setStyle (
-            "-fx-background-color:#FFFFFF");
-
-        statpane  = new StackPane();
-
-            statpane.setStyle (
-
-            "-fx-background-color:#FFFFFF");
-            statpane.getChildren ()
-
-            .add(statterugmenu);
-            statpane.getChildren ()
-
-            .add(yearbtn);
-            statpane.getChildren ()
-            .add(currentbtn);
-
-        yearpane  = new StackPane();
-
-            yearpane.setStyle (
-
-            "-fx-background-color:#FFFFFF");
-            yearpane.getChildren ()
-            .add(stat1.OverYear());
-
-        currentpane  = new StackPane();
-
-            currentpane.setStyle (
-
-            "-fx-background-color:#FFFFFF");
-            currentpane.getChildren ()
-            .add(stat1.CurrentLugage());
-
-        adminpane  = new StackPane();
-
-            adminpane.setStyle (
-
-            "-fx-background-color:#FFFFFF");
-            adminpane.getChildren ()
-
-            .add(adminterugmenu);
-            adminpane.getChildren ()
-
-            .add(userTableBtn);
-            adminpane.getChildren ()
-
-            .add(createUser);
-            adminpane.getChildren ()
-
-            .add(removeUser);
-            adminpane.getChildren ()
-            .add(updateUser);
-
-        userTablePane  = new StackPane();
-
-            userTablePane.setStyle (
-            "-fx-background-color:#FFFFFF");
+        //Stackpane inlogscherm
+        inlogschermpane.getChildren()
+                .add(loginbtn);                        //toevoegen button
+        inlogschermpane.getChildren()
+                .add(login.username());                   //toevoegen username text
+        inlogschermpane.getChildren()
+                .add(login.password());
+        inlogschermpane.getChildren()
+                .add(login.logologin());
+        inlogschermpane.setStyle(
+                "-fx-background-color:#FFFFFF");
+
+        menupane = new StackPane();
+
+        menupane.getChildren()
+                .add(logoutbtn);
+        menupane.getChildren()
+                .add(lostbtn);
+        menupane.getChildren()
+                .add(foundbtn);
+        menupane.getChildren()
+                .add(statbtn);
+        menupane.getChildren()
+                .add(adminbtn);
+        menupane.setStyle(
+                "-fx-background-color:#FFFFFF");
+
+        lostpane = new StackPane();
+
+        lostpane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        lostpane.getChildren()
+                .add(lostterugmenu);
+        lostpane.getChildren()
+                .add(lost1.date());
+        lostpane.getChildren()
+                .add(lost1.Time());
+        lostpane.getChildren()
+                .add(lost1.airport());
+        lostpane.getChildren()
+                .add(lostnext);
+
+        lost2pane = new StackPane();
+
+        lost2pane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        lost2pane.getChildren()
+                .add(lostback);
+        lost2pane.getChildren()
+                .add(lost1.Naam());
+        lost2pane.getChildren()
+                .add(lost1.adres());
+        lost2pane.getChildren()
+                .add(lost1.City());
+        lost2pane.getChildren()
+                .add(lost1.Zip());
+        lost2pane.getChildren()
+                .add(lost1.country());
+        lost2pane.getChildren()
+                .add(lost1.Phone());
+        lost2pane.getChildren()
+                .add(lost1.Mail());
+        lost2pane.getChildren()
+                .add(lostnext2);
+
+        lost3pane = new StackPane();
+
+        lost3pane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        lost3pane.getChildren()
+                .add(lost1.Lugtype());
+        lost3pane.getChildren()
+                .add(lost1.Lugbrand());
+        lost3pane.getChildren()
+                .add(lost1.Lugcolor());
+        lost3pane.getChildren()
+                .add(lost1.lugspef());
+        lost3pane.getChildren()
+                .add(lost1.Lugweight());
+        lost3pane.getChildren()
+                .add(lostback2);
+        lost3pane.getChildren()
+                .add(lostnext3);
+
+        lost4pane = new StackPane();
+
+        lost4pane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        lost4pane.getChildren()
+                .add(lost1.Labelnr());
+        lost4pane.getChildren()
+                .add(lost1.Flightnr());
+        lost4pane.getChildren()
+                .add(lost1.Destin());
+        lost4pane.getChildren()
+                .add(search);
+        lost4pane.getChildren()
+                .add(lostback3);
+
+        lostfinalpane = new StackPane();
+
+        lostfinalpane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        lostfinalpane.getChildren()
+                .add(lostterugfinal);
+
+        foundpane = new StackPane();
+
+        foundpane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        foundpane.getChildren()
+                .add(foundterugmenu);
+        foundpane.getChildren()
+                .add(found1.date());
+        foundpane.getChildren()
+                .add(found1.Time());
+        foundpane.getChildren()
+                .add(found1.airport());
+        foundpane.getChildren()
+                .add(foundnext);
+
+        found2pane = new StackPane();
+
+        found2pane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        found2pane.getChildren()
+                .add(found1.Labelnr());
+        found2pane.getChildren()
+                .add(found1.Flightnr());
+        found2pane.getChildren()
+                .add(found1.Destin());
+        found2pane.getChildren()
+                .add(found1.NameTrav());
+        found2pane.getChildren()
+                .add(foundback);
+        found2pane.getChildren()
+                .add(foundnext2);
+
+        found3pane = new StackPane();
+
+        found3pane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        found3pane.getChildren()
+                .add(found1.Lugtype());
+        found3pane.getChildren()
+                .add(found1.Lugbrand());
+        found3pane.getChildren()
+                .add(found1.Lugcolor());
+        found3pane.getChildren()
+                .add(found1.Lugspef());
+        found3pane.getChildren()
+                .add(found1.Lugweight());
+        found3pane.getChildren()
+                .add(foundback2);
+        found3pane.getChildren()
+                .add(foundnext3);
+
+        foundfinalpane = new StackPane();
+
+        foundfinalpane.getChildren()
+                .add(foundfinalButton);
+        foundfinalpane.setStyle(
+                "-fx-background-color:#FFFFFF");
+
+        statpane = new StackPane();
+
+        statpane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        statpane.getChildren()
+                .add(statterugmenu);
+        statpane.getChildren()
+                .add(yearbtn);
+        statpane.getChildren()
+                .add(currentbtn);
+
+        yearpane = new StackPane();
+
+        yearpane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        yearpane.getChildren()
+                .add(stat1.OverYear());
+
+        currentpane = new StackPane();
+
+        currentpane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        currentpane.getChildren()
+                .add(stat1.CurrentLugage());
+
+        adminpane = new StackPane();
+
+        adminpane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        adminpane.getChildren()
+                .add(adminterugmenu);
+        adminpane.getChildren()
+                .add(userTableBtn);
+        adminpane.getChildren()
+                .add(createUser);
+        adminpane.getChildren()
+                .add(removeUser);
+        adminpane.getChildren()
+                .add(updateUser);
+
+        userTablePane = new StackPane();
+
+        userTablePane.setStyle(
+                "-fx-background-color:#FFFFFF");
 
         StackPane userCreatePane = new StackPane();
 
-            userCreatePane.setStyle (
+        userCreatePane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        userCreatePane.getChildren()
+                .add(admin1.addUsername());
+        userCreatePane.getChildren()
+                .add(admin1.addPassword());
+        userCreatePane.getChildren()
+                .add(admin1.Toegang());
+        userCreatePane.getChildren()
+                .add(addUser);
 
-            "-fx-background-color:#FFFFFF");
-            userCreatePane.getChildren ()
+        userRemovePane = new StackPane();
 
-            .add(admin1.addUsername());
-            userCreatePane.getChildren ()
+        userRemovePane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        userRemovePane.getChildren()
+                .add(admin1.removeUsername());
+        userRemovePane.getChildren()
+                .add(admin1.removePassword());
+        userRemovePane.getChildren()
+                .add(deleteUser);
 
-            .add(admin1.addPassword());
-            userCreatePane.getChildren ()
+        userUpdatePane = new StackPane();
 
-            .add(admin1.Toegang());
-            userCreatePane.getChildren ()
-            .add(addUser);
-
-        userRemovePane  = new StackPane();
-
-            userRemovePane.setStyle (
-
-            "-fx-background-color:#FFFFFF");
-            userRemovePane.getChildren ()
-
-            .add(admin1.removeUsername());
-            userRemovePane.getChildren ()
-
-            .add(admin1.removePassword());
-            userRemovePane.getChildren ()
-            .add(deleteUser);
-
-        userUpdatePane  = new StackPane();
-
-            userUpdatePane.setStyle (
-
-            "-fx-background-color:#FFFFFF");
-            userUpdatePane.getChildren ()
-
-            .add(admin1.updateUsername());
-            userUpdatePane.getChildren ()
-
-            .add(admin1.updatePassword());
-            userUpdatePane.getChildren ()
-
-            .add(admin1.updateToegang());
-            userUpdatePane.getChildren ()
-
-            .add(admin1.updateCurrentUsername());
-            userUpdatePane.getChildren ()
-            .add(update2User);
+        userUpdatePane.setStyle(
+                "-fx-background-color:#FFFFFF");
+        userUpdatePane.getChildren()
+                .add(admin1.updateUsername());
+        userUpdatePane.getChildren()
+                .add(admin1.updatePassword());
+        userUpdatePane.getChildren()
+                .add(admin1.updateToegang());
+        userUpdatePane.getChildren()
+                .add(admin1.updateCurrentUsername());
+        userUpdatePane.getChildren()
+                .add(update2User);
 
         //geeft alle scenes in
-        loginscherm  = new Scene(inlogschermpane, 1600, 800);
-            menu  = new Scene(menupane, 1600, 800);
-            lost  = new Scene(lostpane, 1600, 800);
-            lost2  = new Scene(lost2pane, 1600, 800);
-            lost3  = new Scene(lost3pane, 1600, 800);
-            lost4  = new Scene(lost4pane, 1600, 800);
-            lostfinal  = new Scene(lostfinalpane, 1600, 800);
-            found  = new Scene(foundpane, 1600, 800);
-            found2  = new Scene(found2pane, 1600, 800);
-            found3  = new Scene(found3pane, 1600, 800);
-            foundfinal  = new Scene(foundfinalpane, 1600, 800);
-            stat  = new Scene(statpane, 1600, 800);
-            year  = new Scene(yearpane, 1200, 800);
-            current  = new Scene(currentpane, 1200, 800);
-            admin  = new Scene(adminpane, 1600, 800);
-            userTable  = new Scene(userTablePane, 300, 400);
-            userCreate  = new Scene(userCreatePane, 1000, 100);
-            userRemove  = new Scene(userRemovePane, 1000, 100);
-            userUpdate  = new Scene(userUpdatePane, 1300, 100);
+        loginscherm = new Scene(inlogschermpane, 1600, 800);
+        menu = new Scene(menupane, 1600, 800);
+        lost = new Scene(lostpane, 1600, 800);
+        lost2 = new Scene(lost2pane, 1600, 800);
+        lost3 = new Scene(lost3pane, 1600, 800);
+        lost4 = new Scene(lost4pane, 1600, 800);
+        lostfinal = new Scene(lostfinalpane, 1600, 800);
+        found = new Scene(foundpane, 1600, 800);
+        found2 = new Scene(found2pane, 1600, 800);
+        found3 = new Scene(found3pane, 1600, 800);
+        foundfinal = new Scene(foundfinalpane, 1600, 800);
+        stat = new Scene(statpane, 1600, 800);
+        year = new Scene(yearpane, 1200, 800);
+        current = new Scene(currentpane, 1200, 800);
+        admin = new Scene(adminpane, 1600, 800);
+        userTable = new Scene(userTablePane, 300, 400);
+        userCreate = new Scene(userCreatePane, 1000, 100);
+        userRemove = new Scene(userRemovePane, 1000, 100);
+        userUpdate = new Scene(userUpdatePane, 1300, 100);
 
-            primaryStage.setTitle (
+        primaryStage.setTitle(
+                "Applicatie naam");
+        primaryStage.setScene(admin);
 
-            "Applicatie naam");
-            primaryStage.setScene (admin);
+        primaryStage.setResizable(
+                false);
+        primaryStage.show();
 
-            primaryStage.setResizable (
+    }
 
-            false);
-            primaryStage.show ();
-
-        }
-        /**
-         *
-         * @param args the command line arguments
-         *
-         */
+    /**
+     *
+     * @param args the command line arguments
+     *
+     */
 
     public static void main(String[] args) {
 
