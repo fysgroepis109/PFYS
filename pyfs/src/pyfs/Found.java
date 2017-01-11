@@ -61,9 +61,9 @@ public class Found {
         return lugweight.getText();
     }
 
-    //public String getAirport() {
-        //return airport.getText();
-    //}
+    public String getAirport() {
+        return airport.getEditor().getText();
+    }
 
     public String getLugspef() {
         return lugspef.getText();
