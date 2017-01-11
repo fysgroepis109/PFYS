@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pyfs;
 
 import javafx.scene.control.ComboBox;
@@ -66,9 +61,9 @@ public class Found {
         return lugweight.getText();
     }
 
-    //public String getAirport() {
-        //return airport.getText();
-    //}
+    public String getAirport() {
+        return airport.getEditor().getText();
+    }
 
     public String getLugspef() {
         return lugspef.getText();
