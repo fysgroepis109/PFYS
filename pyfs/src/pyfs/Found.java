@@ -21,9 +21,9 @@ public class Found {
 
     }
 
-    public DatePicker getDate() {
-        return date;
-    }
+    //public DatePicker getDate() {
+    //    return date;
+    //}
 
     public String getTime() {
         return time.getText();
@@ -71,15 +71,15 @@ public class Found {
 
     
     
-    DatePicker date() {
+    ////DatePicker date() {
 
-        date = new DatePicker();
-        date.setPromptText("Date");
-        date.setMaxWidth(220);
-        date.setTranslateY(-50);
+        //date = new DatePicker();
+        //date.setPromptText("Date");
+        ////date.setMaxWidth(220);
+        ///date.setTranslateY(-50);
 
-        return date;
-    }
+       // return date;
+    //}
 
     TextField Time() {
 
