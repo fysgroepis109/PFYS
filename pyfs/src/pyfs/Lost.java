@@ -1,5 +1,6 @@
 package pyfs;
 
+import java.time.format.DateTimeFormatter;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
@@ -12,12 +13,11 @@ import javafx.scene.text.Font;
  */
 public class Lost {
 
-    private DatePicker date;
     private TextField time;
     private TextField city;
     private ComboBox airport;
     private TextField naam;
-    private TextField adres, zip, country, phone, mail, lugtype, lugbrand, lugcolor, lugweight, labelnr, flightnr, destin;
+    private TextField adres, zip, country, phone, mail, lugtype, lugbrand, lugcolor, lugweight, labelnr, flightnr, destin, date;
     private TextArea lugspef;
 
     public String getTextLugspef() {
@@ -77,16 +77,15 @@ public class Lost {
     public String getTextMail() {
         return mail.getText();
     }
-    
 
     public String getCity() {
         return city.getText();
     }
 
-    DatePicker date() {
+    TextField date() {
 
-        date = new DatePicker();
-        date.setPromptText("Date");
+        date = new TextField();
+        date.setPromptText("YYYY-MM-DD");
         date.setMaxWidth(220);
         date.setTranslateY(-50);
 

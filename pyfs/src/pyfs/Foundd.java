@@ -61,7 +61,15 @@ public class Foundd {
         final String PASSWORD = Mysql.password();
         final String CONN_STRING = Mysql.urlmysql();
         
+<<<<<<< HEAD
         
+=======
+        String[] datex = new String[4];
+        datex[0] = found1.getDate().getText();
+        datex[1] = found1.Time().getText();
+        datex[2] = found1.getAirport();
+        //datex[3] = found1.get VERGEET UNR NIET
+>>>>>>> origin/master
 
         try {
 
@@ -69,7 +77,11 @@ public class Foundd {
             Statement st = conn.createStatement();
             
             
+<<<<<<< HEAD
             String query = ("INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + datex[0] + '"' + "," + '"' + datex[1] + '"' + "," + '"' + datex[2] + '"' + " ,100)");
+=======
+            String query = "INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + datex[0] + '"' + "," + '"' + datex[1] + '"' + "," + '"' + datex[2] + '"' + "," + '"' + 100 + '"' + " )";
+>>>>>>> origin/master
             st.executeUpdate(query);
         }
         catch (SQLException ed) {
