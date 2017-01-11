@@ -14,7 +14,7 @@ public class Found {
     
   
     private TextField time, labelnr, flightnr, destin, nametrav, lugtype, lugbrand, lugcolor, lugweight, date;
-    private ComboBox airport;
+    private TextField airport;
     private TextArea lugspef;
     
     Found() {
@@ -62,7 +62,7 @@ public class Found {
     }
 
     public String getAirport() {
-        return airport.getEditor().getText();
+        return airport.getText();
     }
 
     public String getLugspef() {
@@ -92,16 +92,14 @@ public class Found {
         return time;
     }
 
-    ComboBox airport() {
+    TextField airport() {
 
-        airport = new ComboBox();                 //text voor vliegveld
+        airport = new TextField();                 //text voor vliegveld
         airport.setPromptText("Airport");
+        airport.setFont(Font.font("Verdana", 20));
         airport.setTranslateY(50);
         airport.setMaxWidth(220);
-        airport.getItems().addAll(
-                "Schiphol",
-                "Ankara Esenboga"
-        );
+     
 
         return airport;
 
