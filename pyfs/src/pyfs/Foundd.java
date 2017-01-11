@@ -76,8 +76,6 @@ public class Foundd {
             
             String query = "INSERT INTO dta (date, time, airport, Unr) VALUES (?,?,?,?)";
             st.executeUpdate(query);
-            
-            st.executeUpdate(query);
         }
         catch (SQLException ed) {
 
