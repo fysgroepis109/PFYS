@@ -97,12 +97,12 @@ public class Foundd {
             
 
             String query = ("INSERT INTO flight (Unr, labelnr, flightnr, destin) VALUES (" + '"' + 100 + '"' + "," + "'" + info[0] + "'" + "," + '"' + info[1] + '"' + "," + '"' +  null + '"' + ")");
-            String query2 = ("INSERT into persoon (Pnr, name, adress, city, zip, country, tel, mail) VALUES (25, " + '"' + info[2] + '"' + ", null, null, null, null, null, null)");
+            //String query2 = ("INSERT into persoon (Pnr, name, adress, city, zip, country, tel, mail) VALUES (25, " + '"' + info[2] + '"' + ", null, null, null, null, null, null)");
 
            
 
             st.executeUpdate(query);
-           st.executeUpdate(query2);
+         //  st.executeUpdate(query2);
         }
         catch (SQLException ed) {
 
