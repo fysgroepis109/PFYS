@@ -487,8 +487,9 @@ public class pyfs extends Application {
                 vlucht[1] = lost1.getTextFlightnr();
                 vlucht[2] = lost1.getTextDestin();
 
-                lostd.Unr();
-                lostd.invullenP();
+                int unr = lostd.Unr();
+                int pnr = lostd.invullenP();
+                lostd.zoeken(labelnr);
 
                 thestage.setScene(lostfinal);
             }

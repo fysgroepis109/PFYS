@@ -23,7 +23,7 @@ public class Lostd {
         this.persoon = persoon;
     }
 
-    public void invullenP() {
+    public int invullenP() {
 
         final String USERNAME = Mysql.username();
         final String PASSWORD = Mysql.password();
@@ -82,7 +82,7 @@ public class Lostd {
             System.err.println(ed);
 
         }
-
+        return count6;
     }
 
     public void invullenb() {
@@ -140,60 +140,26 @@ public class Lostd {
         }
         return count7;
     }
-    /*
-            ResultSet rs1 = stmt.executeQuery("insert into bagage(Unr, Pnr, type, brand, colour, weight, spes, FLD) " + "values");
 
-            ResultSet rs = stmt.executeQuery("count (*) from bagage where label = " + lost1.getTextLabelnr());
-
-            int count = 0;
-            while (rs1.next()) {
-                count = rs1.getInt("total");
-
-            }
-
-            if (count > 0) {
-
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("warning");
-                alert.setHeaderText("a bag whith the same label nummer has been found");
-                alert.showAndWait();
-
-                //DataTable airportData = dataBase.executeDataTableQuery("SELECT *  FROM bagage A inner join labels B on A.Unr = B.Unr inner join tijden C on A.Unr = C.Unr where FLD = F");
-            } else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("warning");
-                alert.setHeaderText("No bags whith the same labelnumber found, these results are bags without labels and matching spesifications");
-                alert.showAndWait();
-
-                //DataTable luggage information = dataBase.executeDataTableQuery("SELECT *  FROM bagage A inner join labels B on A.Unr = B.Unr inner join tijden C on A.Unr = C.Unr where FLD = F and labelnr = null and colour = " + lost1.getTextLugcolor());
-            }
-     */
-
-
-
-    
-    
-    public void getLuggage(String [] lostbagage) {
+    public void getLuggage(String[] lostbagage) {
 
         Connection conn;                                                            //making connection to database
 
         final String USERNAME = Mysql.username();
         final String PASSWORD = Mysql.password();
         final String CONN_STRING = Mysql.urlmysql();
-        
+
         int Pnr = 3;
         int Unr = 3;
         int Lugagenr = 3;
 
-       
         try {
 
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             Statement st = conn.createStatement();
-            
 
             String query = "INSERT INTO lugage (Lugagelnr, Lugagetype, Lugagebrand, Lugagecol, Lugeweight, Lugagewespef, Unr,Pnr) VALUES (" + '"' + Lugagenr + '"' + "," + '"' + lostbagage[0] + '"' + "," + '"' + lostbagage[1] + '"' + "," + '"'
-                    + lostbagage[2] + '"' + "," + '"' + lostbagage[3] + '"' + "," + '"' + lostbagage[4]  +'"' + "," + '"' + Unr  + '"' +  "," + '"' + Pnr  +'"' + " )";
+                    + lostbagage[2] + '"' + "," + '"' + lostbagage[3] + '"' + "," + '"' + lostbagage[4] + '"' + "," + '"' + Unr + '"' + "," + '"' + Pnr + '"' + " )";
 
             st.executeUpdate(query);
 
@@ -202,10 +168,10 @@ public class Lostd {
             System.err.println(ed);
 
         }
-        
+
     }
-        
-        public void getDate(String[] date) {
+
+    public void getDate(int Unr) {
 
         Connection conn;                                                            //making connection to database
 
@@ -213,29 +179,23 @@ public class Lostd {
         final String PASSWORD = Mysql.password();
         final String CONN_STRING = Mysql.urlmysql();
 
-
         try {
 
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             Statement st = conn.createStatement();
-            
-            
 
-            String query = ("INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + date[0] + '"' + "," + '"' + date[1] + '"' + "," + '"' + date[2] + '"' + " ,111)");
-
-            //String query = "INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + datex[0] + '"' + "," + '"' + datex[1] + '"' + "," + '"' + datex[2] + '"' + "," + '"' + 100 + '"' + " )";
+            String query = ("INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + date[0] + '"' + "," + '"' + date[1] + '"' + "," + '"' + date[2] + '"' + " ," + Unr + ")");
 
             st.executeUpdate(query);
-        }
-        catch (SQLException ed) {
+        } catch (SQLException ed) {
 
             System.err.println(ed);
 
         }
 
     }
-        
-         public void getLabel(String[] label) {
+
+    public void getLabel(String[] label) {
 
         Connection conn;                                                            //making connection to database
 
@@ -243,48 +203,43 @@ public class Lostd {
         final String PASSWORD = Mysql.password();
         final String CONN_STRING = Mysql.urlmysql();
 
-
         try {
 
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             Statement st = conn.createStatement();
-            
-            
 
             String query = ("INSERT INTO flight (Unr, labelnr, flightnr, destin) VALUES (" + 12 + "," + '"' + label[0] + '"' + "," + '"' + label[1] + '"' + "," + '"' + label[2] + '"' + ")");
 
             //String query = "INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + datex[0] + '"' + "," + '"' + datex[1] + '"' + "," + '"' + datex[2] + '"' + "," + '"' + 100 + '"' + " )";
-
             st.executeUpdate(query);
-        }
-        catch (SQLException ed) {
+        } catch (SQLException ed) {
 
             System.err.println(ed);
 
         }
 
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    public void zoeken(String labelnr) {
+
+        Connection conn;                                                            //making connection to database
+
+        final String USERNAME = Mysql.username();
+        final String PASSWORD = Mysql.password();
+        final String CONN_STRING = Mysql.urlmysql();
+        int count;
+
+        try {
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            Statement stm = conn.createStatement();
+            ResultSet rs5 = stm.executeQuery("SELECT COUNT(*) AS total FROM flight where lablenr = '" + labelnr + "';");
+
+            while (rs5.next()) {
+                count = rs5.getInt("total");
+            }
+
+        } catch (SQLException ed) {
+            System.err.println(ed);
+        }
     }
-    
-
-
-
-
-
-
+}
