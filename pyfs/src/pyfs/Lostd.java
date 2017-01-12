@@ -17,8 +17,13 @@ public class Lostd {
     Lost lost1 = new Lost();
 
     private String name;
+    private String[] persoon;
 
-    public int invullenP(String[] persoon) {
+    public void setP(String[] persoon) {
+        this.persoon = persoon;
+    }
+
+    public void invullenP() {
 
         final String USERNAME = Mysql.username();
         final String PASSWORD = Mysql.password();
@@ -63,7 +68,10 @@ public class Lostd {
                 }
 
                 conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-                String query = "INSERT INTO persoon ()";
+                String query = "INSERT INTO persoon (Pnr, name, adress, city, zip, country, tel, mail)"
+                        + "values" + "( '" + count6 + "', '" + persoon[0] + "', '" + persoon[1] + "', '" + persoon[2] + "', '" + persoon[3]
+                        + "', '" + persoon[4] + "', '" + persoon[5] + "', '" + persoon[6] + "')";
+
                 Statement st = conn.createStatement();
                 st.executeUpdate(query);
 
@@ -75,7 +83,6 @@ public class Lostd {
 
         }
 
-        return count6;
     }
 
     public void invullenb() {
@@ -104,9 +111,6 @@ public class Lostd {
         }
 
     }
-        
-
-    
 
     public int Unr() {
 
@@ -127,6 +131,7 @@ public class Lostd {
             while (rs5.next()) {
                 count7 = rs5.getInt("total");
             }
+            count7++;
 
         } catch (SQLException ed) {
 
@@ -164,4 +169,3 @@ public class Lostd {
             }
      */
 }
-

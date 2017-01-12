@@ -416,7 +416,7 @@ public class pyfs extends Application {
                 persoon[5] = lost1.getTextPhone();
                 persoon[6] = lost1.getTextMail();
 
-                int Pnr = lostd.invullenP(persoon);
+                lostd.setP(persoon);
                 thestage.setScene(lost3);
 
             }
@@ -477,6 +477,8 @@ public class pyfs extends Application {
                 vlucht[1] = lost1.getTextFlightnr();
                 vlucht[2] = lost1.getTextDestin();
 
+                lostd.Unr();
+                lostd.invullenP();
                 thestage.setScene(lostfinal);
             }
 
@@ -625,18 +627,13 @@ public class pyfs extends Application {
         //foundfinal
         foundfinalButton = new Button();
 
-        foundfinalButton.setText(
-                "Menu");                                           //lost terug menu
-        foundfinalButton.setPrefSize(
-                200, 50);
-        foundfinalButton.setTranslateY(
-                -370);
+        foundfinalButton.setText("Menu");                                           //lost terug menu
+        foundfinalButton.setPrefSize(200, 50);
+        foundfinalButton.setTranslateY(-370);
         foundfinalButton.setTranslateX(
                 700);
-        foundfinalButton.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        foundfinalButton.setOnAction(
-                new EventHandler<ActionEvent>() {
+        foundfinalButton.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        foundfinalButton.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -650,16 +647,11 @@ public class pyfs extends Application {
         //stat
         statterugmenu = new Button();
 
-        statterugmenu.setText(
-                "Back");                                           //back button
-        statterugmenu.setPrefSize(
-                200, 50);
-        statterugmenu.setTranslateY(
-                -370);
-        statterugmenu.setTranslateX(
-                700);
-        statterugmenu.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
+        statterugmenu.setText("Back");                                           //back button
+        statterugmenu.setPrefSize(200, 50);
+        statterugmenu.setTranslateY(-370);
+        statterugmenu.setTranslateX(700);
+        statterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         statterugmenu.setOnAction(
                 new EventHandler<ActionEvent>() {
 
@@ -675,16 +667,11 @@ public class pyfs extends Application {
         //stat
         yearbtn = new Button();
 
-        yearbtn.setText(
-                "Over year");                                           //back button
-        yearbtn.setPrefSize(
-                200, 50);
-        yearbtn.setTranslateX(
-                300);
-        yearbtn.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        yearbtn.setOnAction(
-                new EventHandler<ActionEvent>() {
+        yearbtn.setText("Over year");                                           //back button
+        yearbtn.setPrefSize(200, 50);
+        yearbtn.setTranslateX(300);
+        yearbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        yearbtn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -701,16 +688,11 @@ public class pyfs extends Application {
 
         currentbtn = new Button();
 
-        currentbtn.setText(
-                "Current lugage");                                           //back button
-        currentbtn.setPrefSize(
-                200, 50);
-        currentbtn.setTranslateX(
-                -300);
-        currentbtn.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        currentbtn.setOnAction(
-                new EventHandler<ActionEvent>() {
+        currentbtn.setText("Current lugage");                                           //back button
+        currentbtn.setPrefSize(200, 50);
+        currentbtn.setTranslateX(-300);
+        currentbtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        currentbtn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -728,16 +710,11 @@ public class pyfs extends Application {
         //admin
         adminterugmenu = new Button();
 
-        adminterugmenu.setText(
-                "Back");                                           //back button
-        adminterugmenu.setPrefSize(
-                200, 50);
-        adminterugmenu.setTranslateY(
-                -370);
-        adminterugmenu.setTranslateX(
-                700);
-        adminterugmenu.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
+        adminterugmenu.setText("Back");                                           //back button
+        adminterugmenu.setPrefSize(200, 50);
+        adminterugmenu.setTranslateY(-370);
+        adminterugmenu.setTranslateX(700);
+        adminterugmenu.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         adminterugmenu.setOnAction(
                 new EventHandler<ActionEvent>() {
 
@@ -752,18 +729,12 @@ public class pyfs extends Application {
 
         userTableBtn = new Button();
 
-        userTableBtn.setText(
-                "View Users");                                           //back button
-        userTableBtn.setPrefSize(
-                200, 50);
-        userTableBtn.setTranslateX(
-                -400);
-        userTableBtn.setTranslateY(
-                -150);
-        userTableBtn.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        userTableBtn.setOnAction(
-                new EventHandler<ActionEvent>() {
+        userTableBtn.setText("View Users");                                           //back button
+        userTableBtn.setPrefSize(200, 50);
+        userTableBtn.setTranslateX(-400);
+        userTableBtn.setTranslateY(-150);
+        userTableBtn.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        userTableBtn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event
@@ -782,16 +753,11 @@ public class pyfs extends Application {
 
         Button createUser = new Button();
 
-        createUser.setText(
-                "Create user");                                           //back button
-        createUser.setPrefSize(
-                200, 50);
-        createUser.setTranslateX(
-                -400);
-        createUser.setTranslateY(
-                -50);
-        createUser.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
+        createUser.setText("Create user");                                           //back button
+        createUser.setPrefSize(200, 50);
+        createUser.setTranslateX(-400);
+        createUser.setTranslateY(-50);
+        createUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         createUser.setOnAction(
                 new EventHandler<ActionEvent>() {
 
@@ -812,14 +778,10 @@ public class pyfs extends Application {
 
         Button addUser = new Button();
 
-        addUser.setText(
-                "Add");                                           //back button
-        addUser.setPrefSize(
-                150, 50);
-        addUser.setTranslateX(
-                350);
-        addUser.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
+        addUser.setText("Add");                                           //back button
+        addUser.setPrefSize(150, 50);
+        addUser.setTranslateX(350);
+        addUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         addUser.setOnAction(
                 new EventHandler<ActionEvent>() {
 
@@ -841,16 +803,11 @@ public class pyfs extends Application {
 
         Button removeUser = new Button();
 
-        removeUser.setText(
-                "Remove user");                                           //back button
-        removeUser.setPrefSize(
-                200, 50);
-        removeUser.setTranslateX(
-                -400);
-        removeUser.setTranslateY(
-                50);
-        removeUser.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
+        removeUser.setText("Remove user");                                           //back button
+        removeUser.setPrefSize(200, 50);
+        removeUser.setTranslateX(-400);
+        removeUser.setTranslateY(50);
+        removeUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         removeUser.setOnAction(
                 new EventHandler<ActionEvent>() {
 
@@ -871,16 +828,11 @@ public class pyfs extends Application {
 
         Button deleteUser = new Button();
 
-        deleteUser.setText(
-                "Remove");                                           //back button
-        deleteUser.setPrefSize(
-                150, 50);
-        deleteUser.setTranslateX(
-                350);
-        deleteUser.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        deleteUser.setOnAction(
-                new EventHandler<ActionEvent>() {
+        deleteUser.setText("Remove");                                           //back button
+        deleteUser.setPrefSize(150, 50);
+        deleteUser.setTranslateX(350);
+        deleteUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        deleteUser.setOnAction(new EventHandler<ActionEvent>() {
 
             public void handle(ActionEvent event) {
 
@@ -899,16 +851,11 @@ public class pyfs extends Application {
 
         Button updateUser = new Button();
 
-        updateUser.setText(
-                "Update user");                                           //back button
-        updateUser.setPrefSize(
-                200, 50);
-        updateUser.setTranslateX(
-                -400);
-        updateUser.setTranslateY(
-                150);
-        updateUser.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
+        updateUser.setText("Update user");                                           //back button
+        updateUser.setPrefSize(200, 50);
+        updateUser.setTranslateX(-400);
+        updateUser.setTranslateY(150);
+        updateUser.setStyle("-fx-base:darkcyan;-fx-border-color:black");
         updateUser.setOnAction(
                 new EventHandler<ActionEvent>() {
 
@@ -929,16 +876,11 @@ public class pyfs extends Application {
 
         Button update2User = new Button();
 
-        update2User.setText(
-                "Update");                                           //back button
-        update2User.setPrefSize(
-                150, 50);
-        update2User.setTranslateX(
-                550);
-        update2User.setStyle(
-                "-fx-base:darkcyan;-fx-border-color:black");
-        update2User.setOnAction(
-                new EventHandler<ActionEvent>() {
+        update2User.setText("Update");                                           //back button
+        update2User.setPrefSize(150, 50);
+        update2User.setTranslateX(550);
+        update2User.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        update2User.setOnAction(new EventHandler<ActionEvent>() {
 
             public void handle(ActionEvent event) {
 
@@ -962,161 +904,101 @@ public class pyfs extends Application {
         StackPane inlogschermpane = new StackPane();                                             //toevoegen button
 
         //Stackpane inlogscherm
-        inlogschermpane.getChildren()
-                .add(loginbtn);                        //toevoegen button
-        inlogschermpane.getChildren()
-                .add(login.username());                   //toevoegen username text
-        inlogschermpane.getChildren()
-                .add(login.password());
-        inlogschermpane.getChildren()
-                .add(login.logologin());
+        inlogschermpane.getChildren().add(loginbtn);                        //toevoegen button
+        inlogschermpane.getChildren().add(login.username());                   //toevoegen username text
+        inlogschermpane.getChildren().add(login.password());
+        inlogschermpane.getChildren().add(login.logologin());
         inlogschermpane.setStyle(
                 "-fx-background-color:#FFFFFF");
 
         menupane = new StackPane();
 
-        menupane.getChildren()
-                .add(logoutbtn);
-        menupane.getChildren()
-                .add(lostbtn);
-        menupane.getChildren()
-                .add(foundbtn);
-        menupane.getChildren()
-                .add(statbtn);
-        menupane.getChildren()
-                .add(adminbtn);
-        menupane.setStyle(
-                "-fx-background-color:#FFFFFF");
+        menupane.getChildren().add(logoutbtn);
+        menupane.getChildren().add(lostbtn);
+        menupane.getChildren().add(foundbtn);
+        menupane.getChildren().add(statbtn);
+        menupane.getChildren().add(adminbtn);
+        menupane.setStyle("-fx-background-color:#FFFFFF");
 
         lostpane = new StackPane();
 
-        lostpane.setStyle(
-                "-fx-background-color:#FFFFFF");
-        lostpane.getChildren()
-                .add(lostterugmenu);
-        lostpane.getChildren()
-                .add(lost1.date());
-        lostpane.getChildren()
-                .add(lost1.Time());
-        lostpane.getChildren()
-                .add(lost1.airport());
-        lostpane.getChildren()
-                .add(lostnext);
+        lostpane.setStyle("-fx-background-color:#FFFFFF");
+        lostpane.getChildren().add(lostterugmenu);
+        lostpane.getChildren().add(lost1.date());
+        lostpane.getChildren().add(lost1.Time());
+        lostpane.getChildren().add(lost1.airport());
+        lostpane.getChildren().add(lostnext);
 
         lost2pane = new StackPane();
 
-        lost2pane.setStyle(
-                "-fx-background-color:#FFFFFF");
-        lost2pane.getChildren()
-                .add(lostback);
-        lost2pane.getChildren()
-                .add(lost1.Naam());
-        lost2pane.getChildren()
-                .add(lost1.adres());
-        lost2pane.getChildren()
-                .add(lost1.City());
-        lost2pane.getChildren()
-                .add(lost1.Zip());
-        lost2pane.getChildren()
-                .add(lost1.country());
-        lost2pane.getChildren()
-                .add(lost1.Phone());
-        lost2pane.getChildren()
-                .add(lost1.Mail());
-        lost2pane.getChildren()
-                .add(lostnext2);
+        lost2pane.setStyle("-fx-background-color:#FFFFFF");
+        lost2pane.getChildren().add(lostback);
+        lost2pane.getChildren().add(lost1.Naam());
+        lost2pane.getChildren().add(lost1.adres());
+        lost2pane.getChildren().add(lost1.City());
+        lost2pane.getChildren().add(lost1.Zip());
+        lost2pane.getChildren().add(lost1.country());
+        lost2pane.getChildren().add(lost1.Phone());
+        lost2pane.getChildren().add(lost1.Mail());
+        lost2pane.getChildren().add(lostnext2);
 
         lost3pane = new StackPane();
 
-        lost3pane.setStyle(
-                "-fx-background-color:#FFFFFF");
-        lost3pane.getChildren()
-                .add(lost1.Lugtype());
-        lost3pane.getChildren()
-                .add(lost1.Lugbrand());
-        lost3pane.getChildren()
-                .add(lost1.Lugcolor());
-        lost3pane.getChildren()
-                .add(lost1.lugspef());
-        lost3pane.getChildren()
-                .add(lost1.Lugweight());
-        lost3pane.getChildren()
-                .add(lostback2);
-        lost3pane.getChildren()
-                .add(lostnext3);
+        lost3pane.setStyle("-fx-background-color:#FFFFFF");
+        lost3pane.getChildren().add(lost1.Lugtype());
+        lost3pane.getChildren().add(lost1.Lugbrand());
+        lost3pane.getChildren().add(lost1.Lugcolor());
+        lost3pane.getChildren().add(lost1.lugspef());
+        lost3pane.getChildren().add(lost1.Lugweight());
+        lost3pane.getChildren().add(lostback2);
+        lost3pane.getChildren().add(lostnext3);
 
         lost4pane = new StackPane();
 
         lost4pane.setStyle(
                 "-fx-background-color:#FFFFFF");
-        lost4pane.getChildren()
-                .add(lost1.Labelnr());
-        lost4pane.getChildren()
-                .add(lost1.Flightnr());
-        lost4pane.getChildren()
-                .add(lost1.Destin());
-        lost4pane.getChildren()
-                .add(search);
-        lost4pane.getChildren()
-                .add(lostback3);
+        lost4pane.getChildren().add(lost1.Labelnr());
+        lost4pane.getChildren().add(lost1.Flightnr());
+        lost4pane.getChildren().add(lost1.Destin());
+        lost4pane.getChildren().add(search);
+        lost4pane.getChildren().add(lostback3);
 
         lostfinalpane = new StackPane();
 
-        lostfinalpane.setStyle(
-                "-fx-background-color:#FFFFFF");
-        lostfinalpane.getChildren()
-                .add(lostterugfinal);
+        lostfinalpane.setStyle("-fx-background-color:#FFFFFF");
+        lostfinalpane.getChildren().add(lostterugfinal);
 
         foundpane = new StackPane();
 
-        foundpane.setStyle(
-                "-fx-background-color:#FFFFFF");
-        foundpane.getChildren()
-                .add(foundterugmenu);
-        foundpane.getChildren()
-                .add(found1.date());
-        foundpane.getChildren()
-                .add(found1.Time());
-        foundpane.getChildren()
-                .add(found1.airport());
-        foundpane.getChildren()
-                .add(foundnext);
+        foundpane.setStyle("-fx-background-color:#FFFFFF");
+        foundpane.getChildren().add(foundterugmenu);
+        foundpane.getChildren().add(found1.date());
+        foundpane.getChildren().add(found1.Time());
+        foundpane.getChildren().add(found1.airport());
+        foundpane.getChildren().add(foundnext);
 
         found2pane = new StackPane();
 
         found2pane.setStyle(
                 "-fx-background-color:#FFFFFF");
-        found2pane.getChildren()
-                .add(found1.Labelnr());
-        found2pane.getChildren()
-                .add(found1.Flightnr());
-        found2pane.getChildren()
-                .add(found1.Destin());
-        found2pane.getChildren()
-                .add(found1.NameTrav());
-        found2pane.getChildren()
-                .add(foundback);
-        found2pane.getChildren()
-                .add(foundnext2);
+        found2pane.getChildren().add(found1.Labelnr());
+        found2pane.getChildren().add(found1.Flightnr());
+        found2pane.getChildren().add(found1.Destin());
+        found2pane.getChildren().add(found1.NameTrav());
+        found2pane.getChildren().add(foundback);
+        found2pane.getChildren().add(foundnext2);
 
         found3pane = new StackPane();
 
         found3pane.setStyle(
                 "-fx-background-color:#FFFFFF");
-        found3pane.getChildren()
-                .add(found1.Lugtype());
-        found3pane.getChildren()
-                .add(found1.Lugbrand());
-        found3pane.getChildren()
-                .add(found1.Lugcolor());
-        found3pane.getChildren()
-                .add(found1.Lugspef());
-        found3pane.getChildren()
-                .add(found1.Lugweight());
-        found3pane.getChildren()
-                .add(foundback2);
-        found3pane.getChildren()
-                .add(foundnext3);
+        found3pane.getChildren().add(found1.Lugtype());
+        found3pane.getChildren().add(found1.Lugbrand());
+        found3pane.getChildren().add(found1.Lugcolor());
+        found3pane.getChildren().add(found1.Lugspef());
+        found3pane.getChildren().add(found1.Lugweight());
+        found3pane.getChildren().add(foundback2);
+        found3pane.getChildren().add(foundnext3);
 
         foundfinalpane = new StackPane();
 
@@ -1129,41 +1011,29 @@ public class pyfs extends Application {
 
         statpane.setStyle(
                 "-fx-background-color:#FFFFFF");
-        statpane.getChildren()
-                .add(statterugmenu);
-        statpane.getChildren()
-                .add(yearbtn);
-        statpane.getChildren()
-                .add(currentbtn);
+        statpane.getChildren().add(statterugmenu);
+        statpane.getChildren().add(yearbtn);
+        statpane.getChildren().add(currentbtn);
 
         yearpane = new StackPane();
 
         yearpane.setStyle(
                 "-fx-background-color:#FFFFFF");
-        yearpane.getChildren()
-                .add(stat1.OverYear());
+        yearpane.getChildren().add(stat1.OverYear());
 
         currentpane = new StackPane();
 
-        currentpane.setStyle(
-                "-fx-background-color:#FFFFFF");
-        currentpane.getChildren()
-                .add(stat1.CurrentLugage());
+        currentpane.setStyle("-fx-background-color:#FFFFFF");
+        currentpane.getChildren().add(stat1.CurrentLugage());
 
         adminpane = new StackPane();
 
-        adminpane.setStyle(
-                "-fx-background-color:#FFFFFF");
-        adminpane.getChildren()
-                .add(adminterugmenu);
-        adminpane.getChildren()
-                .add(userTableBtn);
-        adminpane.getChildren()
-                .add(createUser);
-        adminpane.getChildren()
-                .add(removeUser);
-        adminpane.getChildren()
-                .add(updateUser);
+        adminpane.setStyle("-fx-background-color:#FFFFFF");
+        adminpane.getChildren().add(adminterugmenu);
+        adminpane.getChildren().add(userTableBtn);
+        adminpane.getChildren().add(createUser);
+        adminpane.getChildren().add(removeUser);
+        adminpane.getChildren().add(updateUser);
 
         userTablePane = new StackPane();
 
@@ -1174,40 +1044,26 @@ public class pyfs extends Application {
 
         userCreatePane.setStyle(
                 "-fx-background-color:#FFFFFF");
-        userCreatePane.getChildren()
-                .add(admin1.addUsername());
-        userCreatePane.getChildren()
-                .add(admin1.addPassword());
-        userCreatePane.getChildren()
-                .add(admin1.Toegang());
-        userCreatePane.getChildren()
-                .add(addUser);
+        userCreatePane.getChildren().add(admin1.addUsername());
+        userCreatePane.getChildren().add(admin1.addPassword());
+        userCreatePane.getChildren().add(admin1.Toegang());
+        userCreatePane.getChildren().add(addUser);
 
         userRemovePane = new StackPane();
 
-        userRemovePane.setStyle(
-                "-fx-background-color:#FFFFFF");
-        userRemovePane.getChildren()
-                .add(admin1.removeUsername());
-        userRemovePane.getChildren()
-                .add(admin1.removePassword());
-        userRemovePane.getChildren()
-                .add(deleteUser);
+        userRemovePane.setStyle("-fx-background-color:#FFFFFF");
+        userRemovePane.getChildren().add(admin1.removeUsername());
+        userRemovePane.getChildren().add(admin1.removePassword());
+        userRemovePane.getChildren().add(deleteUser);
 
         userUpdatePane = new StackPane();
 
-        userUpdatePane.setStyle(
-                "-fx-background-color:#FFFFFF");
-        userUpdatePane.getChildren()
-                .add(admin1.updateUsername());
-        userUpdatePane.getChildren()
-                .add(admin1.updatePassword());
-        userUpdatePane.getChildren()
-                .add(admin1.updateToegang());
-        userUpdatePane.getChildren()
-                .add(admin1.updateCurrentUsername());
-        userUpdatePane.getChildren()
-                .add(update2User);
+        userUpdatePane.setStyle("-fx-background-color:#FFFFFF");
+        userUpdatePane.getChildren().add(admin1.updateUsername());
+        userUpdatePane.getChildren().add(admin1.updatePassword());
+        userUpdatePane.getChildren().add(admin1.updateToegang());
+        userUpdatePane.getChildren().add(admin1.updateCurrentUsername());
+        userUpdatePane.getChildren().add(update2User);
 
         //geeft alle scenes in
         loginscherm = new Scene(inlogschermpane, 1600, 800);
@@ -1239,6 +1095,7 @@ public class pyfs extends Application {
         primaryStage.show();
 
     }
+    public String[] persoon;
 
     /**
      *

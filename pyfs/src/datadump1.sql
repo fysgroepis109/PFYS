@@ -36,6 +36,7 @@ CREATE TABLE `dta` (
 
 LOCK TABLES `dta` WRITE;
 /*!40000 ALTER TABLE `dta` DISABLE KEYS */;
+INSERT INTO `dta` VALUES ('1999-09-09','','',100),('2001-12-12','','',100),('1999-09-09','','',100);
 /*!40000 ALTER TABLE `dta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -105,6 +106,7 @@ CREATE TABLE `lugage` (
   `Lugagewespef` varchar(45) NOT NULL,
   `Unr` int(250) NOT NULL,
   `Pnr` int(250) NOT NULL,
+  `LFDM` varchar(1) DEFAULT NULL,
   PRIMARY KEY (`Lugagelnr`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -144,7 +146,7 @@ CREATE TABLE `persoon` (
 
 LOCK TABLES `persoon` WRITE;
 /*!40000 ALTER TABLE `persoon` DISABLE KEYS */;
-INSERT INTO `persoon` VALUES (1,'jaros','copernucusstraat 6','kudelstaart','1433mc','nederland','06123456','yolo@yolt');
+INSERT INTO `persoon` VALUES (1,'jaros','heere','amsterdam','1433mc','nederland','859632','jaros.lol'),(2,'a','b','c','d','e','f','g');
 /*!40000 ALTER TABLE `persoon` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -179,4 +181,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-11  9:44:16
+-- Dump completed on 2017-01-12 13:39:53
