@@ -545,7 +545,14 @@ public class pyfs extends Application {
                 info[1] = found1.getFlightnr();
                 info[2] = found1.getNametrav();
 
-                foundd.getDate();
+                
+                String[] datex = new String[4];
+                datex[0] = found1.getDate().getText();
+                datex[1] = found1.Time().getText();
+                datex[2] = found1.getAirport();
+                //datex[3] = found1.get VERGEET UNR NIET
+        
+                foundd.getDate(datex);
 
                 thestage.setScene(found2);
 
