@@ -1128,6 +1128,8 @@ public class pyfs extends Application {
         adminpane.getChildren().add(createUser);
         adminpane.getChildren().add(removeUser);
         adminpane.getChildren().add(updateUser);
+        adminpane.getChildren().add(LugageTableBtn);
+        adminpane.getChildren().add(removeLugage);
 
         userTablePane = new StackPane();
         userTablePane.setStyle("-fx-background-color:#FFFFFF");
@@ -1186,6 +1188,7 @@ public class pyfs extends Application {
         userUpdate = new Scene(userUpdatePane, 1300, 100);
         lugageTable = new Scene(lugageTablePane, 700, 700);
         lugageRemove = new Scene(lugageRemovePane, 500, 100);
+        
         primaryStage.setTitle("Applicatie naam");
         primaryStage.setScene(admin);
         primaryStage.setResizable(false);
