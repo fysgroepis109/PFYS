@@ -168,9 +168,9 @@ public class Lostd {
                 //DataTable luggage information = dataBase.executeDataTableQuery("SELECT *  FROM bagage A inner join labels B on A.Unr = B.Unr inner join tijden C on A.Unr = C.Unr where FLD = F and labelnr = null and colour = " + lost1.getTextLugcolor());
             }
      */
-<<<<<<< HEAD
-}
-=======
+
+
+
     
     
     public void getLuggage(String [] lostbagage) {
@@ -287,4 +287,4 @@ public class Lostd {
 
 
 
->>>>>>> origin/master
+
