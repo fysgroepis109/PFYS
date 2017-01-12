@@ -27,7 +27,7 @@ public class Foundd {
         final String CONN_STRING = Mysql.urlmysql();
 
         String[] foundbagage = new String[5];
-        foundbagage[0] = found1.getLugtype();
+        foundbagage[0] = found1.getLugtype(); 
         foundbagage[1] = found1.getLugbrand();
         foundbagage[2] = found1.getLugcolor();
         foundbagage[3] = found1.getLugweight();

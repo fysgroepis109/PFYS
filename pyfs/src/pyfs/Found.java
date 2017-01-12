@@ -216,4 +216,20 @@ public class Found {
         return lugspef;
     }
     
+    public void Clear(){
+        time.setText("");
+        labelnr.setText("");
+        flightnr.setText("");
+        destin.setText("");
+        nametrav.setText("");
+        lugtype.setText("");
+        lugbrand.setText("");
+        lugcolor.setText("");
+        lugweight.setText("");
+        date.setText("");
+        //airport.setText("");
+        lugspef.setText("");
+        
+        
+    }
 }
