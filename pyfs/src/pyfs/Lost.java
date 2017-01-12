@@ -15,72 +15,86 @@ public class Lost {
 
     private TextField time;
     private TextField city;
-    private ComboBox airport;
+    private TextField airport;
     private TextField naam;
     private TextField adres, zip, country, phone, mail, lugtype, lugbrand, lugcolor, lugweight, labelnr, flightnr, destin, date;
     private TextArea lugspef;
 
     public String getTextLugspef() {
-        return lugspef.getText();
+        return lugspef.getText().toLowerCase();
     }
 
     public String getTextDestin() {
-        return destin.getText();
+        return destin.getText().toLowerCase();
     }
 
     public String getTextFlightnr() {
-        return flightnr.getText();
+        return flightnr.getText().toLowerCase();
     }
 
     public String getTextLabelnr() {
-        return labelnr.getText();
+        return labelnr.getText().toLowerCase();
     }
 
     public String getTextlugweight() {
-        return lugweight.getText();
+        return lugweight.getText().toLowerCase();
     }
 
     public String getTextLugcolor() {
-        return lugcolor.getText();
+        return lugcolor.getText().toLowerCase();
     }
 
     public String getTextLygbrand() {
-        return lugbrand.getText();
+        return lugbrand.getText().toLowerCase();
     }
 
     public String getTextLugype() {
-        return lugtype.getText();
+        return lugtype.getText().toLowerCase();
     }
 
     public String getTextNaam() {
 
-        return naam.getText();
+        return naam.getText().toLowerCase();
     }
 
     public String getTextAdres() {
-        return adres.getText();
+        return adres.getText().toLowerCase();
     }
 
     public String getTextZip() {
-        return zip.getText();
+        return zip.getText().toLowerCase();
     }
 
     public String getTextCountry() {
-        return country.getText();
+        return country.getText().toLowerCase();
     }
 
     public String getTextPhone() {
-        return phone.getText();
+        return phone.getText().toLowerCase();
 
     }
 
     public String getTextMail() {
-        return mail.getText();
+        return mail.getText().toLowerCase();
     }
 
     public String getCity() {
-        return city.getText();
+        return city.getText().toLowerCase();
     }
+    
+     public String getAirport() {
+        return airport.getText().toLowerCase();
+    }
+
+    public String getTime() {
+        return time.getText().toLowerCase();
+    }
+     
+      public String getDate() {
+        return date.getText();
+    }
+     
+     
 
     TextField date() {
 
@@ -103,16 +117,14 @@ public class Lost {
         return time;
     }
 
-    ComboBox airport() {
+    TextField airport() {
 
-        airport = new ComboBox();                 //text voor vliegveld
+        airport = new TextField();                 //text voor vliegveld
         airport.setPromptText("Airport");
         airport.setTranslateY(50);
         airport.setMaxWidth(220);
-        airport.getItems().addAll(
-                "Schiphol",
-                "Ankara Esenboga"
-        );
+        
+      
 
         return airport;
 

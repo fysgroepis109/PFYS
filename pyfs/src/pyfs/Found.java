@@ -14,7 +14,7 @@ public class Found {
     
   
     private TextField time, labelnr, flightnr, destin, nametrav, lugtype, lugbrand, lugcolor, lugweight, date;
-    private ComboBox airport;
+    private TextField airport;
     private TextArea lugspef;
     
     Found() {
@@ -26,47 +26,47 @@ public class Found {
     }
 
     public String getTime() {
-        return time.getText();
+        return time.getText().toLowerCase();
     }
 
     public String getLabelnr() {
-        return labelnr.getText();
+        return labelnr.getText().toLowerCase();
     }
 
     public String getFlightnr() {
-        return flightnr.getText();
+        return flightnr.getText().toLowerCase();
     }
 
     public String getDestin() {
-        return destin.getText();
+        return destin.getText().toLowerCase();
     }
 
     public String getNametrav() {
-        return nametrav.getText();
+        return nametrav.getText().toLowerCase();
     }
 
     public String getLugtype() {
-        return lugtype.getText();
+        return lugtype.getText().toLowerCase();
     }
 
     public String getLugbrand() {
-        return lugbrand.getText();
+        return lugbrand.getText().toLowerCase();
     }
 
     public String getLugcolor() {
-        return lugcolor.getText();
+        return lugcolor.getText().toLowerCase();
     }
 
     public String getLugweight() {
-        return lugweight.getText();
+        return lugweight.getText().toLowerCase();
     }
 
     public String getAirport() {
-        return airport.getEditor().getText();
+        return airport.getText().toLowerCase();
     }
 
     public String getLugspef() {
-        return lugspef.getText();
+        return lugspef.getText().toLowerCase();
     }
 
     
@@ -92,16 +92,14 @@ public class Found {
         return time;
     }
 
-    ComboBox airport() {
+    TextField airport() {
 
-        airport = new ComboBox();                 //text voor vliegveld
+        airport = new TextField();                 //text voor vliegveld
         airport.setPromptText("Airport");
+        airport.setFont(Font.font("Verdana", 20));
         airport.setTranslateY(50);
         airport.setMaxWidth(220);
-        airport.getItems().addAll(
-                "Schiphol",
-                "Ankara Esenboga"
-        );
+     
 
         return airport;
 

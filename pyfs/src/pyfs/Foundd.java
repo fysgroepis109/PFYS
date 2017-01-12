@@ -18,30 +18,27 @@ public class Foundd {
     public Foundd() {
     }
 
-    public void getLuggage() {
+    public void getLuggage(String [] foundbagage) {
 
         Connection conn;                                                            //making connection to database
 
         final String USERNAME = Mysql.username();
         final String PASSWORD = Mysql.password();
         final String CONN_STRING = Mysql.urlmysql();
+        
+        int Pnr = 2;
+        int Unr = 2;
+        int Lugagenr = 2;
 
-        String[] foundbagage = new String[5];
-        foundbagage[0] = found1.getLugtype();
-        foundbagage[1] = found1.getLugbrand();
-        foundbagage[2] = found1.getLugcolor();
-        foundbagage[3] = found1.getLugweight();
-        foundbagage[4] = found1.getLugspef();
-
+       
         try {
 
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             Statement st = conn.createStatement();
-            String primkey = "SELECT MAX(Lugagenr) FROM lugage ";
-            ResultSet rs = st.executeQuery(primkey);
+            
 
-            String query = "INSERT INTO lugage (Lugagetype, Lugagebrand, Lugagecol, Lugageweight, Lugagespef, Lugagenr) VALUES (" + '"' + foundbagage[0] + '"' + "," + '"' + foundbagage[1] + '"' + "," + '"' + foundbagage[2] + '"' + "," + '"'
-                    + foundbagage[3] + '"' + "," + '"' + foundbagage[4] + '"' + "," + '"' + +'"' + " )";
+            String query = "INSERT INTO lugage (Lugagelnr, Lugagetype, Lugagebrand, Lugagecol, Lugeweight, Lugagewespef, Unr,Pnr) VALUES (" + '"' + Lugagenr + '"' + "," + '"' + foundbagage[0] + '"' + "," + '"' + foundbagage[1] + '"' + "," + '"'
+                    + foundbagage[2] + '"' + "," + '"' + foundbagage[3] + '"' + "," + '"' + foundbagage[4]  +'"' + "," + '"' + Unr  + '"' +  "," + '"' + Pnr  +'"' + " )";
 
             st.executeUpdate(query);
 
@@ -81,4 +78,43 @@ public class Foundd {
 
         }
 
-    }}
+    }
+
+ public void getLabel(String[] info) {
+
+        Connection conn;                                                            //making connection to database
+
+        final String USERNAME = Mysql.username();
+        final String PASSWORD = Mysql.password();
+        final String CONN_STRING = Mysql.urlmysql();
+
+
+        try {
+
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            Statement st = conn.createStatement();
+            
+            
+
+            String query = ("INSERT INTO flight (Unr, labelnr, flightnr, destin) VALUES (" + '"' + 100 + '"' + "," + "'" + info[0] + "'" + "," + '"' + info[1] + '"' + "," + '"' +  null + '"' + ")");
+            //String query2 = ("INSERT into persoon (Pnr, name, adress, city, zip, country, tel, mail) VALUES (25, " + '"' + info[2] + '"' + ", null, null, null, null, null, null)");
+
+           
+
+            st.executeUpdate(query);
+         //  st.executeUpdate(query2);
+        }
+        catch (SQLException ed) {
+
+            System.err.println(ed);
+
+        }
+
+    }
+
+
+
+
+
+
+}

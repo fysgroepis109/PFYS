@@ -168,4 +168,123 @@ public class Lostd {
                 //DataTable luggage information = dataBase.executeDataTableQuery("SELECT *  FROM bagage A inner join labels B on A.Unr = B.Unr inner join tijden C on A.Unr = C.Unr where FLD = F and labelnr = null and colour = " + lost1.getTextLugcolor());
             }
      */
+<<<<<<< HEAD
 }
+=======
+    
+    
+    public void getLuggage(String [] lostbagage) {
+
+        Connection conn;                                                            //making connection to database
+
+        final String USERNAME = Mysql.username();
+        final String PASSWORD = Mysql.password();
+        final String CONN_STRING = Mysql.urlmysql();
+        
+        int Pnr = 3;
+        int Unr = 3;
+        int Lugagenr = 3;
+
+       
+        try {
+
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            Statement st = conn.createStatement();
+            
+
+            String query = "INSERT INTO lugage (Lugagelnr, Lugagetype, Lugagebrand, Lugagecol, Lugeweight, Lugagewespef, Unr,Pnr) VALUES (" + '"' + Lugagenr + '"' + "," + '"' + lostbagage[0] + '"' + "," + '"' + lostbagage[1] + '"' + "," + '"'
+                    + lostbagage[2] + '"' + "," + '"' + lostbagage[3] + '"' + "," + '"' + lostbagage[4]  +'"' + "," + '"' + Unr  + '"' +  "," + '"' + Pnr  +'"' + " )";
+
+            st.executeUpdate(query);
+
+        } catch (SQLException ed) {
+
+            System.err.println(ed);
+
+        }
+        
+    }
+        
+        public void getDate(String[] date) {
+
+        Connection conn;                                                            //making connection to database
+
+        final String USERNAME = Mysql.username();
+        final String PASSWORD = Mysql.password();
+        final String CONN_STRING = Mysql.urlmysql();
+
+
+        try {
+
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            Statement st = conn.createStatement();
+            
+            
+
+            String query = ("INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + date[0] + '"' + "," + '"' + date[1] + '"' + "," + '"' + date[2] + '"' + " ,111)");
+
+            //String query = "INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + datex[0] + '"' + "," + '"' + datex[1] + '"' + "," + '"' + datex[2] + '"' + "," + '"' + 100 + '"' + " )";
+
+            st.executeUpdate(query);
+        }
+        catch (SQLException ed) {
+
+            System.err.println(ed);
+
+        }
+
+    }
+        
+         public void getLabel(String[] label) {
+
+        Connection conn;                                                            //making connection to database
+
+        final String USERNAME = Mysql.username();
+        final String PASSWORD = Mysql.password();
+        final String CONN_STRING = Mysql.urlmysql();
+
+
+        try {
+
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            Statement st = conn.createStatement();
+            
+            
+
+            String query = ("INSERT INTO flight (Unr, labelnr, flightnr, destin) VALUES (" + 12 + "," + '"' + label[0] + '"' + "," + '"' + label[1] + '"' + "," + '"' + label[2] + '"' + ")");
+
+            //String query = "INSERT INTO dta (date, time, airport, Unr) VALUES (" + '"' + datex[0] + '"' + "," + '"' + datex[1] + '"' + "," + '"' + datex[2] + '"' + "," + '"' + 100 + '"' + " )";
+
+            st.executeUpdate(query);
+        }
+        catch (SQLException ed) {
+
+            System.err.println(ed);
+
+        }
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }
+    
+
+
+
+
+
+>>>>>>> origin/master
