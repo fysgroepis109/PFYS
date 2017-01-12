@@ -69,7 +69,7 @@ public class Admind {
     }
 
     public void Update(String[] updateInfo) {
-        System.out.println("begin");
+        
 
         Connection conn;                                                            //making connection to database
 
@@ -78,7 +78,7 @@ public class Admind {
         final String CONN_STRING = Mysql.urlmysql();
 
         try {
-            System.out.println("midde");
+          
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
             String query = "UPDATE login SET username =" + '"' + updateInfo[0] + '"' + ", password = " + '"' + updateInfo[1] + '"' + ", permission = " + '"' + updateInfo[2] + '"' + "WHERE username =" + '"' + updateInfo[3] + '"';
             Statement st = conn.createStatement();
@@ -90,7 +90,33 @@ public class Admind {
 
         }
 
-        System.out.println("eind");
+        
+
+    }
+    
+    public void lugageRemove(String[] remove) {
+      
+
+        Connection conn;                                                            //making connection to database
+
+        final String USERNAME = Mysql.username();
+        final String PASSWORD = Mysql.password();
+        final String CONN_STRING = Mysql.urlmysql();
+
+        try {
+         
+            conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
+            String query = "DELETE FROM lugage WHERE lugagelnr = " + "'" + remove[0] + "'";
+            Statement st = conn.createStatement();
+            st.executeUpdate(query);
+
+        } catch (SQLException ed) {
+
+            System.err.println(ed);
+
+        }
+
+     
 
     }
 

@@ -66,9 +66,9 @@ public class pyfs extends Application {
 
     //Admin
     Button adminterugmenu, userTableBtn;
-    StackPane adminpane, userTablePane, userRemovePane, userUpdatePane, lugageTablePane;
-    Scene admin, userTable, userCreate, userRemove, userUpdate, lugageTable;
-    Stage userTableStage, userCreateStage, userRemoveStage, userUpdateStage, lugageTableStage;
+    StackPane adminpane, userTablePane, userRemovePane, userUpdatePane, lugageTablePane, lugageRemovePane;
+    Scene admin, userTable, userCreate, userRemove, userUpdate, lugageTable, lugageRemove;
+    Stage userTableStage, userCreateStage, userRemoveStage, userUpdateStage, lugageTableStage, lugageRemoveStage;
 
     @Override
     public void start(Stage primaryStage) {
@@ -848,6 +848,30 @@ public class pyfs extends Application {
 
         }
         );
+        
+         Button removeLugage = new Button();
+        removeLugage.setText("Remove Lugage");                                           //back button
+        removeLugage.setPrefSize(200, 50);
+        removeLugage.setTranslateX(-100);
+        removeLugage.setTranslateY(50);
+        removeLugage.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        removeLugage.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event
+            ) {
+
+                lugageRemoveStage = new Stage();
+                lugageRemoveStage.setTitle("Lugage remove");
+                lugageRemoveStage.setScene(lugageRemove);
+                lugageRemoveStage.setResizable(false);
+                lugageRemoveStage.show();
+
+            }
+
+        }
+        );
+
 
         Button deleteUser = new Button();
         deleteUser.setText("Remove");                                           //back button
@@ -866,6 +890,30 @@ public class pyfs extends Application {
                 admind.Delete(remove);
 
                 userRemoveStage.close();
+
+            }
+        }
+        );
+        
+        Button deleteLugage = new Button();
+        deleteLugage.setText("Delete");                                           //back button
+        deleteLugage.setPrefSize(150, 50);
+        deleteLugage.setTranslateX(150);
+        deleteLugage.setStyle("-fx-base:darkcyan;-fx-border-color:black");
+        deleteLugage.setOnAction(new EventHandler<ActionEvent>() {
+
+            public void handle(ActionEvent event) {
+
+                String[] deleteLugage = new String[1];
+
+                deleteLugage[0] = admin1.getLugageNr();
+                
+                admind.lugageRemove(deleteLugage);
+                
+
+                
+
+                lugageRemoveStage.close();
 
             }
         }
@@ -946,7 +994,7 @@ public class pyfs extends Application {
         lostpane.getChildren().add(lostnext);
         
         lost2pane = new StackPane();
-        lost2pane.setStyle("fx-background-color:#FFFFFF");
+        lost2pane.setStyle("-fx-background-color:#FFFFFF");
         lost2pane.getChildren().add(lostback);
         lost2pane.getChildren().add(lost1.Naam());
         lost2pane.getChildren().add(lost1.adres());
@@ -1033,6 +1081,7 @@ public class pyfs extends Application {
         adminpane.getChildren().add(removeUser);
         adminpane.getChildren().add(updateUser);
         adminpane.getChildren().add(LugageTableBtn);
+        adminpane.getChildren().add(removeLugage);
 
         userTablePane = new StackPane();
         userTablePane.setStyle("-fx-background-color:#FFFFFF");
@@ -1061,7 +1110,12 @@ public class pyfs extends Application {
 
         lugageTablePane = new StackPane();
         lugageTablePane.setStyle("-fx-background-color:#FFFFFF");
-
+        
+        lugageRemovePane = new StackPane();
+        lugageRemovePane.setStyle("-fx-background-color:#FFFFFF");
+        lugageRemovePane.getChildren().add(deleteLugage);
+        lugageRemovePane.getChildren().add(admin1.lugageNr());
+        
         //geeft alle scenes in
         loginscherm = new Scene(inlogschermpane, 1600, 800);
         menu = new Scene(menupane, 1600, 800);
@@ -1083,7 +1137,7 @@ public class pyfs extends Application {
         userRemove = new Scene(userRemovePane, 1000, 100);
         userUpdate = new Scene(userUpdatePane, 1300, 100);
         lugageTable = new Scene(lugageTablePane, 700, 700);
-
+        lugageRemove = new Scene(lugageRemovePane, 500, 100);
         primaryStage.setTitle("Applicatie naam");
         primaryStage.setScene(admin);
         primaryStage.setResizable(false);

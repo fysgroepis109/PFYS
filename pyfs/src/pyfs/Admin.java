@@ -22,6 +22,7 @@ public class Admin {
 
     mysql Mysql = new mysql();
     TextField username, usernameRemove, usernameUpdate, usernameCurrentUpdate, password, passwordRemove, passwordUpdate, toegang, toegangRemove, toegangUpdate;
+    TextField lugagenr;
 
     final String USERNAME = Mysql.username();
     final String PASSWORD = Mysql.password();
@@ -304,6 +305,22 @@ public class Admin {
         buildDataLugage();
 
         return this.lugage;
+    }
+      
+       public TextField lugageNr() {
+
+        lugagenr = new TextField();                 //text voor tijd invullen
+        lugagenr.setPromptText("Lugage Nr");
+        lugagenr.setFont(Font.font("Verdana", 20));
+        lugagenr.setMaxWidth(220);
+        lugagenr.setTranslateX(-110);
+
+        return lugagenr;
+
+    }
+
+    public String getLugageNr() {
+        return lugagenr.getText();
     }
 
 }
