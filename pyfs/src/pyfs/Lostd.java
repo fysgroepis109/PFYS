@@ -18,6 +18,11 @@ public class Lostd {
 
     private String name;
     private String[] persoon;
+    private String[] date;
+
+    public void setDate(String[] date) {
+        this.date = date;
+    }
 
     public void setP(String[] persoon) {
         this.persoon = persoon;
@@ -227,7 +232,7 @@ public class Lostd {
         final String USERNAME = Mysql.username();
         final String PASSWORD = Mysql.password();
         final String CONN_STRING = Mysql.urlmysql();
-        int count;
+        int count = 0;
 
         try {
             conn = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
@@ -237,6 +242,10 @@ public class Lostd {
             while (rs5.next()) {
                 count = rs5.getInt("total");
             }
+            if(count > 0){
+                
+            }
+            
 
         } catch (SQLException ed) {
             System.err.println(ed);

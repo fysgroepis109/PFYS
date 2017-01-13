@@ -381,7 +381,7 @@ public class pyfs extends Application {
                 date[1] = lost1.getTime();
                 date[2] = lost1.getAirport();
                 System.out.println(date[0]);
-                //lostd.getDate(date);
+                lostd.setDate(date);
 
                 thestage.setScene(lost2);
 
@@ -489,7 +489,7 @@ public class pyfs extends Application {
 
                 int unr = lostd.Unr();
                 int pnr = lostd.invullenP();
-                lostd.zoeken(labelnr);
+                //lostd.zoeken(labelnr);
 
                 thestage.setScene(lostfinal);
             }
