@@ -22,19 +22,18 @@ public class Admin {
 
     mysql Mysql = new mysql();
     TextField username, usernameRemove, usernameUpdate, usernameCurrentUpdate, password, passwordRemove, passwordUpdate, toegang, toegangRemove, toegangUpdate;
-    TextField lugagenr;
 
     final String USERNAME = Mysql.username();
     final String PASSWORD = Mysql.password();
     final String CONN_STRING = Mysql.urlmysql();
 
-    private ObservableList<ObservableList> data, lugagedata;
-    private TableView tableview, lugage;
+    private ObservableList<ObservableList> data;
+    private TableView tableview;
 
     public Admin() {
     }
 
-    public void buildDataLogin() {
+    public void buildData() {
         Connection c;
 
         data = FXCollections.observableArrayList();
@@ -93,7 +92,7 @@ public class Admin {
     TableView adminTable() {
 
         tableview = new TableView();
-        buildDataLogin();
+        buildData();
 
         return this.tableview;
     }
@@ -242,85 +241,8 @@ public class Admin {
     public String getTextUpdateCurrent() {
         return usernameCurrentUpdate.getText();
     }
+
     
-     public void buildDataLugage() {
-        Connection c;
-
-        lugagedata = FXCollections.observableArrayList();
-        try {
-            c = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
-            //SQL FOR SELECTING ALL OF CUSTOMER
-            String SQL = "SELECT * FROM lugage";
-            //ResultSet
-            ResultSet rs = c.createStatement().executeQuery(SQL);
-
-            /**
-             * ********************************
-             * TABLE COLUMN ADDED DYNAMICALLY *
-             *********************************
-             */
-            for (int i = 0; i < rs.getMetaData().getColumnCount(); i++) {
-                //We are using non property style for making dynamic table
-                final int j = i;
-                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
-                col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
-                    public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
-                        return new SimpleStringProperty(param.getValue().get(j).toString());
-                    }
-                });
-
-                lugage.getColumns().addAll(col);
-                System.out.println("Column [" + i + "] ");
-            }
-
-            /**
-             * ******************************
-             * Data added to ObservableList *
-             *******************************
-             */
-            while (rs.next()) {
-                //Iterate Row
-                ObservableList<String> row = FXCollections.observableArrayList();
-                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
-                    //Iterate Column
-                    row.add(rs.getString(i));
-                }
-                System.out.println("Row [1] added " + row);
-                lugagedata.add(row);
-
-            }
-
-            //FINALLY ADDED TO TableView
-            lugage.setItems(lugagedata);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Error on Building Data");
-        }
-
-    }
-     
-      TableView adminTableLugage() {
-
-        lugage = new TableView();
-        buildDataLugage();
-
-        return this.lugage;
-    }
-      
-       public TextField lugageNr() {
-
-        lugagenr = new TextField();                 //text voor tijd invullen
-        lugagenr.setPromptText("Lugage Nr");
-        lugagenr.setFont(Font.font("Verdana", 20));
-        lugagenr.setMaxWidth(220);
-        lugagenr.setTranslateX(-110);
-
-        return lugagenr;
-
-    }
-
-    public String getLugageNr() {
-        return lugagenr.getText();
-    }
-
 }
+
+

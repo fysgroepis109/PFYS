@@ -15,86 +15,87 @@ public class Lost {
 
     private TextField time;
     private TextField city;
-    private TextField airport;
+    private ComboBox airport;
     private TextField naam;
     private TextField adres, zip, country, phone, mail, lugtype, lugbrand, lugcolor, lugweight, labelnr, flightnr, destin, date;
     private TextArea lugspef;
 
     public String getTextLugspef() {
-        return lugspef.getText().toLowerCase();
+        return lugspef.getText();
     }
 
     public String getTextDestin() {
-        return destin.getText().toLowerCase();
+        return destin.getText();
     }
 
     public String getTextFlightnr() {
-        return flightnr.getText().toLowerCase();
+        return flightnr.getText();
     }
 
     public String getTextLabelnr() {
-        return labelnr.getText().toLowerCase();
+        return labelnr.getText();
     }
 
     public String getTextlugweight() {
-        return lugweight.getText().toLowerCase();
+        return lugweight.getText();
     }
 
     public String getTextLugcolor() {
-        return lugcolor.getText().toLowerCase();
+        return lugcolor.getText();
     }
 
     public String getTextLygbrand() {
-        return lugbrand.getText().toLowerCase();
+        return lugbrand.getText();
     }
 
     public String getTextLugype() {
-        return lugtype.getText().toLowerCase();
+        return lugtype.getText();
     }
 
     public String getTextNaam() {
 
-        return naam.getText().toLowerCase();
+        return naam.getText();
     }
 
     public String getTextAdres() {
-        return adres.getText().toLowerCase();
+        return adres.getText();
     }
 
     public String getTextZip() {
-        return zip.getText().toLowerCase();
+        return zip.getText();
     }
 
     public String getTextCountry() {
-        return country.getText().toLowerCase();
+        return country.getText();
     }
 
     public String getTextPhone() {
-        return phone.getText().toLowerCase();
+        return phone.getText();
 
     }
 
     public String getTextMail() {
-        return mail.getText().toLowerCase();
+        return mail.getText();
     }
 
     public String getCity() {
-        return city.getText().toLowerCase();
-    }
-    
-     public String getAirport() {
-        return airport.getText().toLowerCase();
+        return city.getText();
     }
 
-    public String getTime() {
-        return time.getText().toLowerCase();
+    public TextField getDate() {
+        return date;
     }
-     
-      public String getDate() {
-        return date.getText();
+
+    public TextField getTime() {
+        return time;
     }
-     
-     
+
+    public ComboBox getAirport() {
+        return airport;
+    }
+    
+    
+    
 
     TextField date() {
 
@@ -117,14 +118,16 @@ public class Lost {
         return time;
     }
 
-    TextField airport() {
+    ComboBox airport() {
 
-        airport = new TextField();                 //text voor vliegveld
+        airport = new ComboBox();                 //text voor vliegveld
         airport.setPromptText("Airport");
         airport.setTranslateY(50);
         airport.setMaxWidth(220);
-        
-      
+        airport.getItems().addAll(
+                "Schiphol",
+                "Ankara Esenboga"
+        );
 
         return airport;
 
@@ -284,5 +287,28 @@ public class Lost {
 
         return destin;
     }
+    
+    public void Clear(){
+        time.setText("");
+        city.setText("");
+        naam.setText("");
+        adres.setText("");
+        zip.setText("");
+        country.setText("");
+        phone.setText("");
+        mail.setText("");
+        lugtype.setText("");
+        lugbrand.setText("");
+        lugcolor.setText("");
+        lugweight.setText("");
+        labelnr.setText("");
+        flightnr.setText("");
+        destin.setText("");
+        date.setText("");
+        lugspef.setText("");
+        //airport.setText("");
+        
+    }
 
+    
 }

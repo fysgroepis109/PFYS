@@ -14,69 +14,84 @@ public class Found {
     
   
     private TextField time, labelnr, flightnr, destin, nametrav, lugtype, lugbrand, lugcolor, lugweight, date;
-    private TextField airport;
+    private ComboBox airport;
     private TextArea lugspef;
     
     Found() {
 
     }
 
+
+    //public DatePicker getDate() {
+    //    return date;
+    //}
+
     public TextField getDate() {
         return date;
     }
 
+
     public String getTime() {
-        return time.getText().toLowerCase();
+        return time.getText();
     }
 
     public String getLabelnr() {
-        return labelnr.getText().toLowerCase();
+        return labelnr.getText();
     }
 
     public String getFlightnr() {
-        return flightnr.getText().toLowerCase();
+        return flightnr.getText();
     }
 
     public String getDestin() {
-        return destin.getText().toLowerCase();
+        return destin.getText();
     }
 
     public String getNametrav() {
-        return nametrav.getText().toLowerCase();
+        return nametrav.getText();
     }
 
     public String getLugtype() {
-        return lugtype.getText().toLowerCase();
+        return lugtype.getText();
     }
 
     public String getLugbrand() {
-        return lugbrand.getText().toLowerCase();
+        return lugbrand.getText();
     }
 
     public String getLugcolor() {
-        return lugcolor.getText().toLowerCase();
+        return lugcolor.getText();
     }
 
     public String getLugweight() {
-        return lugweight.getText().toLowerCase();
+        return lugweight.getText();
     }
 
     public String getAirport() {
-        return airport.getText().toLowerCase();
+        return airport.getEditor().getText();
     }
 
     public String getLugspef() {
-        return lugspef.getText().toLowerCase();
+        return lugspef.getText();
     }
 
     
     
+
+    ////DatePicker date() {
+
+        //date = new DatePicker();
+        //date.setPromptText("Date");
+        ////date.setMaxWidth(220);
+        ///date.setTranslateY(-50);
+
     TextField date() {
 
         date = new TextField();
         date.setPromptText("YYYY-MM-DD");
         date.setMaxWidth(220);
         date.setTranslateY(-50);
+
 
         return date;
     }
@@ -92,14 +107,16 @@ public class Found {
         return time;
     }
 
-    TextField airport() {
+    ComboBox airport() {
 
-        airport = new TextField();                 //text voor vliegveld
+        airport = new ComboBox();                 //text voor vliegveld
         airport.setPromptText("Airport");
-        airport.setFont(Font.font("Verdana", 20));
         airport.setTranslateY(50);
         airport.setMaxWidth(220);
-     
+        airport.getItems().addAll(
+                "Schiphol",
+                "Ankara Esenboga"
+        );
 
         return airport;
 
@@ -199,4 +216,20 @@ public class Found {
         return lugspef;
     }
     
+    public void Clear(){
+        time.setText("");
+        labelnr.setText("");
+        flightnr.setText("");
+        destin.setText("");
+        nametrav.setText("");
+        lugtype.setText("");
+        lugbrand.setText("");
+        lugcolor.setText("");
+        lugweight.setText("");
+        date.setText("");
+        //airport.setText("");
+        lugspef.setText("");
+        
+        
+    }
 }
